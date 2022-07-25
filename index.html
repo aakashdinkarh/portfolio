@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      charset="UTF-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Self Portfolio</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/slideShow.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Sofia"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <noscript
+      >Your browser doesn't suppport JavaScript, this site is best viewed when
+      browser support JavaScript</noscript
+    >
+    <!-- Navigation Bar -->
+    <nav class="nav">
+      <div>
+        <div onclick="go()" id="logo">
+          <span style="font-family: 'Sofia'; text-shadow: 1px 1px 2px white"
+            >P</span
+          ><span>ortfolio</span>
+        </div>
+        <span onclick="barMenuClick()" class="bar-icon mobile-show"
+          ><i class="fa fa-bars"></i
+        ></span>
+        <div class="links">
+          <div onclick="closeMenuClick()" class="menu-close mobile-show">
+            &times;
+          </div>
+          <button class="nav-links" onclick="go()">Home</button>
+          <button class="nav-links" onclick="go('about')">About</button>
+          <button class="nav-links" onclick="go('skills')">Skills</button>
+          <button class="nav-links" onclick="go('project')">Project</button>
+          <button class="nav-links" onclick="go('experience')">
+            Experiences
+          </button>
+          <button class="nav-links" onclick="go('contact')">Contact</button>
+          <!-- <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#project">Project</a>
+          <a href="#experience">Experiences</a>
+          <a href="#contact">Contact</a> -->
+        </div>
+      </div>
+    </nav>
+
+    <!-- top content of page -->
+    <section class="myImage">
+      <div class="left">
+        <h2>
+          Hi, I'm Aakash Dinkar<br />
+          I'am a <span>Web Developer</span>
+        </h2>
+        <button onclick="go('about')">
+          Know more about me
+          <i
+            style="transition: transform 0.3s"
+            class="fa fa-angle-double-down"
+          ></i>
+        </button>
+      </div>
+      <div class="right">
+        <img src="Images/portfolio.jpg" alt="My Image" class="card" />
+      </div>
+    </section>
+
+    <!--Writing Content of page -->
+    <section class="card-container">
+      <!-- About section  -->
+      <div id="about" class="card about-info">
+        <h3>About Myself</h3>
+        <div class="about-container">
+          <img
+            src="Images/Photo.jpeg"
+            class="card"
+            alt="about image (Aakash Dinkar)"
+          />
+          <div class="card">
+            Hi, I am Aakash Dinkar. I've graduated from IIT BHU (Varanasi) in
+            May 2022, with degree of Btech in Civil Engineering.<br />
+            To know more about me, please go through the below page...
+          </div>
+        </div>
+        <div style="text-align: center">
+          <button>
+            <a
+              class="download-btn"
+              href="./My Resume.pdf"
+              download="Aakash Dinkar Resume"
+              >Download Resume</a
+            >
+          </button>
+        </div>
+      </div>
+
+      <!-- Skills section  -->
+      <div id="skills" class="card skills-info">
+        <h3>What Skills Do I Have?</h3>
+        <div class="progress-container-parent">
+          <div class="progress-container">
+            <span>
+              <img
+                class="skill-logo"
+                src="https://cdn-icons-png.flaticon.com/512/174/174854.png?w=360"
+                alt="HTML"
+              />
+              HTML
+            </span>
+
+            <progress value="90" max="100"></progress>
+          </div>
+          <div class="progress-container">
+            <span>
+              <img
+                class="skill-logo"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png"
+                alt=""
+              />
+              CSS
+            </span>
+            <progress value="88" max="100"></progress>
+          </div>
+          <div class="progress-container">
+            <span>
+              <img
+                class="skill-logo"
+                src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+                alt=""
+              />
+              JavaScript
+            </span>
+            <progress value="95" max="100"></progress>
+          </div>
+          <div class="progress-container">
+            <span>
+              <img
+                class="skill-logo"
+                src="https://banner2.cleanpng.com/20180502/ksq/kisspng-web-development-jquery-ui-javascript-computer-icon-jqlogo-5ae94a5d5e5172.2488375515252383653863.jpg"
+                alt=""
+              />
+              jQuery
+            </span>
+            <progress value="70" max="100"></progress>
+          </div>
+          <div class="progress-container">
+            <span>
+              <img
+                class="skill-logo"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"
+                alt=""
+              />
+              React JS
+            </span>
+            <progress value="70" max="100"></progress>
+          </div>
+          <div class="progress-container">
+            <span>
+              <img
+                class="skill-logo"
+                src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                alt=""
+              />
+              Git & GitHub
+            </span>
+            <progress value="90" max="100"></progress>
+          </div>
+
+          <div id="skill-more" class="hideMoreInfo">
+            <div class="progress-container">
+              <span>
+                <img
+                  class="skill-logo"
+                  src="https://raw.githubusercontent.com/isocpp/logos/master/cpp_logo.png"
+                  alt=""
+                />
+                C++
+              </span>
+              <progress value="90" max="100"></progress>
+            </div>
+            <div class="progress-container">
+              <span>
+                <img
+                  class="skill-logo"
+                  src="https://wachemo-elearning.net/wp-content/uploads/2021/01/DATA-STRUCTURES-with-Python.png"
+                  alt=""
+                />
+                DSA
+              </span>
+              <progress value="80" max="100"></progress>
+            </div>
+            <div class="progress-container">
+              <span>
+                <img
+                  class="skill-logo"
+                  src="https://play-lh.googleusercontent.com/YVU10ZfXNl3uVQHs6u7-75UAV1Tpar1-LmZSsGxLZ1GCiS2KNIxQwqIWinqQwuOgkA"
+                  alt=""
+                />
+                Typing Speeed
+              </span>
+              <progress value="50" max="100"></progress>
+            </div>
+          </div>
+          <button onclick="show_hide.bind(this)('skill-more')">
+            Show more
+          </button>
+        </div>
+      </div>
+
+      <!-- Project section  -->
+      <div id="project" class="card project-info">
+        <h3>Projects I Have Worked On</h3>
+        <div class="project-item">
+          <h4>Self Project: Music Player Built Using React</h4>
+          <p>
+            This is a react app built to stream local music by choosing files on
+            homepage and then stream to an audio player. It is deployed on
+            github at
+            <a
+              href="https://aakashdinkarh.github.io/music-player-project"
+              target="_blank"
+              >Music Player</a
+            >
+          </p>
+          <div class="slideshow-container">
+            <div class="mySlide">
+              <img
+                src="Images/music-player-project (1).png"
+                alt="First Image"
+              />
+            </div>
+            <div class="mySlide">
+              <img
+                src="Images/music-player-project (2).png"
+                alt="Second Image"
+              />
+            </div>
+            <div class="mySlide">
+              <img
+                src="Images/music-player-project (3).png"
+                alt="Third Image"
+              />
+            </div>
+            <a class="prev" onclick="changeSlide(-1, 0)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1, 0)">&#10095;</a>
+            <div class="dots">
+              <span onclick="currentSlide(0, 0)"></span>
+              <span onclick="currentSlide(1, 0)"></span>
+              <span onclick="currentSlide(2, 0)"></span>
+            </div>
+          </div>
+          <br />
+        </div>
+
+        <div id="project-more" class="hideMoreInfo">
+          <div class="project-item">
+            <h4>Self Project: Rail API App Using React</h4>
+            <p>
+              This project uses React, Styled Components, React Router, Redux,
+              API handling, Hooks , Persist state in SessionStorage, Deploy to
+              GitHub Pages etc... to show results for the particular search made
+              by the user.
+              <a
+                href="https://aakashdinkarh.github.io/rail_api_app/"
+                target="_blank"
+                >Rail API App</a
+              >
+            </p>
+            <div class="slideshow-container">
+              <div class="mySlide">
+                <img src="Images/rail-api-projecct (1).png" alt="first Image" />
+              </div>
+              <div class="mySlide">
+                <img
+                  src="Images/rail-api-projecct (2).png"
+                  alt="second Image"
+                />
+              </div>
+              <div class="mySlide">
+                <img src="Images/rail-api-projecct (3).png" alt="third Image" />
+              </div>
+              <a class="prev" onclick="changeSlide(-1, 1)">&#10094;</a>
+              <a class="next" onclick="changeSlide(1, 1)">&#10095;</a>
+              <div class="dots">
+                <span onclick="currentSlide(0, 1)"></span>
+                <span onclick="currentSlide(1, 1)"></span>
+                <span onclick="currentSlide(2, 1)"></span>
+              </div>
+            </div>
+          </div>
+          <div class="project-item">
+            <h4>Self Project: The Movie DB App</h4>
+            <p>
+              This project uses React, Styled Components, React Router, API
+              handling, Hooks , Persist state in SessionStorage, Deploy to
+              GitHub Pages etc... to show popular movies, details of movies and
+              results for search made by user.
+              <a
+                href="https://aakashdinkarh.github.io/the-movie-db/"
+                target="_blank"
+                >The Movie DB App</a
+              >
+            </p>
+            <div class="slideshow-container">
+              <div class="mySlide">
+                <img src="Images/movie-db-project (1).png" alt="first Image" />
+              </div>
+              <div class="mySlide">
+                <img src="Images/movie-db-project (2).png" alt="second Image" />
+              </div>
+              <div class="mySlide">
+                <img src="Images/movie-db-project (3).png" alt="third Image" />
+              </div>
+              <a class="prev" onclick="changeSlide(-1, 2)">&#10094;</a>
+              <a class="next" onclick="changeSlide(1, 2)">&#10095;</a>
+              <div class="dots">
+                <span onclick="currentSlide(0, 2)"></span>
+                <span onclick="currentSlide(1, 2)"></span>
+                <span onclick="currentSlide(2, 2)"></span>
+              </div>
+            </div>
+          </div>
+          <div class="project-item">
+            <h4>Project under Incanus Technologies Private Limited</h4>
+            <p>
+              During the period, I handled the Career Counselling category where
+              I worked on different modules of company projects, campaigns and
+              created many 1 minute videos for the target audience.
+            </p>
+          </div>
+          <p>
+            Several self made project are there on my github profile built from
+            scratch, react projects. My GitHub profile link is
+            <a href="https://github.com/aakashdinkarh" target="_blank"
+              >Go to Profile</a
+            >
+          </p>
+        </div>
+        <button onclick="show_hide.bind(this)('project-more')">
+          Show more
+        </button>
+      </div>
+
+      <!-- Experience section  -->
+      <div id="experience" class="card experience-info">
+        <h3>Experiences</h3>
+        <div class="experience-item">
+          <h4>
+            Full Time Associate Software Engineer At Cogoport (July'22 -
+            Present)
+          </h4>
+          <p>
+            I've joined Cogoport on 11 July, 2022 as an Associate Software
+            Engineer. First two weeks were given to training session to be ready
+            to join Cogoport team fully prepared. In those two weeks one of the
+            assignment was to make a portfolio, so I modified my portfolio to
+            what you are currently seeing.
+          </p>
+        </div>
+
+        <div id="experience-more" class="hideMoreInfo">
+          <div class="experience-item">
+            <h4>Web Development Internship (Jun'21 - Aug'21)</h4>
+            <p>
+              I've done a Website Development Internship with a role of
+              Front-end Developer for 3 months at Web Student, remotely. There I
+              completed 7 projects as a Team Leader within the deadline given
+              for the particular project.
+            </p>
+            <p>
+              All these projects used different kinds of designs and animations
+              to make the website look more attractive, useful and responsive as
+              well. Some includes the shopping section that use APIs to make the
+              website functional. All projects were done by the whole team and
+              since I was the team leader, I learned to work within a team as an
+              individual as well as lead a team.
+            </p>
+            <p>
+              About 15 days before my internship ended, the company started an
+              initiative as an appreciation certificate for the interns who
+              perform well throughout the month. I was awarded with
+              <b>Best-Intern</b> of the month, and an
+              <b>appreciation certificate</b> also for the whole team.
+            </p>
+          </div>
+        </div>
+
+        <button onclick="show_hide.bind(this)('experience-more')">
+          Show more
+        </button>
+      </div>
+    </section>
+
+    <!--Bottom of the page -->
+    <footer class="bottom" id="contact">
+      For any queries, contact me on below details:<br />
+      <div class="contact-container">
+        <div class="left">
+          <span><i class="fa fa-user"></i> Name: Aakash Dinkar</span><br />
+          <span><i class="fa fa-mobile"></i> Mobile: +917027658021</span><br />
+          <span
+            ><i class="fa fa-envelope" aria-hidden="true"></i>
+            <a href="mailto:aakashdinkarh@gmail.com" target="_blank"
+              >aakashdinkarh@gmail.com</a
+            ></span
+          ><br />
+          <span
+            ><a href="https://www.facebook.com/aakash.dinkar.5" target="_blank"
+              ><i class="fa fa-facebook"> </i> Facebook</a
+            ></span
+          >
+          <span
+            ><a href="https://www.instagram.com/aakash_1379" target="_blank"
+              ><i class="fa fa-instagram"> </i> Instagram</a
+            ></span
+          >
+          <span
+            ><a
+              href="https://www.linkedin.com/in/aakash-dinkar-74a817212/"
+              target="_blank"
+              ><i class="fa fa-linkedin" aria-hidden="true"></i> LinkedIn</a
+            ></span
+          >
+          <span
+            ><a href="https://github.com/aakashdinkarh" target="_blank"
+              ><i class="fa fa-github"> </i> Github</a
+            ></span
+          >
+        </div>
+
+        <div class="right">
+          <form action="mailto:someone@example.com" method="POST">
+            <input type="text" placeholder="Your Name" name="Name" />
+            <input type="email" placeholder="Your Email" />
+            <textarea placeholder="Your Message" cols="30" rows="10"></textarea>
+            <button type="submit">Send Me</button>
+          </form>
+        </div>
+      </div>
+      <div class="copyright">
+        &#169; <span class="copyright-name">Aakash Dinkar</span
+        ><span>| 2021</span>
+      </div>
+    </footer>
+
+    <!-- Go to top button -->
+    <a id="top-btn" title="Go to top" href="#"
+      ><i
+        style="
+          text-align: center;
+          width: 35px;
+          height: 35px;
+          font-size: xx-large;
+        "
+        class="fa fa-angle-double-up"
+      ></i
+    ></a>
+
+    <!-- script files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/slideShow.js"></script>
+  </body>
+</html>

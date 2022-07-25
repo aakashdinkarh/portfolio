@@ -1,0 +1,421 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  background-color: #a2d1ff;
+}
+html {
+  scroll-behavior: smooth;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Navigation Bar */
+.nav {
+  position: sticky;
+  top: 0px;
+  z-index: 2;
+}
+.nav > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #376088;
+}
+.nav .links {
+  display: flex;
+  justify-content: end;
+  background-color: inherit;
+}
+.nav .nav-links {
+  background-color: inherit;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: large;
+  text-align: left;
+  padding: 20px 10px;
+  transition: all 0.3s;
+}
+.nav .nav-links:hover {
+  background-color: #0198d2;
+}
+
+/* menu-bar icon */
+.bar-icon {
+  display: none;
+  position: absolute;
+  left: 10px;
+  font-size: 25px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.bar-icon:hover {
+  color: white;
+}
+
+/* menu-close icon */
+.menu-close {
+  display: none;
+  font-size: 25px;
+  cursor: pointer;
+  padding: 0 20px;
+  transition: all 0.2s;
+}
+.menu-close:hover {
+  color: white;
+}
+
+/* animated logo */
+#logo {
+  font-size: xx-large;
+  background-color: rgb(1, 152, 210);
+  padding: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  display: table;
+  border-radius: 30px;
+  animation: logoAnim 5s linear infinite;
+}
+@keyframes logoAnim {
+  0% {
+    border-radius: 30px 0 0 0;
+  }
+  25% {
+    border-radius: 0 30px 0 0;
+  }
+  50% {
+    border-radius: 0 0 30px 0;
+  }
+  75% {
+    border-radius: 0 0 0 30px;
+  }
+  100% {
+    border-radius: 30px 0 0 0;
+  }
+}
+
+/* top content of page */
+.myImage {
+  background: url("../Images/portfolio-background.jpeg");
+  background-size: cover;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.myImage .left {
+  text-align: center;
+  font-size: xx-large;
+  font-family: "Sofia", Verdana, Geneva, Tahoma, sans-serif;
+  color: #00d8ff;
+  text-shadow: 0 0 10px black;
+}
+.myImage .left h2 {
+  display: inline-block;
+}
+.myImage .left h2 span {
+  animation-name: heading;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes heading {
+  0% {
+    color: violet;
+  }
+  33% {
+    color: rgb(255, 255, 0);
+  }
+  66% {
+    color: rgb(0, 255, 238);
+  }
+  100% {
+    color: violet;
+  }
+}
+.myImage .left h2:hover span {
+  animation-play-state: paused;
+}
+.myImage .left button {
+  font-family: initial;
+  display: block;
+  margin: auto;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  color: #a2d1ff;
+  text-shadow: 0 0 2px white;
+  font-size: 1em;
+  transition: all 0.5s;
+}
+.myImage .left button:hover i {
+  transform: translate(0, 3px);
+}
+.myImage .left button:hover {
+  transform: rotateX(359deg);
+}
+.myImage .right {
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Content of page */
+.card {
+  padding: 10px;
+  margin: 20px auto;
+  background-color: rgb(218, 254, 253);
+  box-shadow: 0px 0px 10px rgb(99, 99, 99);
+  width: 95%;
+  transition: all 0.5s;
+}
+.about-info {
+  background-image: url("../Images/about.jpeg");
+  background-size: cover;
+}
+.about-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.about-container > img {
+  vertical-align: middle;
+}
+
+.about-info a.download-btn {
+  text-decoration: none;
+  color: initial;
+}
+
+/* skills */
+.skills-info {
+  font-size: medium;
+  background-image: url("../Images/skills.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+.progress-container-parent {
+  width: 70%;
+  max-width: 600px;
+  margin: auto;
+}
+.card .progress-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px auto;
+}
+.progress-container .skill-logo {
+  width: 20px;
+  height: 20px;
+}
+
+/* progress bar of skills */
+.progress-container progress {
+  -webkit-appearance: none;
+}
+::-webkit-progress-bar {
+  background-color: #89e0dc;
+  border-radius: 10px;
+  height: 10px;
+}
+::-webkit-progress-value {
+  background-color: #64aba8;
+  border-radius: 10px;
+  height: 10px;
+}
+
+/* project  */
+.project-info {
+  background-image: url("../Images/projects.jpeg");
+  background-size: cover;
+  background-position: bottom;
+}
+.project-item {
+  padding: 10px;
+  box-shadow: 0 0 5px black;
+}
+
+/* experience */
+.experience-info {
+  background-image: url("../Images/experience.jpeg");
+  background-size: cover;
+  background-position: bottom;
+}
+
+.card button {
+  background-color: rgb(137, 224, 220);
+  border: none;
+  border-radius: 3px;
+  font-size: medium;
+  padding: 10px;
+  margin-top: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.card button:hover {
+  background-color: rgb(100, 171, 168);
+}
+.card p,
+li {
+  padding-left: 20px;
+}
+.card > h3:first-child {
+  background-color: rgb(55 96 136 / 40%);
+  text-align: center;
+  padding: 5px 0;
+}
+.hideMoreInfo {
+  display: none;
+}
+.showMoreInfo {
+  display: block;
+}
+
+/* Bottom section of page */
+.bottom {
+  padding: 20px;
+  background-color: #376088;
+  color: white;
+  font-size: larger;
+}
+.bottom .contact-container span {
+  margin: 10px 20px;
+  padding: 5px;
+  transition: all 0.2s;
+  display: inline-block;
+}
+.bottom a {
+  color: white;
+  text-decoration: none;
+}
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+.contact-container .left span:hover {
+  background-color: white;
+  color: black;
+  padding: 5px;
+  border-radius: 3px;
+}
+.contact-container .left span:hover a {
+  color: black;
+}
+.contact-container .left,
+.contact-container .right {
+  width: 50%;
+}
+.contact-container .right input,
+.contact-container .right textarea {
+  width: 100%;
+  height: 20px;
+  padding: 15px 10px;
+  margin: 5px 0;
+}
+.contact-container .right textarea {
+  height: 70px;
+}
+.contact-container .right button[type="submit"] {
+  background-color: #89e0dc;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.contact-container .right button[type="submit"]:hover {
+  background-color: rgba(255, 0, 0, 0.8);
+}
+.contact-container .right input:focus,
+.contact-container .right textarea:focus {
+  outline: none;
+}
+.copyright {
+  text-align: center;
+}
+.copyright-name {
+  color: #00d8ff;
+}
+
+#top-btn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: none;
+  background-color: #89e0dc;
+  border-radius: 50%;
+  color: black;
+}
+
+/* responsiveness */
+@media only screen and (min-width: 701px) {
+  .bar-icon {
+    display: none;
+  }
+  .about-container .card {
+    width: 50%;
+    max-width: 300px;
+  }
+  .project-info > .project-item > .project-ss-container > img {
+    width: 49%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  /* navbar */
+  .bar-icon.mobile-show,
+  .menu-close.mobile-show {
+    display: initial;
+  }
+  .nav > div {
+    justify-content: center;
+  }
+  .nav .links {
+    background-color: #376088;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    justify-content: start;
+    z-index: 2;
+    width: 0;
+    height: 100%;
+    text-align: left;
+    transition: all 0.2s;
+  }
+  .nav .nav-links {
+    padding: 20px;
+  }
+
+  /* main image */
+  .myImage {
+    flex-wrap: wrap;
+  }
+  .myImage .left {
+    font-size: large;
+  }
+  .myImage .right {
+    max-width: 450px;
+  }
+  .myImage .left,
+  .myImage .right {
+    width: 90%;
+  }
+  .card {
+    width: 90%;
+  }
+
+  /* bottom contact */
+  .contact-container .left,
+  .contact-container .right {
+    width: 90%;
+  }
+}
