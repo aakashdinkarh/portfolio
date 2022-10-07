@@ -163,6 +163,9 @@ html {
   text-align: center;
   vertical-align: middle;
 }
+.myImage .right .card {
+  background-color: #dadada;
+}
 
 /* Content of page */
 .card {
@@ -181,6 +184,10 @@ html {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  font-family: "serif";
+  letter-spacing: 1px;
+  font-style: italic;
+  font-size: 20px;
 }
 .about-container > img {
   vertical-align: middle;
@@ -410,6 +417,16 @@ li {
     width: 90%;
   }
   .card {
+    width: 90%;
+  }
+
+  /* about */
+  .about-container {
+    font-size: medium;
+  }
+
+  /* skills */
+  .progress-container-parent {
     width: 90%;
   }
 
