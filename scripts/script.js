@@ -21,6 +21,11 @@ function show_hide(a) {
   }
 }
 
+(function updateCopyright(){
+  const copyrightElement = document.getElementsByClassName('copyright')[0];
+  copyrightElement.children[1].innerText = `| ${(new Date()).getFullYear()}`
+})()
+
 window.onscroll = function () {
   let topbtn = document.getElementById("top-btn");
   if (document.documentElement.scrollTop < 71) {
