@@ -8,8 +8,8 @@
     <link rel="canonical" href="https://aakashdinkarh.github.io/portfolio">
 
     <!-- <meta name="robots" content="index, follow"> -->
-    <!-- <link rel="icon" href="/path-to-favicon.ico" type="image/x-icon"> -->
-    <!-- <link rel="shortcut icon" href="/path-to-favicon.ico" type="image/x-icon"> -->
+    <link rel="icon" href="https://aakashdinkarh.github.io/static_assets/images/portfolio/site-icon/site-icon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://aakashdinkarh.github.io/static_assets/images/portfolio/site-icon/site-icon.ico" type="image/x-icon">
     
     <meta name="description"
       content="Aakash Dinkar's portfolio showcasing projects and skills in web development, software engineering, and more.">
@@ -18,13 +18,17 @@
     <meta property="og:title" content="Aakash Dinkar Portfolio">
     <meta property="og:description" content="Showcasing projects and skills in web development and software engineering.">
     <meta property="og:url" content="https://aakashdinkarh.github.io/portfolio">
-    <!-- <meta property="og:image" content="https://aakashdinkarh.github.io/portfolio/images/preview.png"> -->
+    <meta property="og:image" content="https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/meta-og-image.avif">
+    <meta property="og:image" content="https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/meta-og-image.webp">
+    <meta property="og:image" content="https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/meta-og-image.png">
     <meta property="og:type" content="website">
     <meta name="twitter:title" content="Aakash Dinkar Portfolio">
     <meta name="twitter:description" content="Showcasing projects and skills in web development and software engineering.">
-    <!-- <meta name="twitter:image" content="https://aakashdinkarh.github.io/portfolio/images/preview.png"> -->
+    <meta name="twitter:image" content="https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/meta-og-image.avif">
+    <meta name="twitter:image" content="https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/meta-og-image.webp">
+    <meta name="twitter:image" content="https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/meta-og-image.png">
 
-    <title>Self Portfolio</title>
+    <title>Aakash Dinkar Portfolio</title>
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/slideShow.css" />
     <link
@@ -38,7 +42,7 @@
   </head>
   <body>
     <noscript
-      >Your browser doesn't suppport JavaScript, this site is best viewed when
+      >Your browser doesn't support JavaScript, this site is best viewed when
       browser support JavaScript</noscript
     >
     <!-- Navigation Bar -->
@@ -89,7 +93,11 @@
         </button>
       </div>
       <div class="right">
-        <img src="Images/portfolio.jpeg" alt="My Image" class="card" />
+        <picture>
+          <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/portfolio.avif">
+          <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/portfolio.webp">
+          <img class="card" src="https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/portfolio.jpeg" alt="My Image" />
+        </picture>
       </div>
     </section>
 
@@ -99,23 +107,33 @@
       <div id="about" class="card about-info">
         <h3>About Myself</h3>
         <div class="about-container">
-          <img
-            src="Images/Photo.jpeg"
-            class="card"
-            alt="about image (Aakash Dinkar)"
-          />
+          <picture class="card" >
+            <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/photo.avif">
+            <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/photo.webp">
+            <img src="https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/photo.jpeg" alt="about image (Aakash Dinkar)" />
+          </picture>
           <div class="card">
-            Hi, I am Aakash Dinkar. I've graduated from IIT BHU (Varanasi) in
-            May 2022, with degree of Btech in Civil Engineering.<br /><br />
-            To know more about me, please go through the whole page…
+            <p>
+              I'm a Civil Engineering graduate with a B.Tech degree from the batch of 2022.
+            </p>
+            <strong>Experience:<br /><span id="exp-time-calc" >2y 0m 28d | 3h : 5m : 6s</span></strong>
+            <p>
+              Experienced front-end developer skilled in creating responsive, performance optimized, user-friendly
+              interfaces for web applications.
+            </p>
+            <p>
+              Passionate about user experience design, I aim to
+              craft visually appealing and intuitive interfaces that elevate the user's experience.
+            </p>
           </div>
         </div>
         <div style="text-align: center">
           <button>
             <a
               class="download-btn"
-              href="./Resume Latest.pdf"
+              href="https://aakashdinkarh.github.io/static_assets/files/portfolio/resume/resume.pdf"
               download="Aakash Dinkar Resume"
+              target="_blank"
               >Download Resume</a
             >
           </button>
@@ -252,22 +270,25 @@
           </p>
           <div class="slideshow-container">
             <div class="mySlide">
-              <img
-                src="Images/music-player-project (1).png"
-                alt="First Image"
-              />
+              <picture>
+                <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/music-player-project_1.avif">
+                <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/music-player-project_1.webp">
+                <img src="https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/music-player-project_1.png" alt="First Image" />
+              </picture>
             </div>
             <div class="mySlide">
-              <img
-                src="Images/music-player-project (2).png"
-                alt="Second Image"
-              />
+              <picture>
+                <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/music-player-project_2.avif">
+                <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/music-player-project_2.webp">
+                <img src="https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/music-player-project_2.png" alt="Second Image" />
+              </picture>
             </div>
             <div class="mySlide">
-              <img
-                src="Images/music-player-project (3).png"
-                alt="Third Image"
-              />
+              <picture>
+                <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/music-player-project_3.avif">
+                <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/music-player-project_3.webp">
+                <img src="https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/music-player-project_3.png" alt="Third Image" />
+              </picture>
             </div>
             <a class="prev" onclick="changeSlide(-1, 0)">&#10094;</a>
             <a class="next" onclick="changeSlide(1, 0)">&#10095;</a>
@@ -296,16 +317,25 @@
             </p>
             <div class="slideshow-container">
               <div class="mySlide">
-                <img src="Images/rail-api-projecct (1).png" alt="first Image" />
+                <picture>
+                  <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/rail-api-project_1.avif">
+                  <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/rail-api-project_1.webp">
+                  <img src="https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/rail-api-project_1.png" alt="First Image" />
+                </picture>
               </div>
               <div class="mySlide">
-                <img
-                  src="Images/rail-api-projecct (2).png"
-                  alt="second Image"
-                />
+                <picture>
+                  <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/rail-api-project_2.avif">
+                  <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/rail-api-project_2.webp">
+                  <img src="https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/rail-api-project_2.png" alt="Second Image" />
+                </picture>
               </div>
               <div class="mySlide">
-                <img src="Images/rail-api-projecct (3).png" alt="third Image" />
+                <picture>
+                  <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/rail-api-project_3.avif">
+                  <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/rail-api-project_3.webp">
+                  <img src="https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/rail-api-project_3.png" alt="Third Image" />
+                </picture>
               </div>
               <a class="prev" onclick="changeSlide(-1, 1)">&#10094;</a>
               <a class="next" onclick="changeSlide(1, 1)">&#10095;</a>
@@ -331,13 +361,25 @@
             </p>
             <div class="slideshow-container">
               <div class="mySlide">
-                <img src="Images/movie-db-project (1).png" alt="first Image" />
+                <picture>
+                  <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/movie-db-project_1.avif">
+                  <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/movie-db-project_1.webp">
+                  <img src="https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/movie-db-project_1.png" alt="First Image" />
+                </picture>
               </div>
               <div class="mySlide">
-                <img src="Images/movie-db-project (2).png" alt="second Image" />
+                <picture>
+                  <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/movie-db-project_2.avif">
+                  <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/movie-db-project_2.webp">
+                  <img src="https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/movie-db-project_2.png" alt="Second Image" />
+                </picture>
               </div>
               <div class="mySlide">
-                <img src="Images/movie-db-project (3).png" alt="third Image" />
+                <picture>
+                  <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/movie-db-project_3.avif">
+                  <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/movie-db-project_3.webp">
+                  <img src="https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/movie-db-project_3.png" alt="Third Image" />
+                </picture>
               </div>
               <a class="prev" onclick="changeSlide(-1, 2)">&#10094;</a>
               <a class="next" onclick="changeSlide(1, 2)">&#10095;</a>
@@ -492,5 +534,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="scripts/script.js"></script>
     <script src="scripts/slideShow.js"></script>
+    <script src="scripts/experienceCalc.js"></script>
   </body>
 </html>

@@ -10,6 +10,13 @@ html {
   box-sizing: border-box;
 }
 
+picture {
+  display: flex;
+}
+picture > img {
+  width: 100%;
+}
+
 /* Navigation Bar */
 .nav {
   position: sticky;
@@ -98,7 +105,9 @@ html {
 
 /* top content of page */
 .myImage {
-  background: url("../Images/portfolio-background.jpeg");
+  background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/portfolio-background.jpeg");
+  background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/portfolio-background.webp");
+  background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/portfolio-background.avif");
   background-size: cover;
   display: flex;
   justify-content: space-evenly;
@@ -164,33 +173,36 @@ html {
   vertical-align: middle;
 }
 .myImage .right .card {
-  background-color: #dadada;
+  padding: 2px;
 }
 
 /* Content of page */
 .card {
   padding: 10px;
   margin: 20px auto;
+  border-radius: 4px;
   background-color: rgb(218, 254, 253);
   box-shadow: 0px 0px 10px rgb(99, 99, 99);
   width: 95%;
   transition: all 0.5s;
 }
 .about-info {
-  background-image: url("../Images/about.jpeg");
+  background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/about.jpeg");
+  background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/about.webp");
+  background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/about.avif");
   background-size: cover;
 }
 .about-container {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  font-family: "serif";
-  letter-spacing: 1px;
-  font-style: italic;
-  font-size: 20px;
 }
 .about-container > img {
   vertical-align: middle;
+}
+.about-container > .card > p {
+  padding-left: 0;
+  text-align: justify;
+  margin-top: 0;
 }
 
 .about-info a.download-btn {
@@ -201,7 +213,9 @@ html {
 /* skills */
 .skills-info {
   font-size: medium;
-  background-image: url("../Images/skills.jpeg");
+  background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/skills.jpeg");
+  background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/skills.webp");
+  background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/skills.avif");
   background-size: cover;
   background-position: center;
 }
@@ -238,7 +252,9 @@ html {
 
 /* project  */
 .project-info {
-  background-image: url("../Images/projects.jpeg");
+  background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/projects.jpeg");
+  background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/projects.webp");
+  background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/projects.avif");
   background-size: cover;
   background-position: bottom;
 }
@@ -249,7 +265,9 @@ html {
 
 /* experience */
 .experience-info {
-  background-image: url("../Images/experience.jpeg");
+  background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/experience.jpeg");
+  background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/experience.webp");
+  background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/experience.avif");
   background-size: cover;
   background-position: bottom;
 }
@@ -368,7 +386,7 @@ li {
   }
   .about-container .card {
     width: 50%;
-    max-width: 300px;
+    max-width: 320px;
   }
   .project-info > .project-item > .project-ss-container > img {
     width: 49%;
