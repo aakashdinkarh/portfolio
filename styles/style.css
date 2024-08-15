@@ -9,7 +9,7 @@ body {
   /* --deep-purple: #2D1A45; */
   /* --dark-brown: #2C1A1A; */
   --navy-blue: #021526;
-  --navy-blue-half-transparent: #02162780;
+  --navy-blue-bg-transparent: #021627bf;
 
   --color-blue-1: #0198d2;
 
@@ -176,21 +176,37 @@ picture > img {
   font-family: initial;
   display: block;
   margin: auto;
-  background: transparent;
+  background-color: transparent;
   cursor: pointer;
   border: none;
   border-radius: 3px;
   color: #a2d1ff;
-  text-shadow: 0 0 2px white;
   font-size: 1em;
   transition: all 0.5s;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: calc(100% - 1px);
+    width: 50%;
+    height: 2px;
+    background: var(--color-blue-1);
+    border-radius: 100% 100% 100% 100%;
+    transition: left 0.5s ease;
+    transform: translateY(-50%);
+    box-shadow: 0 0 4px 2px var(--color-blue-1);
+  }
+  &:hover&::before {
+    left: 25%;
+  }
 }
 .myImage .left button:hover i {
   transform: translate(0, 3px);
 }
-.myImage .left button:hover {
-  transform: rotateX(359deg);
-}
+
 .myImage .right {
   width: 80%;
   max-width: 300px;

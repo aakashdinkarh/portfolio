@@ -125,7 +125,6 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
-// setInterval(createFirework, 1000);
 createFirework();
 setInterval(createFirework, 1000);
 animate();
