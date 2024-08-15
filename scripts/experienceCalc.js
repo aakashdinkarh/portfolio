@@ -40,6 +40,8 @@ function getDifferenceText(joiningDate, today) {
 
 function updateExperienceTime(experienceTimeElement) {
     const joiningDate = new Date('11 July 2022');
+	experienceTimeElement.innerText = getDifferenceText(joiningDate, new Date());
+
 	setInterval(() => {
         experienceTimeElement.innerText = getDifferenceText(joiningDate, new Date());
 	}, 1000);

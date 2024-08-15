@@ -30,8 +30,15 @@
 
     <title>Aakash Dinkar Portfolio</title>
     <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/nav.css" />
+    <link rel="stylesheet" href="styles/home.css" />
+    <link rel="stylesheet" href="styles/about.css" />
+    <!-- <link rel="stylesheet" href="styles/skills.css" /> -->
+    <!-- <link rel="stylesheet" href="styles/project.css" /> -->
+    <!-- <link rel="stylesheet" href="styles/experience.css" /> -->
+    <!-- <link rel="stylesheet" href="styles/footer.css" /> -->
     <link rel="stylesheet" href="styles/slideShow.css" />
-    <link rel="stylesheet" href="styles/canvas.css" />
+    <!-- <link rel="stylesheet" href="styles/responsive.css" /> -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Sofia"
@@ -104,45 +111,41 @@
       </div>
     </section>
 
-    <!--Writing Content of page -->
-    <section class="card-container">
-      <!-- About section  -->
-      <div id="about" class="card about-info">
-        <h3>About Myself</h3>
-        <div class="about-container">
-          <picture class="card" >
+    <!-- About section  -->
+    <section id="about" class="about card">
+      <div class="overlay"></div>
+      <div class="content">
+        <div class="profile">
+          <picture>
             <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/photo.avif">
             <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/photo.webp">
-            <img src="https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/photo.jpeg" alt="about image (Aakash Dinkar)" />
+            <img class="card" src="https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/photo.jpeg" alt="about image (Aakash Dinkar)" />
           </picture>
-          <div class="card">
-            <p>
-              I'm a Civil Engineering graduate with a B.Tech degree from the batch of 2022.
-            </p>
-            <strong>Experience:<br /><span id="exp-time-calc" >2y 0m 28d | 3h : 5m : 6s</span></strong>
-            <p>
-              Experienced front-end developer skilled in creating responsive, performance optimized, user-friendly
-              interfaces for web applications.
-            </p>
-            <p>
-              Passionate about user experience design, I aim to
-              craft visually appealing and intuitive interfaces that elevate the user's experience.
-            </p>
-          </div>
         </div>
-        <div style="text-align: center">
-          <button>
-            <a
-              class="download-btn"
-              href="https://aakashdinkarh.github.io/static_assets/files/portfolio/resume/resume.pdf"
-              download="Aakash Dinkar Resume"
-              target="_blank"
-              >Download Resume</a
+        <div class="text-content color-orange-1">
+          <h2>About Myself</h2>
+          <p>I'm a Civil Engineering graduate with a B.Tech degree from IIT BHU, batch of 2022</p>
+          <h2>Experience:<br /><span id="exp-time-calc">2y 0m 28d | 3h : 5m : 6s</span></h2>
+          <p>
+            Experienced front-end developer skilled in creating responsive, performance optimized, user-friendly
+            interfaces for web applications.
+          </p>
+          <p>
+            Passionate about user experience design, I aim to craft visually appealing and intuitive interfaces that elevate the user's experience.
+          </p>
+          <a
+            class="styled-btn"
+            href="https://aakashdinkarh.github.io/static_assets/files/portfolio/resume/resume.pdf"
+            download="Aakash Dinkar Resume"
+            target="_blank"
             >
-          </button>
+            Download Resume
+          </a>
         </div>
       </div>
-
+    </section>
+    
+    <section>
       <!-- Skills section  -->
       <div id="skills" class="card skills-info">
         <h3>What Skills Do I Have?</h3>

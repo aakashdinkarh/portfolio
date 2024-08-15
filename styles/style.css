@@ -12,6 +12,7 @@ body {
 	--navy-blue-bg-transparent: #021627bf;
 
 	--color-blue-1: #0198d2;
+	--color-orange-1: #ffa300;
 
 	/* --bright-blue: #1E90FF; */
 	/* --cyan: #00FFFF; */
@@ -45,7 +46,6 @@ picture > img {
 	z-index: 1;
 	position: inherit;
 }
-
 .profile {
 	width: 80%;
 	max-width: 300px;
@@ -54,6 +54,14 @@ picture > img {
 
 	.card {
 		padding: 2px;
+	}
+}
+section:not(.home) .text-content {
+	h2,
+	h3,
+	h4 {
+		font-family: 'Sofia', Verdana, Geneva, Tahoma, sans-serif;
+		color: var(--color-orange-1);
 	}
 }
 
@@ -66,6 +74,37 @@ picture > img {
 	box-shadow: 0px 0px 10px rgb(99, 99, 99);
 	width: 95%;
 	transition: all 0.5s;
+
+	p,
+	li {
+		padding-left: 20px;
+	}
+}
+
+.styled-btn {
+	display: inline-block;
+	margin-top: 5px;
+	padding: 6px 10px;
+	border: none;
+	border-radius: 4px;
+	font-size: medium;
+	color: var(--color-white);
+	background: linear-gradient(45deg, var(--color-blue-1) 50%, var(--color-orange-1) 50%);
+	background-size: 300%;
+	transition: all 0.5s;
+
+	&:hover {
+		background-position: 100%;
+		transform: scale(1.1) rotate(3deg);
+		box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+	}
+}
+a {
+	text-decoration: none;
+
+	&:active, &:visited {
+		color: #000;
+	}
 }
 
 #top-btn {
