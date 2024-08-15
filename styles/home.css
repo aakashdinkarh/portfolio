@@ -1,0 +1,92 @@
+/* top content of page */
+.home {
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/portfolio-background.jpeg');
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/portfolio-background.webp');
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/portfolio-background.avif');
+	background-size: cover;
+	position: relative;
+}
+
+.home .content {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+
+	.text-content {
+		text-align: center;
+		font-size: xx-large;
+		font-family: 'Sofia', Verdana, Geneva, Tahoma, sans-serif;
+		color: #00d8ff;
+		text-shadow: 0 0 10px black;
+
+		h2 {
+			display: inline-block;
+
+			span {
+				animation-name: heading;
+				animation-duration: 3s;
+				animation-iteration-count: infinite;
+				animation-timing-function: linear;
+			}
+
+			&:hover span {
+				animation-play-state: paused;
+			}
+		}
+
+		.know-more-about-me {
+			font-family: initial;
+			display: block;
+			margin: auto;
+			background-color: transparent;
+			cursor: pointer;
+			border: none;
+			border-radius: 3px;
+			color: #a2d1ff;
+			font-size: 1em;
+			transition: all 0.5s;
+			position: relative;
+			overflow: hidden;
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: calc(100% - 1px);
+				width: 50%;
+				height: 2px;
+				border-radius: 100% 100% 100% 100%;
+				background: var(--color-blue-1);
+				box-shadow: 0 0 4px 2px var(--color-blue-1);
+				transition: all 0.5s ease;
+				transform: translate(-110%, -50%);
+			}
+			.double-down-arrow {
+				transition: all 0.3s;
+				opacity: 0;
+			}
+			&:hover .double-down-arrow {
+				transform: translate(0, 4px);
+				opacity: 1;
+			}
+			
+			&:hover&::before {
+				transform: translate(50%, -50%);
+			}
+		}
+	}
+}
+
+@keyframes heading {
+	0% {
+		color: violet;
+	}
+	33% {
+		color: rgb(255, 255, 0);
+	}
+	66% {
+		color: rgb(0, 255, 238);
+	}
+	100% {
+		color: violet;
+	}
+}

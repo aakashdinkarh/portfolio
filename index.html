@@ -80,28 +80,27 @@
       </div>
     </nav>
 
-    <!-- top content of page -->
-    <section class="myImage">
-      <canvas id="fireworksCanvas"></canvas>
-      <div class="left">
-        <h2>
-          Hi, I'm Aakash Dinkar<br />
-          I'am a <span>Web Developer</span>
-        </h2>
-        <button onclick="go('about')">
-          Know more about me
-          <i
-            style="transition: transform 0.3s"
-            class="fa fa-angle-double-down"
-          ></i>
-        </button>
-      </div>
-      <div class="right">
-        <picture>
-          <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/portfolio.avif">
-          <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/portfolio.webp">
-          <img class="card" src="https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/portfolio.jpeg" alt="My Image" />
-        </picture>
+    <!-- Home section of page -->
+    <section class="home">
+      <canvas class="overlay" id="fireworksCanvas"></canvas>
+      <div class="content">
+        <div class="text-content">
+          <h2>
+            Hi, I'm Aakash Dinkar<br />
+            I'am a <span>Web Developer</span>
+          </h2>
+          <button class="know-more-about-me" onclick="go('about')">
+            Know more about me
+            <i class="fa fa-angle-double-down double-down-arrow"></i>
+          </button>
+        </div>
+        <div class="profile">
+          <picture>
+            <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/portfolio.avif">
+            <source srcset="https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/portfolio.webp">
+            <img class="card" src="https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/portfolio.jpeg" alt="My Image" />
+          </picture>
+        </div>
       </div>
     </section>
 
