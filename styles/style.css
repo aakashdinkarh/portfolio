@@ -12,6 +12,7 @@ body {
 	--navy-blue-bg-transparent: #021627bf;
 
 	--color-blue-1: #0198d2;
+	--color-blue-1-transparent: #0197d280;
 	--color-orange-1: #ffa300;
 
 	/* --bright-blue: #1E90FF; */
@@ -56,7 +57,10 @@ picture > img {
 		padding: 2px;
 	}
 }
+
 section:not(.home) .text-content {
+	color: #fff;
+
 	h2,
 	h3,
 	h4 {
@@ -79,6 +83,10 @@ section:not(.home) .text-content {
 	li {
 		padding-left: 20px;
 	}
+}
+
+.card.content {
+	background-color: unset;
 }
 
 .styled-btn {
@@ -115,4 +123,9 @@ a {
 	background-color: #89e0dc;
 	border-radius: 50%;
 	color: black;
+}
+
+/* padding utils */
+.pt-20 {
+	padding-top: 20px;
 }

@@ -1,0 +1,74 @@
+/* skills */
+.skills {
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/skills.jpeg');
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/skills.webp');
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/skills.avif');
+	background-position: center;
+	background-size: cover;
+	position: relative;
+	overflow: hidden;
+}
+
+.skill-caption {
+	margin-bottom: 5px; /* Space between caption and list */
+	font-weight: bold; /* Make caption bold */
+	display: block; /* Ensure caption is a block element */
+}
+
+.skill.card {
+	margin: 0;
+	padding: 0;
+	width: 14vw;
+	max-width: 500px;
+	flex-shrink: 0;
+	text-align: center;
+	background-color: unset;
+	box-shadow: inset 0px 0px 6px 0px var(--color-blue-1);
+}
+.skill.card:not(:last-of-type) {
+	margin-right: 20px;
+}
+
+.skill.card:hover {
+	box-shadow: inset 0px 0px 6px 3px var(--color-blue-1);
+	cursor: pointer;
+}
+
+.skill.link {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 10px 20px;
+	height: 100%;
+
+	&:visited, &:active {
+		color: white;
+	}
+}
+
+.skill-icon {
+	display: flex;
+    width: 100%;
+	flex-shrink: 0;
+    fill: currentColor;
+	margin-bottom: 6px;
+
+	&.react-hook-form {
+		background-color: #ec5990;
+		border-radius: 6px;
+	}
+
+	.cursor {
+		display: flex;
+		align-items: center;
+		background-color: #000;
+		padding: 4px;
+		align-self: center;
+		border-radius: 4px;
+		transform: scale(0.8) translateX(-14.5px);
+	}
+
+	> svg {
+		width: 100%;
+	}
+}
