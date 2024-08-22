@@ -1,5 +1,5 @@
-// function scrollItems(direction, container, itemSelector, behavior = 'smooth') {
-//     const items = container.querySelectorAll(itemSelector);
+// function scrollItems(direction, container, listItemSelector, behavior = 'smooth') {
+//     const items = container.querySelectorAll(listItemSelector);
 //     const itemWidth = items[0].offsetWidth; // Width of one item
 
 //     // Scroll the list by the width of one item
@@ -8,6 +8,41 @@
 //         // behavior,
 //     });
 // }
+function easeInOutQuad(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+}
+
+function smoothScroll({
+	container,
+	direction = 1,
+	scrollAmount = 0,
+	duration = 500,
+	onScrollComplete = () => {},
+}) {
+	const startPosition = container.scrollLeft;
+	const distance = direction * scrollAmount;
+	const startTime = performance.now();
+
+	function scrollStep(currentTime) {
+		const elapsed = currentTime - startTime;
+		const progress = Math.min(elapsed / duration, 1); // progress from 0 to 1
+		const ease = easeInOutQuad(progress); // Easing function for smooth transition
+
+		container.scrollLeft = startPosition + distance * ease;
+
+		if (progress < 1) {
+			requestAnimationFrame(scrollStep); // Continue the animation until complete
+		} else {
+			onScrollComplete();
+		}
+	}
+
+	requestAnimationFrame(scrollStep);
+}
+
+// Usage example:
+// smoothScroll(container, 'right', 300, 1000, () => alert('done')); // Scroll 300px to the right over 1 second
+
 
 function getElementContentWidth(element) {
 	const { width } = element.getBoundingClientRect();
@@ -34,9 +69,9 @@ const createSlideIndicators = (count) => {
 	});
 };
 
-const appendSlideIndicators = (containerSelector, itemSelector, effectiveWidth, appendToSelector) => {
-	const container = document.querySelector(containerSelector);
-	const items = container.querySelectorAll(itemSelector);
+const appendSlideIndicators = (listSelector, listItemSelector, effectiveWidth, listContainerSelector) => {
+	const container = document.querySelector(listContainerSelector).querySelector(listSelector);
+	const items = container.querySelectorAll(listItemSelector);
 	const numberOfItems = items.length;
 
 	const containerWidth = getElementContentWidth(container);
@@ -47,13 +82,14 @@ const appendSlideIndicators = (containerSelector, itemSelector, effectiveWidth, 
 	indicatorsContainer.className = 'indicators-container';
 	indicatorsContainer.append(...slideIndicators);
 
-	document.querySelector(appendToSelector).append(indicatorsContainer);
+	document.querySelector(listContainerSelector).append(indicatorsContainer);
 	return slideIndicators;
 };
 
-const addScrollItemsListener = (containerSelector, itemSelector, appendToSelector) => {
-	const container = document.querySelector(containerSelector);
-	const items = container.querySelectorAll(itemSelector);
+
+const addScrollItemsListener = (listSelector, listItemSelector, listContainerSelector) => {
+	const container = document.querySelector(listSelector);
+	const items = container.querySelectorAll(listItemSelector);
 	const item = items[0];
 
 	const effectiveWidth = item.getBoundingClientRect().width + parseInt(getComputedStyle(item).marginRight);
@@ -64,32 +100,48 @@ const addScrollItemsListener = (containerSelector, itemSelector, appendToSelecto
 
 	const slideIndicators = appendSlideIndicators(
 		'.slider-list-container',
-		itemSelector,
+		listItemSelector,
 		effectiveWidth,
-		appendToSelector
+		listContainerSelector
 	);
 	slideIndicators[activeSlideIndex].classList.add('active');
 
 	const scrollHandler = (direction) => {
-		const scrollAmount = effectiveWidth * numberOfItemsVisible;
-		container.scrollBy({ left: getDirectionCalcPrefix(direction) * scrollAmount, behavior: 'smooth' });
+        let isScrolling = false;
+        const onScrollComplete = () => { isScrolling = false; }
+        const scrollDirection = getDirectionCalcPrefix(direction);
+        const scrollAmount = effectiveWidth * numberOfItemsVisible;
 
-		slideIndicators[activeSlideIndex].classList.remove('active');
+        return () => {
+            if (isScrolling) {
+                return;
+            }
 
-		if (direction === NEXT_BTN && activeSlideIndex < totalSlides - 1) {
-			activeSlideIndex++;
-		} else if (direction === PREV_BTN && activeSlideIndex > 0) {
-			activeSlideIndex--;
-		}
+            isScrolling = true;
+            smoothScroll({
+                scrollAmount,
+                direction: scrollDirection,
+                container,
+                onScrollComplete 
+            })
 
-		slideIndicators[activeSlideIndex].classList.add('active');
-	};
+            slideIndicators[activeSlideIndex].classList.remove('active');
+
+            if (direction === NEXT_BTN && activeSlideIndex < totalSlides - 1) {
+                activeSlideIndex++;
+            } else if (direction === PREV_BTN && activeSlideIndex > 0) {
+                activeSlideIndex--;
+            }
+
+            slideIndicators[activeSlideIndex].classList.add('active');
+        };
+    }
 
 	const prevScrollButton = createButton(PREV_BTN);
-	prevScrollButton.onclick = () => scrollHandler(PREV_BTN);
+	prevScrollButton.onclick = scrollHandler(PREV_BTN);
 
 	const nextScrollButton = createButton(NEXT_BTN);
-	nextScrollButton.onclick = () => scrollHandler(NEXT_BTN);
+	nextScrollButton.onclick = scrollHandler(NEXT_BTN);
 
-	document.querySelector(appendToSelector).append(prevScrollButton, nextScrollButton);
+	document.querySelector(listContainerSelector).append(prevScrollButton, nextScrollButton);
 };
