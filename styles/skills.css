@@ -9,12 +9,6 @@
 	overflow: hidden;
 }
 
-.skill-caption {
-	margin-bottom: 5px; /* Space between caption and list */
-	font-weight: bold; /* Make caption bold */
-	display: block; /* Ensure caption is a block element */
-}
-
 .skill.card {
 	margin: 0;
 	padding: 0;

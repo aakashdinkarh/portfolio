@@ -109,10 +109,10 @@ section:not(.home) .text-content {
 }
 a {
 	text-decoration: none;
-
-	&:active, &:visited {
-		color: #000;
-	}
+	color: #fff;
+}
+a:active, a:visited {
+	color: #fff;
 }
 
 #top-btn {
@@ -123,6 +123,12 @@ a {
 	background-color: #89e0dc;
 	border-radius: 50%;
 	color: black;
+}
+
+.sub-heading {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
 }
 
 /* padding utils */
