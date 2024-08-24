@@ -49,6 +49,7 @@ picture > img {
 
 section:not(.home) .text-content {
 	color: #fff;
+	text-align: justify;
 
 	h2,
 	h3,

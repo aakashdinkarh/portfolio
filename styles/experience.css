@@ -10,11 +10,32 @@
 }
 
 .experience-card {
-	text-align: justify;
 	position: relative;
-	margin-bottom: 20px;
+}
+.experience-card:not(:last-of-type) {
+	margin-bottom: 32px;
 }
 
-.experience-card.card:hover {
-	box-shadow: inset 0px 0px 6px 3px var(--color-blue-1);
+.experience-card:not(:last-of-type)::before {
+	background-color: var(--color-blue-1);
+	content: "";
+	display: inline-block;
+	height: 100%;
+	left: 8px;
+	position: absolute;
+	top: 26px;
+	transform: translateX(-50%);
+	width: 2px;
+}
+
+.experience-card::after {
+	background-color: var(--color-blue-1);
+	border-radius: 50%;
+	content: "";
+	display: inline-flex;
+	height: 16px;
+	left: 0;
+	position: absolute;
+	top: 2px;
+	width: 16px;
 }

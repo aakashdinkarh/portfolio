@@ -19,7 +19,6 @@
 	width: 70vw;
 	max-width: 1024px;
 	flex-shrink: 0;
-	text-align: center;
 	background-color: unset;
 	box-shadow: inset 0px 0px 6px 0px var(--color-blue-1);
 }
