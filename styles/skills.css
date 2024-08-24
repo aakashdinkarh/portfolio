@@ -12,7 +12,7 @@
 .skill.card {
 	margin: 0;
 	padding: 0;
-	width: 14vw;
+	width: 13vw;
 	max-width: 500px;
 	flex-shrink: 0;
 	text-align: center;
@@ -32,12 +32,8 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	padding: 10px 20px;
+	padding: 10px;
 	height: 100%;
-
-	&:visited, &:active {
-		color: white;
-	}
 }
 
 .skill-icon {

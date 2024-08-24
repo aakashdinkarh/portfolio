@@ -1,5 +1,6 @@
 .image-slider {
     position: relative;
+    padding: 0 20px;
 }
 
 .slider-list-container {

@@ -36,17 +36,6 @@ picture > img {
 	width: 100%;
 }
 
-.overlay {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background-color: var(--navy-blue-bg-transparent);
-	z-index: 0;
-}
-.content {
-	z-index: 1;
-	position: inherit;
-}
 .profile {
 	width: 80%;
 	max-width: 300px;
@@ -71,7 +60,6 @@ section:not(.home) .text-content {
 
 /* Content of page */
 .card {
-	padding: 10px;
 	margin: 20px auto;
 	border-radius: 4px;
 	background-color: rgb(218, 254, 253);
@@ -81,11 +69,22 @@ section:not(.home) .text-content {
 
 	p,
 	li {
-		padding-left: 20px;
+		padding: 0 20px;
 	}
 }
 
-.card.content {
+.overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: var(--navy-blue-bg-transparent);
+	z-index: 0;
+}
+
+.content {
+	z-index: 1;
+	padding: 20px;
+	position: inherit;
 	background-color: unset;
 }
 

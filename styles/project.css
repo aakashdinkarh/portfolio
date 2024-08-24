@@ -32,10 +32,6 @@
 	min-width: 200px;
 }
 
-.projects .content {
-	padding: 10px;
-}
-
 .project-details :not(.sub-heading) a,
 .project-details :not(.sub-heading) a:active,
 .project-details :not(.sub-heading) a:visited {
