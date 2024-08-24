@@ -25,9 +25,9 @@
 
 .footer .content {
 	.profile form {
-		background-color: var(--navy-blue-bg-transparent); /* Match existing theme */
+		background-color: var(--navy-blue-bg-transparent);
 		padding: 20px;
-		border-radius: 8px; /* Rounded corners */
+		border-radius: 8px;
 	}
 
 	.profile input,
@@ -52,9 +52,9 @@
 
 .contact-details {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    list-style-type: none; /* Remove default list styling */
-    padding: 0; /* Remove default padding */
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
 }
 
 .contact-item {
@@ -70,6 +70,12 @@
 }
 
 .contact-item svg {
-	width: 16px;
-    margin-right: 10px; /* Space between icon and text */
+	width: 20px;
+    margin-right: 10px;
+	fill: #fff;
+}
+
+.contact-item .linkedin-profile-url svg {
+	border-radius: 30%;
+	border: 1px solid #fff;
 }

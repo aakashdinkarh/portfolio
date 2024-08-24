@@ -3,11 +3,6 @@ body {
 	margin: 0;
 	background-color: #a2d1ff;
 
-	/* --dark-gray: #1E1E1E; */
-	/* --slate: #2B2B2B; */
-	/* --dark-navy-blue: #1A1A2E;  considerable */
-	/* --deep-purple: #2D1A45; */
-	/* --dark-brown: #2C1A1A; */
 	--navy-blue: #021526;
 	--navy-blue-bg-transparent: #021627bf;
 
@@ -15,12 +10,16 @@ body {
 	--color-blue-1-transparent: #0197d280;
 	--color-orange-1: #ffa300;
 
-	/* --bright-blue: #1E90FF; */
-	/* --cyan: #00FFFF; */
-	/* --green: #32CD32; */
-	/* --orange: #FFA500; */
-	/* --yellow: #FFD700; */
-	/* --purple: #8A2BE2; */
+	--primary-background: #1E1E2E;
+	--secondary-background: #282A36;
+	--primary-text: #FFFFFF;
+	--secondary-text: #A6ACCD;
+	--accent-color: #BB86FC;
+	--highlight-link-color: #8BE9FD;
+	--button-background: #44475A;
+	--button-hover: #6272A4;
+	--success-positive: #50FA7B;
+	--error-warning: #FF5555;
 }
 html {
 	scroll-behavior: smooth;
@@ -38,9 +37,7 @@ picture > img {
 
 .profile {
 	width: 80%;
-	max-width: 300px;
-	text-align: center;
-	vertical-align: middle;
+	max-width: 350px;
 
 	.card {
 		padding: 2px;
@@ -120,9 +117,26 @@ a:active, a:visited {
 	bottom: 10px;
 	right: 10px;
 	display: none;
-	background-color: #89e0dc;
+	background-color: var(--color-orange-1);
+	width: 40px;
+	height: 40px;
 	border-radius: 50%;
-	color: black;
+	z-index: 1;
+}
+#top-btn::before, #top-btn::after {
+	content: '';
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	border: 4px solid black;
+	border-radius: 0px 2px 4px 2px;
+	border-color: transparent black black transparent;
+	transform: rotateY(50deg) rotateZ(-135deg);
+	translate: 8px 8px;
+	position: inherit;
+}
+#top-btn::after {
+	translate: 8px 18px;
 }
 
 .sub-heading {
