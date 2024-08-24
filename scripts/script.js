@@ -1,10 +1,12 @@
-function go(loc = '') {
+function go(loc = '', offsetFlag = false) {
 	if (loc === '') {
 		window.scrollTo(0, 0);
 		return;
 	}
-	let elem = document.getElementById(loc);
-	window.scrollTo(0, window.scrollY + elem.getBoundingClientRect().top - 60.6);
+	const elem = document.getElementById(loc);
+  const offset = 20;
+
+	window.scrollTo(0, window.scrollY + elem.getBoundingClientRect().top - 60.6 - (offsetFlag ? offset : 0));
 }
 
 (function updateCopyright() {
