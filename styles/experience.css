@@ -1,0 +1,27 @@
+/* experience */
+.experience {
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/experience.jpeg');
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/experience.webp');
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/experience.avif');
+	background-size: cover;
+	background-position: bottom;
+	position: relative;
+	overflow: hidden;
+}
+
+.experience-card.card {
+	margin: 0;
+	width: 100%;
+	padding-left: 0;
+	padding-right: 20px;
+	text-align: justify;
+	background-color: unset;
+	box-shadow: inset 0px 0px 6px 0px var(--color-blue-1);
+}
+.experience-card.card:not(:last-of-type) {
+	margin-bottom: 20px;
+}
+
+.experience-card.card:hover {
+	box-shadow: inset 0px 0px 6px 3px var(--color-blue-1);
+}

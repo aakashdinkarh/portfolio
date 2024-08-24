@@ -3,8 +3,9 @@
 	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/projects.jpeg');
 	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/projects.webp');
 	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/projects.avif');
-	background-size: cover;
+	background-size: contain;
 	background-position: bottom;
+	background-repeat: repeat-y;
 	position: relative;
 	overflow: hidden;
 }
