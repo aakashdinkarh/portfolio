@@ -1,9 +1,10 @@
 /* top content of page */
 .home {
-	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/portfolio-background.jpeg');
-	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/portfolio-background.webp');
-	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/portfolio-background.avif');
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/portfolio.jpeg');
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/portfolio.webp');
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/portfolio.avif');
 	background-size: cover;
+	background-position: center;
 	position: relative;
 }
 
