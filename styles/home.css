@@ -6,6 +6,7 @@
 	background-size: cover;
 	background-position: center;
 	position: relative;
+	height: calc(100vh - 61px);
 }
 
 .home .content {

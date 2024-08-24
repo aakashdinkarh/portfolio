@@ -1,0 +1,75 @@
+/* Bottom section of page */
+.footer {
+	background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/about.jpeg");
+	background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/about.webp");
+	background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/about.avif");
+	background-size: cover;
+	position: relative;
+	overflow: hidden;
+}
+
+.footer.card {
+	padding: 0;
+}
+
+.footer .content {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	
+	.text-content {
+		max-width: 500px;
+		padding: 20px;
+	}
+}
+
+.footer .content {
+	.profile form {
+		background-color: var(--navy-blue-bg-transparent); /* Match existing theme */
+		padding: 20px;
+		border-radius: 8px; /* Rounded corners */
+	}
+
+	.profile input,
+	.profile textarea {
+		width: 100%;
+		padding: 10px;
+		margin: 10px 0;
+		border-radius: 4px;
+		font-size: 16px;
+		border: 1px solid #0000;
+		background-color: inherit;
+		color: #fff;
+		resize: none;
+	}
+
+	.profile input:focus,
+	.profile textarea:focus {
+		border-color: var(--color-blue-1-transparent);
+		outline: none;
+	}
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.contact-item a {
+	display: flex;
+	align-items: center;
+}
+
+.contact-item svg {
+	width: 16px;
+    margin-right: 10px; /* Space between icon and text */
+}
