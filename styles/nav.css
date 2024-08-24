@@ -3,17 +3,18 @@
 	position: sticky;
 	top: 0px;
 	z-index: 2;
+	background-color: var(--navy-blue);
 }
-.nav > div {
+.nav > nav {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background-color: var(--navy-blue);
 }
 .nav .links {
 	display: flex;
 	justify-content: end;
 	background-color: inherit;
+	list-style-type: none;
 }
 .nav .nav-links {
 	background-color: inherit;
@@ -27,32 +28,7 @@
 	transition: all 0.3s;
 }
 .nav .nav-links:hover {
-	background-color: #0198d2;
-}
-
-/* menu-bar icon */
-.bar-icon {
-	display: none;
-	position: absolute;
-	left: 10px;
-	font-size: 25px;
-	cursor: pointer;
-	transition: all 0.2s;
-}
-.bar-icon:hover {
-	color: white;
-}
-
-/* menu-close icon */
-.menu-close {
-	display: none;
-	font-size: 25px;
-	cursor: pointer;
-	padding: 0 20px;
-	transition: all 0.2s;
-}
-.menu-close:hover {
-	color: white;
+	background-color: var(--color-blue-1);
 }
 
 /* animated logo */

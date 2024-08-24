@@ -59,31 +59,28 @@
 <body>
 	<noscript>Your browser doesn't support JavaScript, this site is best viewed when browser support JavaScript</noscript>
 	<!-- Navigation Bar -->
-	<nav class="nav">
-		<div>
-			<div onclick="go()" id="logo">
-				<span style="font-family: 'Sofia'; text-shadow: 1px 1px 2px white">P</span><span>ortfolio</span>
-			</div>
-			<span onclick="barMenuClick()" class="bar-icon mobile-show"><i class="fa fa-bars"></i></span>
-			<div class="links">
-				<div onclick="closeMenuClick()" class="menu-close mobile-show">&times;</div>
-				<button class="nav-links" onclick="go()">Home</button>
-				<button class="nav-links" onclick="go('about')">About</button>
-				<button class="nav-links" onclick="go('skills')">Skills</button>
-				<button class="nav-links" onclick="go('project')">Project</button>
-				<button class="nav-links" onclick="go('experience')">Experiences</button>
-				<button class="nav-links" onclick="go('contact')">Contact</button>
-				<!-- <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#project">Project</a>
-          <a href="#experience">Experiences</a>
-          <a href="#contact">Contact</a> -->
-			</div>
-		</div>
-	</nav>
+	<header class="nav">
+		<nav>
+				<div>
+					<a onclick="go()" id="logo">
+						<span style="font-family: 'Sofia'; text-shadow: 1px 1px 2px white">P</span><span>ortfolio</span>
+					</a>
+					<span onclick="barMenuClick()" class="bar-icon mobile-show"><i class="fa fa-bars"></i></span>
+					<button onclick="closeMenuClick()" class="menu-close mobile-show">&times;</button>
+				</div>
+				<ul class="links">
+					<li><a class="nav-links" onclick="go('')" href="javascript:void(0)">Home</a></li>
+					<li><a class="nav-links" onclick="go('about')" href="javascript:void(0)">About</a></li>
+					<li><a class="nav-links" onclick="go('skills')" href="javascript:void(0)">Skills</a></li>
+					<li><a class="nav-links" onclick="go('experience')" href="javascript:void(0)">Experiences</a></li>
+					<li><a class="nav-links" onclick="go('project')" href="javascript:void(0)">Project</a></li>
+					<li><a class="nav-links" onclick="go('contact')" href="javascript:void(0)">Contact</a></li>
+				</ul>
+		</nav>
+	</header>
 
 	<!-- Home section of page -->
-	<section class="home">
+	<section id="home" class="home">
 		<canvas class="overlay" id="fireworksCanvas"></canvas>
 		<div class="content">
 			<div class="text-content">
@@ -158,7 +155,7 @@
 				<p class="sub-heading">Languages, Libraries & Frameworks</p>
 				<div class="image-slider skills-1">
 					<div class="slider-list-container">
-						<ul class="slider-list skill-list-1" id="skillsList">
+						<ul class="slider-list skill-list-1">
 							<li class="skill card">
 								<a href="https://react.dev" target="_blank" class="skill link">
 									<div class="skill-icon">

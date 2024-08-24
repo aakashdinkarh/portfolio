@@ -4,18 +4,7 @@ function go(loc = '') {
 		return;
 	}
 	let elem = document.getElementById(loc);
-	window.scrollTo(0, window.pageYOffset + elem.getBoundingClientRect().top - 60.6);
-}
-
-function show_hide(a) {
-	let element = document.getElementById(a);
-	if (this.innerText === 'Show more') {
-		$(element).show(500);
-		this.innerHTML = 'Show less';
-	} else {
-		$(element).hide(500);
-		this.innerHTML = 'Show more';
-	}
+	window.scrollTo(0, window.scrollY + elem.getBoundingClientRect().top - 60.6);
 }
 
 (function updateCopyright() {
@@ -25,7 +14,7 @@ function show_hide(a) {
 
 window.onscroll = function () {
 	let topbtn = document.getElementById('top-btn');
-	if (document.documentElement.scrollTop < 71) {
+	if (document.documentElement.scrollTop < 61) {
 		topbtn.style.display = 'none';
 	} else {
 		topbtn.style.display = 'block';
