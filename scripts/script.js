@@ -15,21 +15,22 @@ function go(loc = '', offsetFlag = false) {
 })();
 
 window.onscroll = function () {
-	let topbtn = document.getElementById('top-btn');
+	let topBtn = document.getElementById('top-btn');
 	if (document.documentElement.scrollTop < 61) {
-		topbtn.style.display = 'none';
+		topBtn.style.display = 'none';
 	} else {
-		topbtn.style.display = 'block';
+		topBtn.style.display = 'block';
 	}
 };
 
-function barMenuClick() {
-	let navbar = document.querySelector('.nav .links');
-	navbar.style.width = '200px';
+const hamburgerMenuIcon = document.querySelector('.hamburger-menu-icon');
+const mNavBar = document.querySelector('#mNavBar');
+hamburgerMenuIcon.onclick = () => {
+  mNavBar.classList.add('show');
 }
-function closeMenuClick() {
-	let navbar = document.querySelector('.nav .links');
-	navbar.style.width = '0';
+const navbarCloseIcon = document.querySelector('#navbarCloseIcon');
+navbarCloseIcon.onclick = () => {
+  mNavBar.classList.remove('show');
 }
 
 // Assuming you have a video element inside .cursor-logo

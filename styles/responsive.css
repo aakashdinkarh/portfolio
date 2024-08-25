@@ -1,0 +1,38 @@
+/* for mobile or tablet --- general --- */
+@media only screen and (max-width: 700px) {
+	.m-flex-col {
+		display: flex;
+		flex-direction: column;
+	}
+	.m-justify-center {
+		display: flex;
+		justify-content: center;
+	}
+	.m-full-width {
+		width: 100%;
+	}
+}
+
+/* for mobile or tablet --- navbar --- */
+@media only screen and (max-width: 700px) {
+	.m-nav {
+		display: block;
+	}
+	.d-nav {
+		display: none;
+	}
+	.m-nav-bar {
+		display: flex;
+		position: fixed;
+		left: 0;
+		top: 0;
+		transform: translateX(-80vw);
+		width: 80vw;
+		height: 100vh;
+		transition: transform 0.2s;
+		background-color: var(--navy-blue);
+	}
+	.m-nav-bar.show {
+		transform: translateX(0);
+	}
+}

@@ -50,7 +50,7 @@
 	<link rel="stylesheet" href="styles/project.css" />
 	<link rel="stylesheet" href="styles/experience.css" />
 	<link rel="stylesheet" href="styles/footer.css" />
-	<!-- <link rel="stylesheet" href="styles/responsive.css" /> -->
+	<link rel="stylesheet" href="styles/responsive.css" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia" />
 	<!-- google crawling -->
 	<meta name="google-site-verification" content="DCYDep9j5s7cyTxOdQrS3FYiHIfOwh1Laa-tgcAdxR8" />
@@ -61,21 +61,51 @@
 	<!-- Navigation Bar -->
 	<header class="nav">
 		<nav>
-				<div>
+			<section class="m-nav" >
+				<div class="m-justify-center m-full-width" >
+					<button class="hamburger-menu-icon m-flex-col m-justify-center">
+						<div class="hamburger-icon-bar"></div>
+						<div class="hamburger-icon-bar"></div>
+						<div class="hamburger-icon-bar"></div>
+					</button>
 					<a onclick="go()" id="logo">
 						<span style="font-family: 'Sofia'; text-shadow: 1px 1px 2px white">P</span><span>ortfolio</span>
 					</a>
-					<span onclick="barMenuClick()" class="bar-icon mobile-show"><i class="fa fa-bars"></i></span>
-					<!-- <button onclick="closeMenuClick()" class="menu-close mobile-show">&times;</button> -->
 				</div>
+
+				<section id="mNavBar" class="m-nav-bar m-flex-col">
+					<div class="m-justify-center m-full-width" >
+						<button id="navbarCloseIcon" class="navbar-close-icon">
+							&times;
+						</button>
+						<a onclick="go()" id="logo">
+							<span style="font-family: 'Sofia'; text-shadow: 1px 1px 2px white">P</span><span>ortfolio</span>
+						</a>
+					</div>
+
+					<ul class="links m-flex-col">
+						<li class="nav-links"><a onclick="go('')" href="javascript:void(0)">Home</a></li>
+						<li class="nav-links"><a onclick="go('about', true)" href="javascript:void(0)">About</a></li>
+						<li class="nav-links"><a onclick="go('skills')" href="javascript:void(0)">Skills</a></li>
+						<li class="nav-links"><a onclick="go('experience', true)" href="javascript:void(0)">Experiences</a></li>
+						<li class="nav-links"><a onclick="go('project')" href="javascript:void(0)">Project</a></li>
+						<li class="nav-links"><a onclick="go('contact', true)" href="javascript:void(0)">Contact</a></li>
+					</ul>
+				</section>
+			</section>
+			<section class="d-nav">
+				<a onclick="go()" id="logo">
+					<span style="font-family: 'Sofia'; text-shadow: 1px 1px 2px white">P</span><span>ortfolio</span>
+				</a>
 				<ul class="links">
-					<li><a class="nav-links" onclick="go('')" href="javascript:void(0)">Home</a></li>
-					<li><a class="nav-links" onclick="go('about', true)" href="javascript:void(0)">About</a></li>
-					<li><a class="nav-links" onclick="go('skills')" href="javascript:void(0)">Skills</a></li>
-					<li><a class="nav-links" onclick="go('experience', true)" href="javascript:void(0)">Experiences</a></li>
-					<li><a class="nav-links" onclick="go('project')" href="javascript:void(0)">Project</a></li>
-					<li><a class="nav-links" onclick="go('contact', true)" href="javascript:void(0)">Contact</a></li>
+					<li class="nav-links"><a onclick="go('')" href="javascript:void(0)">Home</a></li>
+					<li class="nav-links"><a onclick="go('about', true)" href="javascript:void(0)">About</a></li>
+					<li class="nav-links"><a onclick="go('skills')" href="javascript:void(0)">Skills</a></li>
+					<li class="nav-links"><a onclick="go('experience', true)" href="javascript:void(0)">Experiences</a></li>
+					<li class="nav-links"><a onclick="go('project')" href="javascript:void(0)">Project</a></li>
+					<li class="nav-links"><a onclick="go('contact', true)" href="javascript:void(0)">Contact</a></li>
 				</ul>
+			</section>
 		</nav>
 	</header>
 
@@ -88,7 +118,7 @@
 					Hi, I'm Aakash Dinkar<br />
 					I'am a <span>Web Developer</span>
 				</h2>
-				<button class="know-more-about-me" onclick="go('about')">
+				<button class="know-more-about-me" onclick="go('about', true)">
 					Know more about me
 					<i class="fa fa-angle-double-down double-down-arrow"></i>
 				</button>
