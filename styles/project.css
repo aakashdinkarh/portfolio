@@ -16,7 +16,7 @@
 .project-image.card {
 	margin: 0;
 	padding: 10px;
-	width: 70vw;
+	width: 90%;
 	max-width: 1024px;
 	flex-shrink: 0;
 	background-color: unset;
