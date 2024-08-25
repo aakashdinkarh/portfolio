@@ -771,9 +771,9 @@
 
 				<div class="profile">
 					<form onsubmit="return false;">
-						<input type="text" placeholder="Your Name" name="Name" required />
-						<input type="email" placeholder="Your Email" required />
-						<textarea placeholder="Your Message" cols="30" rows="5" required></textarea>
+						<input type="text" placeholder="Your Name" name="user_name" required />
+						<input type="email" placeholder="Your Email" name="user_email" required />
+						<textarea placeholder="Your Feedback/Message/Query" cols="30" rows="5" name="user_message" required></textarea>
 						<button class="styled-btn" type="submit">Send Me</button>
 					</form>
 				</div>
@@ -785,22 +785,34 @@
 	<a id="top-btn" title="Go to top" href="#"></a>
 
 	<!-- script files -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="scripts/script.js"></script>
+	<script src="scripts/utils.js"></script>
 	<script src="scripts/experienceCalc.js"></script>
 	<script src="scripts/fireworks-gravity.js"></script>
+	<script src="scripts/cursorLogo.js" ></script>
 	<script src="scripts/scrollItems.js"></script>
-	<script>
-		addScrollItemsListener('.skill-list-1', '.skill.card', '.skills-1');
-		addScrollItemsListener('.skill-list-2', '.skill.card', '.skills-2');
+	<script src="scripts/emailjs.js" ></script>
+    <script type="text/javascript">
+        // window.onload = function() {
+        //     document.querySelector('form').addEventListener('submit', function(event) {
+        //         event.preventDefault();
+        //         // these IDs from the previous steps
+        //         emailjs.sendForm('portfolio_service', 'portfolio_contact_form', this)
+        //             .then(() => {
+        //                 console.log('SUCCESS!');
+        //             }, (error) => {
+        //                 console.log('FAILED...', error);
+        //             });
+        //     });
+        // }
+    </script>
 
-		addScrollItemsListener('.project-image-list-1', '.project-image.card', '.project-1');
-		addScrollItemsListener('.project-image-list-2', '.project-image.card', '.project-2');
-		addScrollItemsListener('.project-image-list-3', '.project-image.card', '.project-3');
-		addScrollItemsListener('.project-image-list-4', '.project-image.card', '.project-4');
-		addScrollItemsListener('.project-image-list-5', '.project-image.card', '.project-5');
-		addScrollItemsListener('.project-image-list-others', '.project-image.card', '.project-others');
-	</script>
+	<!-- <script>
+		intersectionObserver('#skills', () => {
+			loadJs('scripts/cursorLogo.js')
+		})
+
+	</script> -->
 </body>
 
 </html>

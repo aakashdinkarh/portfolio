@@ -145,3 +145,13 @@ const addScrollItemsListener = (listSelector, listItemSelector, listContainerSel
 
 	document.querySelector(listContainerSelector).append(prevScrollButton, nextScrollButton);
 };
+
+addScrollItemsListener('.skill-list-1', '.skill.card', '.skills-1');
+addScrollItemsListener('.skill-list-2', '.skill.card', '.skills-2');
+
+addScrollItemsListener('.project-image-list-1', '.project-image.card', '.project-1');
+addScrollItemsListener('.project-image-list-2', '.project-image.card', '.project-2');
+addScrollItemsListener('.project-image-list-3', '.project-image.card', '.project-3');
+addScrollItemsListener('.project-image-list-4', '.project-image.card', '.project-4');
+addScrollItemsListener('.project-image-list-5', '.project-image.card', '.project-5');
+addScrollItemsListener('.project-image-list-others', '.project-image.card', '.project-others');
