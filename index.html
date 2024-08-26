@@ -800,35 +800,35 @@
 	<!-- Go to top button -->
 	<a id="top-btn" title="Go to top" href="#"></a>
 
-	<!-- script files -->
+	<!-- priority script files -->
 	<script src="scripts/script.js"></script>
 	<script src="scripts/utils.js"></script>
-	<script src="scripts/experienceCalc.js"></script>
-	<script src="scripts/fireworks-gravity.js"></script>
-	<script src="scripts/cursorLogo.js" ></script>
-	<script src="scripts/scrollItems.js"></script>
-	<script src="scripts/emailjs.js" ></script>
-    <script type="text/javascript">
-        // window.onload = function() {
-        //     document.querySelector('form').addEventListener('submit', function(event) {
-        //         event.preventDefault();
-        //         // these IDs from the previous steps
-        //         emailjs.sendForm('portfolio_service', 'portfolio_contact_form', this)
-        //             .then(() => {
-        //                 console.log('SUCCESS!');
-        //             }, (error) => {
-        //                 console.log('FAILED...', error);
-        //             });
-        //     });
-        // }
-    </script>
 
-	<!-- <script>
+	<script>
+		intersectionObserver('#about', () => loadJs('scripts/experienceCalc.js'));
+
 		intersectionObserver('#skills', () => {
-			loadJs('scripts/cursorLogo.js')
-		})
+			loadJs('scripts/scrollItems.js', () => {
+				addScrollItemsListener('.skill-list-1', '.skill.card', '.skills-1');
+				addScrollItemsListener('.skill-list-2', '.skill.card', '.skills-2');
+			});
 
-	</script> -->
+			loadJs('scripts/cursorLogo.js');
+		});
+
+		intersectionObserver('#project', () => {
+			loadJs('scripts/scrollItems.js', () => {
+				addScrollItemsListener('.project-image-list-1', '.project-image.card', '.project-1');
+				addScrollItemsListener('.project-image-list-2', '.project-image.card', '.project-2');
+				addScrollItemsListener('.project-image-list-3', '.project-image.card', '.project-3');
+				addScrollItemsListener('.project-image-list-4', '.project-image.card', '.project-4');
+				addScrollItemsListener('.project-image-list-5', '.project-image.card', '.project-5');
+				addScrollItemsListener('.project-image-list-others', '.project-image.card', '.project-others');
+			});
+		});
+
+		intersectionObserver('#contact', () => loadJs('scripts/emailjs.js'));
+	</script>
 </body>
 
 </html>
