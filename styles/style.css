@@ -93,7 +93,7 @@ section:not(.home) .text-content {
 	border: none;
 	border-radius: 4px;
 	font-size: medium;
-	color: var(--color-white);
+	color: #fff;
 	background: linear-gradient(45deg, var(--color-blue-1) 50%, var(--color-orange-1) 50%);
 	background-size: 300%;
 	transition: all 0.5s;
@@ -148,4 +148,12 @@ a:active, a:visited {
 /* padding utils */
 .pt-20 {
 	padding-top: 20px;
+}
+
+.mb-5 {
+	margin-bottom: 5px;
+}
+
+.mt-5 {
+	margin-top: 5px;
 }

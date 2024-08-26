@@ -15,7 +15,7 @@ function go(loc = '', offsetFlag = false) {
 })();
 
 window.onscroll = function () {
-	let topBtn = document.getElementById('top-btn');
+	const topBtn = document.getElementById('top-btn');
 	if (document.documentElement.scrollTop < 61) {
 		topBtn.style.display = 'none';
 	} else {

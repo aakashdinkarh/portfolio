@@ -21,10 +21,10 @@ function smoothScroll({
 }) {
 	const startPosition = container.scrollLeft;
 	const distance = direction * scrollAmount;
-	const startTime = performance.now();
+	const startTime = (typeof performance !== 'undefined' && performance.now) ? performance.now() : Date.now();
 
 	function scrollStep(currentTime) {
-		const elapsed = currentTime - startTime;
+		const elapsed = (typeof performance !== 'undefined' && performance.now ? currentTime : Date.now()) - startTime;
 		const progress = Math.min(elapsed / duration, 1); // progress from 0 to 1
 		const ease = easeInOutQuad(progress); // Easing function for smooth transition
 

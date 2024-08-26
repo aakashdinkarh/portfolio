@@ -33,7 +33,8 @@ function getDifferenceText(joiningDate, today) {
 		months += 12;
 	}
 
-	let result = `${years}y ${months}m ${days}d | ${hours}h : ${minutes}m : ${seconds}s`;
+	// const result = `${years}y ${months}m ${days}d | ${hours}h : ${minutes}m : ${seconds}s`;
+	const result = `${years}y ${months}m ${days}d`;
 
 	return result.trim();
 }

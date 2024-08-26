@@ -6,7 +6,7 @@
 	background-size: cover;
 	background-position: center;
 	position: relative;
-	height: calc(100vh - 61px);
+	height: calc(100vh - 60px);
 }
 
 .home .content {
@@ -39,15 +39,14 @@
 		}
 
 		.know-more-about-me {
-			font-family: initial;
+			font-family: unset;
 			display: block;
 			margin: auto;
 			background-color: transparent;
 			cursor: pointer;
 			border: none;
-			border-radius: 3px;
-			color: #a2d1ff;
-			font-size: 1em;
+			color: #fff;
+			font-size: 1rem;
 			transition: all 0.5s;
 			position: relative;
 			overflow: hidden;
@@ -58,19 +57,11 @@
 				top: calc(100% - 1px);
 				width: 50%;
 				height: 2px;
-				border-radius: 100% 100% 100% 100%;
+				border-radius: 100%;
 				background: var(--color-blue-1);
 				box-shadow: 0 0 4px 2px var(--color-blue-1);
 				transition: all 0.5s ease;
-				transform: translate(-110%, -50%);
-			}
-			.double-down-arrow {
-				transition: all 0.3s;
-				opacity: 0;
-			}
-			&:hover .double-down-arrow {
-				transform: translate(0, 4px);
-				opacity: 1;
+				transform: translate(-120%, -50%);
 			}
 			
 			&:hover&::before {

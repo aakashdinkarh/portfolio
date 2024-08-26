@@ -19,8 +19,11 @@
 	
 	.text-content {
 		max-width: 500px;
-		padding: 20px;
 	}
+}
+
+.footer .content .profile {
+	margin: 20px auto;
 }
 
 .footer .content {
