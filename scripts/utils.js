@@ -12,7 +12,7 @@ const intersectionObserver = (elementSelector, callback) => {
         }
     };
 
-    const observerOptions = { rootMargin: '100px' };
+    const observerOptions = { rootMargin: '400px' };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
     observer.observe(element);
