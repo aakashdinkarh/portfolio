@@ -1,7 +1,7 @@
 body {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	margin: 0;
-	background-color: #a2d1ff;
+	background-color: var(--body-bg-color);
 
 	--navy-blue: #021526;
 	--navy-blue-bg-transparent: #021627bf;
@@ -9,6 +9,14 @@ body {
 	--color-blue-1: #0198d2;
 	--color-blue-1-transparent: #0197d280;
 	--color-orange-1: #ffa300;
+
+	--color-white: #fff;
+	--color-black: #000;
+	--color-transparent: #0000;
+	--color-home-text: #00d8ff;
+	--color-react-hook-form: #ec5990;
+
+	--body-bg-color: #a2d1ff;
 
 	--primary-background: #1E1E2E;
 	--secondary-background: #282A36;
@@ -45,7 +53,7 @@ picture > img {
 }
 
 section:not(.home) .text-content {
-	color: #fff;
+	color: var(--color-white);
 	text-align: justify;
 
 	h2,
@@ -93,7 +101,7 @@ section:not(.home) .text-content {
 	border: none;
 	border-radius: 4px;
 	font-size: medium;
-	color: #fff;
+	color: var(--color-white);
 	background: linear-gradient(45deg, var(--color-blue-1) 50%, var(--color-orange-1) 50%);
 	background-size: 300%;
 	transition: all 0.5s;
@@ -106,10 +114,10 @@ section:not(.home) .text-content {
 }
 a {
 	text-decoration: none;
-	color: #fff;
+	color: var(--color-white);
 }
 a:active, a:visited {
-	color: #fff;
+	color: var(--color-white);
 }
 
 #top-btn {

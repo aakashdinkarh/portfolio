@@ -44,14 +44,14 @@
 	margin-bottom: 6px;
 
 	&.react-hook-form {
-		background-color: #ec5990;
+		background-color: var(--color-react-hook-form);
 		border-radius: 6px;
 	}
 
 	.cursor {
 		display: flex;
 		align-items: center;
-		background-color: #000;
+		background-color: var(--color-black);
 		padding: 4px;
 		align-self: center;
 		border-radius: 4px;

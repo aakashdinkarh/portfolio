@@ -86,14 +86,14 @@
 	width: 30px;
 	height: 3px;
 	border-radius: 4px;
-	background-color: #fff
+	background-color: var(--color-white);
 }
 .hamburger-menu-icon .hamburger-icon-bar:not(:last-of-type) {
 	margin-bottom: 6px;
 }
 
 .navbar-close-icon {
-	color: #fff;
+	color: var(--color-white);
 	height: 60.5px;
 	font-size: 3rem;
 }

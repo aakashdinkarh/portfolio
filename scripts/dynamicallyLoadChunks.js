@@ -1,14 +1,8 @@
 intersectionObserver('#about', () => {
-    loadStylesheet('styles/about.css');
-
     loadJs('scripts/experienceCalc.js');
 });
 
 intersectionObserver('#skills', () => {
-    loadStylesheet('styles/skills.css');
-    loadStylesheet('styles/scrollItems.css');
-
-
     loadJs('scripts/scrollItems.js', () => {
         addScrollItemsListener('.skill-list-1', '.skill.card', '.skills-1');
         addScrollItemsListener('.skill-list-2', '.skill.card', '.skills-2');
@@ -17,14 +11,7 @@ intersectionObserver('#skills', () => {
     loadJs('scripts/cursorLogo.js');
 });
 
-intersectionObserver('#experience', () => {
-    loadStylesheet('styles/experience.css');
-});
-
 intersectionObserver('#project', () => {
-    loadStylesheet('styles/project.css');
-    loadStylesheet('styles/scrollItems.css');
-
     loadJs('scripts/scrollItems.js', () => {
         addScrollItemsListener('.project-image-list-1', '.project-image.card', '.project-1');
         addScrollItemsListener('.project-image-list-2', '.project-image.card', '.project-2');
@@ -36,7 +23,5 @@ intersectionObserver('#project', () => {
 });
 
 intersectionObserver('#contact', () => {
-    loadStylesheet('styles/footer.css');
-
     loadJs('scripts/emailjs.js')
 });
