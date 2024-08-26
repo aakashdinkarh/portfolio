@@ -44,3 +44,25 @@ const loadJs = (src, successCallback, errorCallback) => {
     document.body.appendChild(script);
 }
 
+const loadStylesheet = (src) => {
+    if (!src) return;
+
+    if (loadedSourceMapping[src]) {
+        return;
+    }
+
+    const stylesheet = document.createElement('link');
+    stylesheet.rel = 'stylesheet';
+    stylesheet.href = src;
+
+    stylesheet.onload = () => {
+        loadedSourceMapping[src] = true;
+    }
+    stylesheet.onerror = () => {
+        loadedSourceMapping[src] = false;
+        console.error('Failed to load the stylesheet ::', src)
+        stylesheet.remove();
+    }
+
+    document.body.appendChild(stylesheet);
+}
