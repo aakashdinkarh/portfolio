@@ -3,7 +3,7 @@
 	position: sticky;
 	top: 0px;
 	z-index: 2;
-	background-color: var(--navy-blue);
+	background-color: var(--primary-bg-color);
 }
 .nav > nav {
 	position: relative;
@@ -42,13 +42,13 @@
 }
 
 .nav .nav-links:hover {
-	background-color: var(--color-blue-1);
+	background-color: var(--primary-color);
 }
 
 /* animated logo */
 #logo {
 	font-size: xx-large;
-	background-color: var(--color-blue-1);
+	background-color: var(--primary-color);
 	padding: 5px;
 	cursor: pointer;
 	margin-left: 10px;

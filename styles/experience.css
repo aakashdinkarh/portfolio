@@ -17,7 +17,7 @@
 }
 
 .experience-card:not(:last-of-type)::before {
-	background-color: var(--color-blue-1);
+	background-color: var(--primary-color);
 	content: "";
 	display: inline-block;
 	height: 100%;
@@ -29,7 +29,7 @@
 }
 
 .experience-card::after {
-	background-color: var(--color-blue-1);
+	background-color: var(--primary-color);
 	border-radius: 50%;
 	content: "";
 	display: inline-flex;

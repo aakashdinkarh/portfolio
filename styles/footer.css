@@ -28,7 +28,7 @@
 
 .footer .content {
 	.profile form {
-		background-color: var(--navy-blue-bg-transparent);
+		background-color: var(--primary-bg-color-transparent);
 		padding: 20px;
 		border-radius: 8px;
 	}
@@ -48,7 +48,7 @@
 
 	.profile input:focus,
 	.profile textarea:focus {
-		border-color: var(--color-blue-1-transparent);
+		border-color: var(--primary-color-transparent);
 		outline: none;
 	}
 }

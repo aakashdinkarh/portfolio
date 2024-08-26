@@ -58,8 +58,8 @@
 				width: 50%;
 				height: 2px;
 				border-radius: 100%;
-				background: var(--color-blue-1);
-				box-shadow: 0 0 4px 2px var(--color-blue-1);
+				background: var(--primary-color);
+				box-shadow: 0 0 4px 2px var(--primary-color);
 				transition: all 0.5s ease;
 				transform: translate(-120%, -50%);
 			}
