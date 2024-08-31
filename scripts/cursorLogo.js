@@ -1,5 +1,5 @@
 // Assuming you have a video element inside .cursor-logo
-const cursorLogo = document.querySelector('.skills-2 .cursor');
+const cursorLogo = document.querySelector('.skill-icon .cursor');
 
 const video = cursorLogo.querySelector('video');
 let isHovering = false; // Track hover state
