@@ -14,12 +14,12 @@ function go(loc = '', offsetFlag = false) {
 	copyrightElement.children[1].innerText = `| ${new Date().getFullYear()}`;
 })();
 
+const topBtn = document.getElementById('top-btn');
 window.onscroll = function () {
-	const topBtn = document.getElementById('top-btn');
 	if (document.documentElement.scrollTop < 61) {
-		topBtn.style.display = 'none';
+		topBtn.classList.remove('show');
 	} else {
-		topBtn.style.display = 'block';
+		topBtn.classList.add('show');
 	}
 };
 
