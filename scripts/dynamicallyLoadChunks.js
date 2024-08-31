@@ -6,8 +6,17 @@ const loadAndReplaceRightArrowIcon = async (selector) => {
 		console.error('Failed to load the right arrow icon', 'selector: ', selector, 'error: ', error);
 	}
 };
+const loadAndReplaceUpwardIcon = async (selector) => {
+	try {
+		const replaceSvg = await loadUpwardIcon;
+		replaceSvg(selector);
+	} catch (error) {
+		console.error('Failed to load the right arrow icon', 'selector: ', selector, 'error: ', error);
+	}
+};
 
 loadAndReplaceRightArrowIcon('.right-arrow-icon-placeholder-home');
+loadAndReplaceUpwardIcon('.upward-icon-placeholder');
 
 intersectionObserver('#about', () => {
 	loadJs('scripts/experienceCalc.js');

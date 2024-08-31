@@ -17,7 +17,7 @@ const getSvg = (() => {
 })();
 
 const loadRightArrowIcon = (async () => {
-    const rightArrowIconText = await getSvg('https://aakashdinkarh.github.io/static_assets/images/portfolio/svgs/right-arrow-icon.svg');
+    const rightArrowIconText = await getSvg('https://aakashdinkarh.github.io/static_assets/images/svgs/right-arrow-icon.svg');
     const svgContainer = document.createElement('div');
     svgContainer.innerHTML = rightArrowIconText;
     const rightArrowIcon = svgContainer.querySelector('svg');
@@ -25,6 +25,20 @@ const loadRightArrowIcon = (async () => {
     return (placeholderSelector) => {
         document.querySelectorAll(placeholderSelector).forEach((placeholderNode) => {
             const cloneIcon = rightArrowIcon.cloneNode(true);
+            placeholderNode.replaceWith(cloneIcon);
+        });
+    };
+})();
+
+const loadUpwardIcon = (async () => {
+    const upwardIconText = await getSvg('https://aakashdinkarh.github.io/static_assets/images/svgs/upward-icon.svg');
+    const svgContainer = document.createElement('div');
+    svgContainer.innerHTML = upwardIconText;
+    const upwardIcon = svgContainer.querySelector('svg');
+
+    return (placeholderSelector) => {
+        document.querySelectorAll(placeholderSelector).forEach((placeholderNode) => {
+            const cloneIcon = upwardIcon.cloneNode(true);
             placeholderNode.replaceWith(cloneIcon);
         });
     };
