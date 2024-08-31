@@ -1,7 +1,7 @@
 (async function() {
 	async function loadEmailjs() {
 		return new Promise(function(resolve, reject) {
-			loadJs('https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js',
+			loadJs('scripts/cdn/email.js',
 				() => {
 					resolve(window.emailjs);
 				},
