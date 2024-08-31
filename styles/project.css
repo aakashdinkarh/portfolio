@@ -36,7 +36,3 @@
 .project-details :not(.sub-heading) a:visited {
 	color: var(--primary-highlight-color);
 }
-
-.project-details a:hover {
-	text-decoration: underline;
-}

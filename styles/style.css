@@ -136,6 +136,33 @@ a:active, a:visited {
 	translate: 8px 18px;
 }
 
+.right-arrow-hover-effect {
+	display: inline-flex;
+	align-items: center;
+}
+
+.right-arrow-hover-effect .right-arrow-icon path {
+	transition: all 0.2s;
+	transition-timing-function: cubic-bezier(.4,0,.2,1);
+
+	&:nth-child(1) {
+		transform: translateX(-8px);
+	}
+	&:nth-child(2) {
+		opacity: 0;
+	}
+}
+.right-arrow-hover-effect:hover {
+	.right-arrow-icon path {
+		&:nth-child(1) {
+			transform: translateX(8px);
+		}
+		&:nth-child(2) {
+			opacity: 1;
+		}
+	}
+}
+
 .sub-heading {
 	display: block;
 	font-weight: bold;
