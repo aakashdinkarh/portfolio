@@ -13,13 +13,13 @@ function easeInOutQuad(t) {
 }
 
 function smoothScroll({
-	container,
+	list,
 	direction = 1,
 	scrollAmount = 0,
 	duration = 500,
 	onScrollComplete = () => {},
 }) {
-	const startPosition = container.scrollLeft;
+	const startPosition = list.scrollLeft;
 	const distance = direction * scrollAmount;
 	const startTime = (typeof performance !== 'undefined' && performance.now) ? performance.now() : Date.now();
 
@@ -28,7 +28,7 @@ function smoothScroll({
 		const progress = Math.min(elapsed / duration, 1); // progress from 0 to 1
 		const ease = easeInOutQuad(progress); // Easing function for smooth transition
 
-		container.scrollLeft = startPosition + distance * ease;
+		list.scrollLeft = startPosition + distance * ease;
 
 		if (progress < 1) {
 			requestAnimationFrame(scrollStep); // Continue the animation until complete
@@ -41,7 +41,7 @@ function smoothScroll({
 }
 
 // Usage example:
-// smoothScroll(container, 'right', 300, 1000, () => alert('done')); // Scroll 300px to the right over 1 second
+// smoothScroll(list, 'right', 300, 1000, () => alert('done')); // Scroll 300px to the right over 1 second
 
 
 function getElementContentWidth(element) {
@@ -69,12 +69,12 @@ const createSlideIndicators = (count) => {
 	});
 };
 
-const appendSlideIndicators = (listSelector, listItemSelector, effectiveWidth, listContainerSelector) => {
-	const container = document.querySelector(listContainerSelector).querySelector(listSelector);
-	const items = container.querySelectorAll(listItemSelector);
+const appendSlideIndicators = (listContainerSelector, listItemSelector, effectiveWidth, imageSlider) => {
+	const listContainer = imageSlider.querySelector(listContainerSelector);
+	const items = listContainer.querySelectorAll(listItemSelector);
 	const numberOfItems = items.length;
 
-	const containerWidth = getElementContentWidth(container);
+	const containerWidth = getElementContentWidth(listContainer);
 	const numberOfItemsVisible = Math.floor(containerWidth / effectiveWidth);
 	const slideIndicators = createSlideIndicators(Math.ceil(numberOfItems / numberOfItemsVisible));
 
@@ -82,18 +82,18 @@ const appendSlideIndicators = (listSelector, listItemSelector, effectiveWidth, l
 	indicatorsContainer.className = 'indicators-container';
 	indicatorsContainer.append(...slideIndicators);
 
-	document.querySelector(listContainerSelector).append(indicatorsContainer);
+	imageSlider.append(indicatorsContainer);
 	return slideIndicators;
 };
 
 
-const addScrollItemsListener = (listSelector, listItemSelector, listContainerSelector) => {
-	const container = document.querySelector(listSelector);
-	const items = container.querySelectorAll(listItemSelector);
+const addScrollItemsListener = (listSelector, listItemSelector, imageSlider) => {
+	const list = imageSlider.querySelector(listSelector);
+	const items = list.querySelectorAll(listItemSelector);
 	const item = items[0];
 
 	const effectiveWidth = item.getBoundingClientRect().width + parseInt(getComputedStyle(item).marginRight);
-	const numberOfItemsVisible = Math.floor(getElementContentWidth(container) / effectiveWidth);
+	const numberOfItemsVisible = Math.floor(getElementContentWidth(list) / effectiveWidth);
 
 	const totalSlides = Math.ceil(items.length / numberOfItemsVisible);
 	let activeSlideIndex = 0;
@@ -102,7 +102,7 @@ const addScrollItemsListener = (listSelector, listItemSelector, listContainerSel
 		'.slider-list-container',
 		listItemSelector,
 		effectiveWidth,
-		listContainerSelector
+		imageSlider
 	);
 	slideIndicators[activeSlideIndex].classList.add('active');
 
@@ -121,7 +121,7 @@ const addScrollItemsListener = (listSelector, listItemSelector, listContainerSel
             smoothScroll({
                 scrollAmount,
                 direction: scrollDirection,
-                container,
+                list,
                 onScrollComplete 
             })
 
@@ -143,5 +143,5 @@ const addScrollItemsListener = (listSelector, listItemSelector, listContainerSel
 	const nextScrollButton = createButton(NEXT_BTN);
 	nextScrollButton.onclick = scrollHandler(NEXT_BTN);
 
-	document.querySelector(listContainerSelector).append(prevScrollButton, nextScrollButton);
+	imageSlider.append(prevScrollButton, nextScrollButton);
 };
