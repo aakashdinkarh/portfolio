@@ -51,11 +51,12 @@
 	.cursor {
 		display: flex;
 		align-items: center;
+		justify-content: center;
+		width: 100%;
 		background-color: var(--color-black);
 		padding: 4px;
 		align-self: center;
 		border-radius: 4px;
-		transform: scale(0.8) translateX(-14.5px);
 	}
 
 	> svg {
