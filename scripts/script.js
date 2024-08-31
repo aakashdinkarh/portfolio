@@ -4,9 +4,9 @@ function go(loc = '', offsetFlag = false) {
 		return;
 	}
 	const elem = document.getElementById(loc);
-  const offset = 20;
+	const offset = 20;
 
-	window.scrollTo(0, window.scrollY + elem.getBoundingClientRect().top - 60.6 - (offsetFlag ? offset : 0));
+	window.scrollTo(0, window.scrollY + elem.getBoundingClientRect().top - 48 - (offsetFlag ? offset : 0));
 }
 
 (function updateCopyright() {
@@ -26,9 +26,9 @@ window.onscroll = function () {
 const hamburgerMenuIcon = document.querySelector('.hamburger-menu-icon');
 const mNavBar = document.querySelector('#mNavBar');
 hamburgerMenuIcon.onclick = () => {
-  mNavBar.classList.add('show');
-}
+	mNavBar.classList.add('show');
+};
 const navbarCloseIcon = document.querySelector('#navbarCloseIcon');
 navbarCloseIcon.onclick = () => {
-  mNavBar.classList.remove('show');
-}
+	mNavBar.classList.remove('show');
+};

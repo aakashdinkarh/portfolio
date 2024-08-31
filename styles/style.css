@@ -1,33 +1,25 @@
 body {
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-family: Optimistic Text,-apple-system,ui-sans-serif,system-ui,sans-serif;
 	margin: 0;
-	background-color: var(--body-bg-color);
+	background-color: var(--primary-bg-color-transparent);
 
-	--primary-bg-color: #021526;
-	--primary-bg-color-transparent: #021627bf;
+	--primary-bg: 22 24 29;
+	--primary-bg-color: rgb(var(--primary-bg));
+	--primary-bg-color-transparent: rgba(var(--primary-bg) / 0.75);
 
-	--primary-color: #0198d2;
-	--primary-color-transparent: #0197d280;
-	--secondary-color: #ffa300;
+	--primary-text: 234 235 239;
+	--primary-text-color: rgb(var(--primary-text));
+	--secondary-text: 235 236 240;
+	--secondary-text-color: rgb(var(--secondary-text));
 
-	--color-white: #fff;
+	--primary-highlight: 232 100 19;
+	--primary-highlight-color: rgb(var(--primary-highlight));
+
+	--border-highlight-color: rgb(57 57 57);
+
 	--color-black: #000;
 	--color-transparent: #0000;
-	--color-home-text: #00d8ff;
 	--color-react-hook-form: #ec5990;
-
-	--body-bg-color: #a2d1ff;
-
-	/* --primary-background: #1E1E2E;
-	--secondary-background: #282A36;
-	--primary-text: #fff;
-	--secondary-text: #A6ACCD;
-	--accent-color: #BB86FC;
-	--highlight-link-color: #8BE9FD;
-	--button-background: #44475A;
-	--button-hover: #6272A4;
-	--success-positive: #50FA7B;
-	--error-warning: #FF5555; */
 }
 html {
 	scroll-behavior: smooth;
@@ -48,19 +40,16 @@ picture > img {
 	max-width: 320px;
 
 	.card {
-		padding: 2px;
+		box-shadow: none;
 	}
 }
 
-section:not(.home) .text-content {
-	color: var(--color-white);
+section .text-content {
+	color: var(--secondary-text-color);
 	text-align: justify;
 
-	h2,
-	h3,
-	h4 {
-		font-family: 'Sofia', Verdana, Geneva, Tahoma, sans-serif;
-		color: var(--secondary-color);
+	h2 {
+		color: var(--primary-text-color);
 	}
 }
 
@@ -68,8 +57,7 @@ section:not(.home) .text-content {
 .card {
 	margin: 20px auto;
 	border-radius: 4px;
-	background-color: rgb(218, 254, 253);
-	box-shadow: 0px 0px 10px rgb(99, 99, 99);
+	box-shadow: 0px 0px 10px var(--color-black);
 	width: 95%;
 	transition: all 0.5s;
 
@@ -101,8 +89,9 @@ section:not(.home) .text-content {
 	border: none;
 	border-radius: 4px;
 	font-size: medium;
-	color: var(--color-white);
-	background: linear-gradient(45deg, var(--primary-color) 50%, var(--secondary-color) 50%);
+	color: var(--primary-text-color);
+	background: var(--primary-highlight-color);
+	/* background: linear-gradient(45deg, var(--primary-highlight-color) 50%, var(--secondary-color) 50%); */
 	background-size: 300%;
 	transition: all 0.5s;
 
@@ -114,10 +103,10 @@ section:not(.home) .text-content {
 }
 a {
 	text-decoration: none;
-	color: var(--color-white);
+	color: var(--primary-text-color);
 }
 a:active, a:visited {
-	color: var(--color-white);
+	color: var(--primary-text-color);
 }
 
 #top-btn {
@@ -125,7 +114,7 @@ a:active, a:visited {
 	bottom: 10px;
 	right: 10px;
 	display: none;
-	background-color: var(--secondary-color);
+	background-color: var(--primary-highlight-color);
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;

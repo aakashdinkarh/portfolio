@@ -20,7 +20,7 @@
 	max-width: 1024px;
 	flex-shrink: 0;
 	background-color: unset;
-	box-shadow: inset 0px 0px 6px 0px var(--primary-color);
+	box-shadow: inset 0px 0px 6px 0px var(--primary-bg-color-transparent);
 }
 .project-image.card:not(:last-of-type) {
 	margin-right: 20px;
@@ -34,7 +34,7 @@
 .project-details :not(.sub-heading) a,
 .project-details :not(.sub-heading) a:active,
 .project-details :not(.sub-heading) a:visited {
-	color: var(--primary-color);
+	color: var(--primary-highlight-color);
 }
 
 .project-details a:hover {

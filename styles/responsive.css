@@ -64,10 +64,6 @@
 	.home .content .text-content {
 		font-size: unset;
 	}
-	
-	.home .content .text-content .know-more-about-me::before {
-		transform: translate(50%, -50%);
-	}
 }
 
 /* for mobile or tablet --- about --- */

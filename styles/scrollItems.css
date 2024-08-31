@@ -36,7 +36,7 @@
 
 .prev-btn:hover,
 .next-btn:hover {
-    background-color: var(--primary-color);
+    background-color: var(--primary-bg-color);
 }
 
 .indicators-container {
@@ -44,14 +44,14 @@
 
     .slide-indicator {
         display: inline-block;
-        background-color: var(--primary-color-transparent);
+        background-color: var(--primary-bg-color-transparent);
         width: 50px;
         height: 4px;
         border-radius: 4px;
     }
 
     .slide-indicator.active {
-        background-color: var(--primary-color);
+        background-color: var(--primary-bg-color);
     }
 
     .slide-indicator:not(:last-of-type) {

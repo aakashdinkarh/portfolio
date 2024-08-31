@@ -31,7 +31,7 @@
 	display: flex;
 	font-size: large;
 	border-radius: 4px;
-	transition: all 0.3s;
+	border: 1px solid var(--color-transparent);
 }
 .m-nav .nav-links a {
 	padding: 20px;
@@ -42,13 +42,13 @@
 }
 
 .nav .nav-links:hover {
-	background-color: var(--primary-color);
+	border-color: var(--border-highlight-color);
 }
 
 /* animated logo */
 #logo {
 	font-size: xx-large;
-	background-color: var(--primary-color);
+	background-color: var(--primary-highlight-color);
 	padding: 5px;
 	cursor: pointer;
 	margin-left: 10px;
@@ -86,14 +86,14 @@
 	width: 30px;
 	height: 3px;
 	border-radius: 4px;
-	background-color: var(--color-white);
+	background-color: var(--primary-text-color);
 }
 .hamburger-menu-icon .hamburger-icon-bar:not(:last-of-type) {
 	margin-bottom: 6px;
 }
 
 .navbar-close-icon {
-	color: var(--color-white);
-	height: 60.5px;
+	color: var(--primary-text-color);
+	height: 48px;
 	font-size: 3rem;
 }

@@ -6,82 +6,27 @@
 	background-size: cover;
 	background-position: center;
 	position: relative;
-	height: calc(100vh - 60px);
+	height: calc(100vh - 48px);
 }
 
 .home .content {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	width: 100%;
 	height: 100%;
 
 	.text-content {
 		text-align: center;
 		font-size: xx-large;
-		font-family: 'Sofia', Verdana, Geneva, Tahoma, sans-serif;
-		color: var(--color-home-text);
-		text-shadow: 0 0 10px black;
-
-		h2 {
-			display: inline-block;
-
-			span {
-				animation-name: heading;
-				animation-duration: 3s;
-				animation-iteration-count: infinite;
-				animation-timing-function: linear;
-			}
-
-			&:hover span {
-				animation-play-state: paused;
-			}
-		}
+		text-shadow: 0 0 10px var(--primary-bg-color-transparent);
 
 		.know-more-about-me {
-			font-family: unset;
-			display: block;
-			margin: auto;
 			background-color: transparent;
 			cursor: pointer;
 			border: none;
-			color: var(--color-white);
-			font-size: 1rem;
+			color: var(--primary-text-color);
+			font-size: 1.5rem;
 			transition: all 0.5s;
-			position: relative;
-			overflow: hidden;
-
-			&::before {
-				content: '';
-				position: absolute;
-				top: calc(100% - 1px);
-				width: 50%;
-				height: 2px;
-				border-radius: 100%;
-				background: var(--primary-color);
-				box-shadow: 0 0 4px 2px var(--primary-color);
-				transition: all 0.5s ease;
-				transform: translate(-120%, -50%);
-			}
-			
-			&:hover&::before {
-				transform: translate(50%, -50%);
-			}
 		}
-	}
-}
-
-@keyframes heading {
-	0% {
-		color: violet;
-	}
-	33% {
-		color: rgb(255, 255, 0);
-	}
-	66% {
-		color: rgb(0, 255, 238);
-	}
-	100% {
-		color: violet;
 	}
 }

@@ -17,14 +17,14 @@
 	flex-shrink: 0;
 	text-align: center;
 	background-color: unset;
-	box-shadow: inset 0px 0px 6px 0px var(--primary-color);
+	box-shadow: inset 0px 0px 6px 0px var(--primary-bg-color-transparent);
 }
 .skill.card:not(:last-of-type) {
 	margin-right: 20px;
 }
 
 .skill.card:hover {
-	box-shadow: inset 0px 0px 6px 3px var(--primary-color);
+	box-shadow: inset 0px 0px 6px 3px var(--primary-bg-color);
 	cursor: pointer;
 }
 
