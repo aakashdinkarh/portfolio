@@ -20,6 +20,7 @@ body {
 	--color-black: #000;
 	--color-transparent: #0000;
 	--color-react-hook-form: #ec5990;
+	--color-form-overlay: rgb(100 100 100 / 20%);
 }
 html {
 	scroll-behavior: smooth;

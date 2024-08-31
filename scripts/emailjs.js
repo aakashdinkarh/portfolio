@@ -17,14 +17,33 @@
 
         emailjs.init({ publicKey: "ql5OHlL_FT89AsFH6" });
 
-		document.querySelector('form').addEventListener('submit', function(event) {
+		const form = document.querySelector('form');
+
+		form.addEventListener('submit', function(event) {
 			event.preventDefault();
+
+			const submitButton = document.querySelector('form button');
+			const buttonTextElement = submitButton.querySelector('span');
+			
+			form.classList.add('loading');
+			submitButton.disabled = true;
+
+			const emailCallback = (success = true) => {
+				form.classList.remove('loading');
+				buttonTextElement.innerText = success ? 'Sent ✅' : 'Failed ❌';
+				setTimeout(() => {
+					buttonTextElement.innerText = 'Send Me';
+					submitButton.disabled = false;
+				}, 2000);
+			}
 	
 			emailjs.sendForm('portfolio_service', 'portfolio_contact_form', this)
 				.then(() => {
-					console.log('SUCCESS!');
+					emailCallback(true);
+					form.reset();
 				}, (error) => {
-					console.log('FAILED...', error);
+					emailCallback(false);
+					console.error('FAILED...', error);
 				});
 		});
     } catch (err) {

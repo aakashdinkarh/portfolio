@@ -817,11 +817,14 @@
 
 				<div class="profile">
 					<form onsubmit="return false;">
+						<div class="overlay form-overlay"></div>
 						<input type="text" placeholder="Your Name" name="user_name" required />
 						<input type="email" placeholder="Your Email" name="user_email" required />
 						<textarea placeholder="Your Feedback/Message/Query" cols="30" rows="5" name="user_message" required></textarea>
 						<div class="m-justify-center">
-							<button class="styled-btn" type="submit">Send Me</button>
+							<button class="styled-btn" type="submit">
+								<span class="button-text">Send Me</span>
+							</button>
 						</div>
 					</form>
 				</div>

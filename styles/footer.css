@@ -31,6 +31,16 @@
 		background-color: var(--primary-bg-color-transparent);
 		padding: 20px;
 		border-radius: 8px;
+		position: relative;
+		overflow: hidden;
+
+		.form-overlay {
+			top: 0px;
+			left: 0px;
+			background-color: var(--color-form-overlay);
+			z-index: 1;
+			display: none;
+		}
 	}
 
 	.profile input,
@@ -50,6 +60,43 @@
 	.profile textarea:focus {
 		border-color: var(--border-highlight-color);
 		outline: none;
+	}
+
+	.profile form.loading {
+		.form-overlay {
+			display: unset;
+		}
+		
+		button {
+			position: relative;
+			
+			&::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 16px;
+				height: 16px;
+				margin-top: -10px;
+				margin-left: -8px;
+				border: 2px solid var(--primary-text-color);
+				border-radius: 50%;
+				border-top-color: transparent;
+				animation: spin 2s linear infinite;
+			}
+			.button-text {
+				visibility: hidden;
+			}
+		}
+	}
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(359deg);
 	}
 }
 
