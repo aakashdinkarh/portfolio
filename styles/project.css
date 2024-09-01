@@ -22,6 +22,9 @@
 	background-color: unset;
 	box-shadow: inset 0px 0px 6px 0px var(--primary-bg-color-transparent);
 }
+.window-props-plus .project-image.card {
+	width: 57.144%;
+}
 .project-image.card:not(:last-of-type) {
 	margin-right: 20px;
 }
