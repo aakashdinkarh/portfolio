@@ -13,7 +13,7 @@
 	margin: 0;
 	padding: 0;
 	width: 13vw;
-	max-width: 500px;
+	max-width: 120px;
 	flex-shrink: 0;
 	text-align: center;
 	background-color: unset;
@@ -57,7 +57,7 @@
 		padding: 4px;
 		align-self: center;
 		border-radius: 4px;
-		margin-top: 4vw;
+		margin-top: min(4vw, 30px);
 	}
 
 	> svg {
