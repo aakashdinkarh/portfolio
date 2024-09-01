@@ -123,12 +123,12 @@
 
 /* for mobile or tablet --- project --- */
 @media only screen and (max-width: 700px) {
-	.content .project-image.card {
+	.project-details:not(.other-projects) .project-image.card {
 		width: 95%;
 		font-size: small;
 	}
 
-	.content .project-image.card:not(:last-of-type) {
+	.project-image.card:not(:last-of-type) {
 		margin-right: 10px;
 	}
 }

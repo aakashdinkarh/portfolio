@@ -95,6 +95,10 @@ const addScrollItemsListener = (listSelector, listItemSelector, imageSlider) => 
 	const effectiveWidth = item.getBoundingClientRect().width + parseInt(getComputedStyle(item).marginRight);
 	const numberOfItemsVisible = Math.floor(getElementContentWidth(list) / effectiveWidth);
 
+	if (numberOfItemsVisible >= items.length) {
+		return;
+	}
+
 	const totalSlides = Math.ceil(items.length / numberOfItemsVisible);
 	let activeSlideIndex = 0;
 
