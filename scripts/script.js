@@ -25,10 +25,14 @@ window.onscroll = function () {
 
 const hamburgerMenuIcon = document.querySelector('.hamburger-menu-icon');
 const mNavBar = document.querySelector('#mNavBar');
+const mNavBarOverlay = document.querySelector('.m-nav-bar-overlay');
 hamburgerMenuIcon.onclick = () => {
 	mNavBar.classList.add('show');
+	mNavBarOverlay.classList.add('show');
 };
+
 const navbarCloseIcon = document.querySelector('#navbarCloseIcon');
-navbarCloseIcon.onclick = () => {
+navbarCloseIcon.onclick = mNavBarOverlay.onclick = () => {
 	mNavBar.classList.remove('show');
+	mNavBarOverlay.classList.remove('show');
 };
