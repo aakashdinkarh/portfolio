@@ -35,6 +35,10 @@
 	max-width: 250px;
 }
 
+.other-projects .other-projects-link {
+	padding-left: 0;
+}
+
 .project-details :not(.sub-heading) a,
 .project-details :not(.sub-heading) a:active,
 .project-details :not(.sub-heading) a:visited {
