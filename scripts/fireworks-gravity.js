@@ -135,8 +135,20 @@ const getFirework = (canvas) => {
 const homeCanvas = document.querySelector('canvas#fireworksHome');
 const createHomeFirework = getFirework(homeCanvas);
 
-document.querySelector('section#home').addEventListener('click', () => {
-	setTimeout(createHomeFirework, 0);
-	setTimeout(createHomeFirework, 100);
-	setTimeout(createHomeFirework, 200);
-});
+const homeClickEventListener = (() => {
+	let shouldTrigger = true;
+	return () => {
+		if (shouldTrigger) {
+			setTimeout(createHomeFirework, 0);
+			setTimeout(createHomeFirework, 100);
+			setTimeout(createHomeFirework, 200);
+			shouldTrigger = false;
+
+			setTimeout(() => {
+				shouldTrigger = true;
+			}, 1000)
+		}
+	}
+})();
+
+document.querySelector('section#home').addEventListener('click', homeClickEventListener);
