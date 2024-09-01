@@ -58,19 +58,19 @@
 }
 @keyframes logoAnim {
 	0% {
-		border-radius: 30px 0 0 0;
+		border-radius: 30px 4px 4px 4px;
 	}
 	25% {
-		border-radius: 0 30px 0 0;
+		border-radius: 4px 30px 4px 4px;
 	}
 	50% {
-		border-radius: 0 0 30px 0;
+		border-radius: 4px 4px 30px 4px;
 	}
 	75% {
-		border-radius: 0 0 0 30px;
+		border-radius: 4px 4px 4px 30px;
 	}
 	100% {
-		border-radius: 30px 0 0 0;
+		border-radius: 30px 4px 4px 4px;
 	}
 }
 

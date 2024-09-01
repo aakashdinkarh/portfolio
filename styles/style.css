@@ -10,7 +10,7 @@
 	--secondary-text: 235 236 240;
 	--secondary-text-color: rgb(var(--secondary-text));
 
-	--primary-highlight: 232 100 19;
+	--primary-highlight: 246 139 33;
 	--primary-highlight-color: rgb(var(--primary-highlight));
 
 	--border-highlight-color: rgb(57 57 57);
@@ -104,6 +104,13 @@ section .text-content {
 		transform: scale(1.1) rotate(3deg);
 		box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
 	}
+}
+.color-black, a.color-black {
+	text-decoration: none;
+	color: var(--primary-bg-color);
+}
+a.color-black:active, a.color-black:visited {
+	color: var(--primary-bg-color);
 }
 a {
 	text-decoration: none;
