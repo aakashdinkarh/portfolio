@@ -97,3 +97,16 @@
 	height: 48px;
 	font-size: 3rem;
 }
+
+.m-nav-bar-overlay {
+	display: none;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+}
+
+.m-nav-bar-overlay.show {
+	display: unset;
+}
