@@ -1,0 +1,32 @@
+/* top content of page */
+.home {
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/portfolio.jpeg');
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/portfolio.webp');
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/portfolio.avif');
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	height: calc(100vh - 48px);
+}
+
+.home .content {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	height: 100%;
+
+	.text-content {
+		text-align: center;
+		font-size: xx-large;
+		text-shadow: 0 0 10px var(--primary-bg-color-transparent);
+
+		.know-more-about-me {
+			background-color: transparent;
+			cursor: pointer;
+			border: none;
+			color: var(--primary-text-color);
+			font-size: 1.5rem;
+			transition: all 0.5s;
+		}
+	}
+}

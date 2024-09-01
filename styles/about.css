@@ -1,0 +1,23 @@
+/* About Section Styles */
+.about {
+	background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/about.jpeg");
+	background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/about.webp");
+	background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/about.avif");
+	background-size: cover;
+	position: relative;
+	overflow: hidden;
+}
+
+.about.card {
+	padding: 0;
+}
+
+.about .content {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	
+	.text-content {
+		max-width: 500px;
+	}
+}

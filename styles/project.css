@@ -1,0 +1,42 @@
+/* project  */
+.projects {
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/projects.jpeg');
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/projects.webp');
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/projects.avif');
+	background-size: contain;
+	background-position: bottom;
+	background-repeat: repeat-y;
+	position: relative;
+	overflow: hidden;
+}
+.projects.card {
+	padding: 0;
+}
+
+.project-image.card {
+	margin: 0;
+	padding: 10px;
+	width: 90%;
+	max-width: 1024px;
+	flex-shrink: 0;
+	background-color: unset;
+	box-shadow: inset 0px 0px 6px 0px var(--primary-bg-color-transparent);
+}
+.window-props-plus .project-image.card {
+	width: 57.144%;
+}
+.project-image.card:not(:last-of-type) {
+	margin-right: 20px;
+}
+
+.other-projects .project-image.card {
+	width: 22vw;
+	min-width: 200px;
+	max-width: 250px;
+}
+
+.project-details :not(.sub-heading) a,
+.project-details :not(.sub-heading) a:active,
+.project-details :not(.sub-heading) a:visited {
+	color: var(--primary-highlight-color);
+}

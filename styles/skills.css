@@ -1,0 +1,66 @@
+/* skills */
+.skills {
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/skills.jpeg');
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/skills.webp');
+	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/skills.avif');
+	background-position: center;
+	background-size: cover;
+	position: relative;
+	overflow: hidden;
+}
+
+.skill.card {
+	margin: 0;
+	padding: 0;
+	width: 13vw;
+	max-width: 120px;
+	flex-shrink: 0;
+	text-align: center;
+	background-color: unset;
+	box-shadow: inset 0px 0px 6px 0px var(--primary-bg-color-transparent);
+}
+.skill.card:not(:last-of-type) {
+	margin-right: 20px;
+}
+
+.skill.card:hover {
+	box-shadow: inset 0px 0px 6px 3px var(--primary-bg-color);
+	cursor: pointer;
+}
+
+.skill.link {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 10px;
+	height: 100%;
+}
+
+.skill-icon {
+	display: flex;
+    width: 100%;
+	flex-shrink: 0;
+    fill: currentColor;
+	margin-bottom: 6px;
+
+	&.react-hook-form {
+		background-color: var(--color-react-hook-form);
+		border-radius: 6px;
+	}
+
+	.cursor {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		background-color: var(--color-black);
+		padding: 4px;
+		align-self: center;
+		border-radius: 4px;
+		margin-top: min(4vw, 30px);
+	}
+
+	> svg {
+		width: 100%;
+	}
+}

@@ -1,0 +1,131 @@
+/* Bottom section of page */
+.footer {
+	background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/about.jpeg");
+	background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/about.webp");
+	background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/about.avif");
+	background-size: cover;
+	position: relative;
+	overflow: hidden;
+}
+
+.footer.card {
+	padding: 0;
+}
+
+.footer .content {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	
+	.text-content {
+		max-width: 500px;
+	}
+}
+
+.footer .content .profile {
+	margin: 20px auto;
+}
+
+.footer .content {
+	.profile form {
+		background-color: var(--primary-bg-color-transparent);
+		padding: 20px;
+		border-radius: 8px;
+		position: relative;
+		overflow: hidden;
+
+		.form-overlay {
+			top: 0px;
+			left: 0px;
+			background-color: var(--color-form-overlay);
+			z-index: 1;
+			display: none;
+		}
+	}
+
+	.profile input,
+	.profile textarea {
+		width: 100%;
+		padding: 10px;
+		margin: 10px 0;
+		border-radius: 4px;
+		font-size: 16px;
+		border: 1px solid var(--color-transparent);
+		background-color: inherit;
+		color: var(--secondary-text-color);
+		resize: none;
+	}
+
+	.profile input:focus,
+	.profile textarea:focus {
+		border-color: var(--border-highlight-color);
+		outline: none;
+	}
+
+	.profile form.loading {
+		.form-overlay {
+			display: unset;
+		}
+		
+		button {
+			position: relative;
+			
+			&::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 16px;
+				height: 16px;
+				margin-top: -10px;
+				margin-left: -8px;
+				border: 2px solid var(--primary-text-color);
+				border-radius: 50%;
+				border-top-color: transparent;
+				animation: spin 2s linear infinite;
+			}
+			.button-text {
+				visibility: hidden;
+			}
+		}
+	}
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(359deg);
+	}
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.contact-item a {
+	display: flex;
+	align-items: center;
+}
+
+.contact-item svg {
+	width: 20px;
+    margin-right: 10px;
+	fill: var(--primary-text-color);
+}
+
+.contact-item .linkedin-profile-url svg {
+	border-radius: 30%;
+	border: 1px solid var(--primary-text-color);
+}

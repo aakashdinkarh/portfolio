@@ -1,0 +1,144 @@
+/* for mobile or tablet --- common --- */
+@media only screen and (max-width: 700px) {
+	/* utils */
+	.m-flex-col {
+		display: flex;
+		flex-direction: column;
+	}
+	.m-justify-center {
+		display: flex;
+		justify-content: center;
+	}
+	.m-full-width {
+		width: 100%;
+	}
+
+	/* common */
+	.styled-btn {
+		margin: auto;
+	}
+
+	/* slider */
+	.content .prev-btn, .content .next-btn {
+		padding: 10px 6px;
+		margin-top: -35px;
+		font-size: unset;
+	}
+	.content .slider-list-container {
+		padding: 0 30px;
+	}
+	.content .indicators-container .slide-indicator {
+		width: 20px;
+	}
+}
+
+/* for mobile or tablet --- navbar --- */
+@media only screen and (max-width: 700px) {
+	.m-nav {
+		display: block;
+	}
+	.d-nav {
+		display: none;
+	}
+	.m-nav-bar {
+		display: flex;
+		position: fixed;
+		left: 0;
+		top: 0;
+		transform: translateX(-80vw);
+		width: 80vw;
+		height: 100vh;
+		transition: transform 0.2s;
+		background-color: var(--primary-bg-color);
+	}
+	.m-nav-bar.show {
+		transform: translateX(0);
+	}
+}
+
+/* for mobile or tablet --- home --- */
+@media only screen and (max-width: 700px) {
+	.home .content {
+		flex-direction: column;
+	}
+	.home .content .text-content {
+		font-size: unset;
+	}
+}
+
+/* for mobile or tablet --- about --- */
+@media only screen and (max-width: 700px) {
+	.about .content {
+		flex-direction: column-reverse;
+	}
+}
+
+/* for mobile or tablet --- skills --- */
+@media only screen and (max-width: 1024px) {
+	.cursor > video {
+		width: 30%;
+	}
+	.cursor {
+		font-size: small;
+	}
+}
+
+@media only screen and (max-width: 868px) {
+	.cursor > video {
+		width: 20%;
+	}
+	.skill-icon .cursor {
+		font-size: small;
+		padding: 10px 4px;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.content .skill.card {
+		width: 23vw;
+		font-size: small;
+	}
+	.content .skill.card:not(:last-of-type) {
+		margin-right: 10px;
+	}
+	.cursor > video {
+		width: 28px;
+	}
+	.skill-icon .cursor {
+		font-size: medium;
+	}
+}
+
+@media only screen and (max-width: 492px) {
+	.skill.card .cursor {
+		margin-top: 0;
+	}
+	.cursor > video {
+		width: 100%;
+	}
+	.cursor-skill-text {
+		display: none;
+	}
+}
+
+/* for mobile or tablet --- project --- */
+@media only screen and (max-width: 700px) {
+	.project-details:not(.other-projects) .project-image.card {
+		width: 95%;
+		font-size: small;
+	}
+
+	.project-image.card:not(:last-of-type) {
+		margin-right: 10px;
+	}
+}
+
+/* for mobile or tablet --- footer --- */
+@media only screen and (max-width: 700px) {
+	.footer .content {
+		flex-direction: column;
+	}
+	.copyright {
+		text-align: center;
+	}
+}

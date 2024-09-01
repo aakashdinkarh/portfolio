@@ -1,45 +1,34 @@
-function go(loc = "") {
-  if (loc === "") {
-    window.scrollTo(0, 0);
-    return;
-  }
-  let elem = document.getElementById(loc);
-  window.scrollTo(
-    0,
-    window.pageYOffset + elem.getBoundingClientRect().top - 60.6
-  );
+function go(loc = '', offsetFlag = false) {
+	if (loc === '') {
+		window.scrollTo(0, 0);
+		return;
+	}
+	const elem = document.getElementById(loc);
+	const offset = 20;
+
+	window.scrollTo(0, window.scrollY + elem.getBoundingClientRect().top - 48 - (offsetFlag ? offset : 0));
 }
 
-function show_hide(a) {
-  let element = document.getElementById(a);
-  if (this.innerText === "Show more") {
-    $(element).show(500);
-    this.innerHTML = "Show less";
-  } else {
-    $(element).hide(500);
-    this.innerHTML = "Show more";
-  }
-}
+(function updateCopyright() {
+	const copyrightElement = document.getElementsByClassName('copyright')[0];
+	copyrightElement.children[1].innerText = `| ${new Date().getFullYear()}`;
+})();
 
-(function updateCopyright(){
-  const copyrightElement = document.getElementsByClassName('copyright')[0];
-  copyrightElement.children[1].innerText = `| ${(new Date()).getFullYear()}`
-})()
-
+const topBtn = document.getElementById('top-btn');
 window.onscroll = function () {
-  let topbtn = document.getElementById("top-btn");
-  if (document.documentElement.scrollTop < 71) {
-    topbtn.style.display = "none";
-  } else {
-    topbtn.style.display = "block";
-  }
+	if (document.documentElement.scrollTop < 61) {
+		topBtn.classList.remove('show');
+	} else {
+		topBtn.classList.add('show');
+	}
 };
 
-function barMenuClick() {
-  let navbar = document.querySelector(".nav .links");
-  navbar.style.width = "200px";
-}
-function closeMenuClick() {
-  let navbar = document.querySelector(".nav .links");
-  navbar.style.width = "0";
-}
+const hamburgerMenuIcon = document.querySelector('.hamburger-menu-icon');
+const mNavBar = document.querySelector('#mNavBar');
+hamburgerMenuIcon.onclick = () => {
+	mNavBar.classList.add('show');
+};
+const navbarCloseIcon = document.querySelector('#navbarCloseIcon');
+navbarCloseIcon.onclick = () => {
+	mNavBar.classList.remove('show');
+};

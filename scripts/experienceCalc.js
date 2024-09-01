@@ -33,13 +33,16 @@ function getDifferenceText(joiningDate, today) {
 		months += 12;
 	}
 
-	let result = `${years}y ${months}m ${days}d | ${hours}h : ${minutes}m : ${seconds}s`;
+	// const result = `${years}y ${months}m ${days}d | ${hours}h : ${minutes}m : ${seconds}s`;
+	const result = `${years}y ${months}m ${days}d`;
 
 	return result.trim();
 }
 
 function updateExperienceTime(experienceTimeElement) {
     const joiningDate = new Date('11 July 2022');
+	experienceTimeElement.innerText = getDifferenceText(joiningDate, new Date());
+
 	setInterval(() => {
         experienceTimeElement.innerText = getDifferenceText(joiningDate, new Date());
 	}, 1000);
