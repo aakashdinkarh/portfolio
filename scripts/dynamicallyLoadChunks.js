@@ -46,3 +46,11 @@ intersectionObserver('#contact', () => {
 	const footerCanvas = document.querySelector('canvas#fireworksFooter');
 	createFooterFirework = getFirework(footerCanvas);
 });
+
+if (IS_MOBILE) {
+	intersectionObserver('.cursor-card', () => {
+		playCursorVideo();
+	}, {
+		keepObserver: true
+	});
+}

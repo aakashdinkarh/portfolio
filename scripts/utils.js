@@ -1,14 +1,18 @@
 // Load the content when content is about to be visible or visible
 
-const intersectionObserver = (elementSelector, callback) => {
+const intersectionObserver = (elementSelector, callback, options = {}) => {
     const element = document.querySelector(elementSelector);
+
+    const { keepObserver = false } = options;
 
     if (!element || !callback) return;
 
     const observerCallback = (entries) => {
         if (entries[0].isIntersecting) {
             callback();
-            observer.disconnect(); // Stop observing after callback is happened
+            if (!keepObserver) {
+                observer.disconnect(); // Stop observing after callback is happened
+            }
         }
     };
 

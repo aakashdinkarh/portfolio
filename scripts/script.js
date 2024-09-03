@@ -1,3 +1,12 @@
+const IS_MOBILE = (() => {
+	const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+	try {
+		return regex.test(navigator.userAgent);
+	} catch {
+		return false;
+	}
+})();
+
 function go(loc = '', offsetFlag = false) {
 	if (loc === '') {
 		window.scrollTo(0, 0);

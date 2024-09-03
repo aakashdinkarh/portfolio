@@ -24,3 +24,8 @@ video.addEventListener('ended', () => {
 		video.play(); // Play again if still hovering
 	}
 });
+
+const playCursorVideo = () => {
+	video.currentTime = 0;
+	video.play();
+}
