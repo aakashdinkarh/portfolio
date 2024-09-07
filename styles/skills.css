@@ -48,18 +48,6 @@
 		border-radius: 6px;
 	}
 
-	.cursor {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		background-color: var(--color-black);
-		padding: 4px;
-		align-self: center;
-		border-radius: 4px;
-		margin-top: min(4vw, 30px);
-	}
-
 	> svg {
 		width: 100%;
 	}
