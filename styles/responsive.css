@@ -74,25 +74,6 @@
 }
 
 /* for mobile or tablet --- skills --- */
-@media only screen and (max-width: 1024px) {
-	.cursor > video {
-		width: 30%;
-	}
-	.cursor {
-		font-size: small;
-	}
-}
-
-@media only screen and (max-width: 868px) {
-	.cursor > video {
-		width: 20%;
-	}
-	.skill-icon .cursor {
-		font-size: small;
-		padding: 10px 4px;
-	}
-}
-
 @media only screen and (max-width: 700px) {
 	.content .skill.card {
 		width: 23vw;
@@ -100,24 +81,6 @@
 	}
 	.content .skill.card:not(:last-of-type) {
 		margin-right: 10px;
-	}
-	.cursor > video {
-		width: 28px;
-	}
-	.skill-icon .cursor {
-		font-size: medium;
-	}
-}
-
-@media only screen and (max-width: 492px) {
-	.skill.card .cursor {
-		margin-top: 0;
-	}
-	.cursor > video {
-		width: 100%;
-	}
-	.cursor-skill-text {
-		display: none;
 	}
 }
 
