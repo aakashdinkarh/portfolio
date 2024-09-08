@@ -6,6 +6,8 @@ function getDifferenceText(joiningDate, today) {
 	let minutes = today.getMinutes() - joiningDate.getMinutes();
 	let seconds = today.getSeconds() - joiningDate.getSeconds();
 
+	console.log('first')
+
 	if (seconds < 0) {
 		minutes--;
 		seconds += 60;
@@ -41,11 +43,19 @@ function getDifferenceText(joiningDate, today) {
 
 function updateExperienceTime(experienceTimeElement) {
     const joiningDate = new Date('11 July 2022');
-	experienceTimeElement.innerText = getDifferenceText(joiningDate, new Date());
+	const today = new Date();
+	
+	experienceTimeElement.innerText = getDifferenceText(joiningDate, today);
 
-	setInterval(() => {
-        experienceTimeElement.innerText = getDifferenceText(joiningDate, new Date());
-	}, 1000);
+	const tomorrow = new Date();
+	tomorrow.setDate(tomorrow.getDate() + 1);
+	tomorrow.setHours(0,0,0,0);
+
+	const diff = tomorrow - today;
+
+	setTimeout(() => {
+        experienceTimeElement.innerText = getDifferenceText(joiningDate, tomorrow);
+	}, diff);
 }
 
 updateExperienceTime(document.getElementById('exp-time-calc'));
