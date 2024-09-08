@@ -119,13 +119,12 @@
 	align-items: center;
 }
 
-.contact-item svg {
+.contact-item img {
 	width: 20px;
     margin-right: 10px;
-	fill: var(--primary-text-color);
 }
 
-.contact-item .linkedin-profile-url svg {
+.contact-item .linkedin-profile-url img {
 	border-radius: 30%;
 	border: 1px solid var(--primary-text-color);
 }
