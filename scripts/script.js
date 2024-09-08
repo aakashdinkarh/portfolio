@@ -7,12 +7,23 @@ const IS_MOBILE = (() => {
 	}
 })();
 
-function go(loc = '', offsetFlag = false) {
-	if (loc === '') {
+document.querySelectorAll('.nav-links a').forEach((anchor) => {
+	anchor.addEventListener('click', function(event) {
+		event.preventDefault();
+		window.location.hash = anchor.hash;
+		const offsetFlag = anchor.dataset.scrollOffset;
+
+		if (offsetFlag) go(anchor.hash, true);
+		else go(anchor.hash);
+	})
+});
+
+function go(selector = '', offsetFlag = false) {
+	if (selector === '') {
 		window.scrollTo(0, 0);
 		return;
 	}
-	const elem = document.getElementById(loc);
+	const elem = document.querySelector(selector);
 	const offset = 20;
 
 	window.scrollTo(0, window.scrollY + elem.getBoundingClientRect().top - 48 - (offsetFlag ? offset : 0));

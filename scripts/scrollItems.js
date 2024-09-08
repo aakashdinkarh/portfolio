@@ -1,13 +1,3 @@
-// function scrollItems(direction, container, listItemSelector, behavior = 'smooth') {
-//     const items = container.querySelectorAll(listItemSelector);
-//     const itemWidth = items[0].offsetWidth; // Width of one item
-
-//     // Scroll the list by the width of one item
-//     container.scrollBy({
-//         left: direction * itemWidth,
-//         // behavior,
-//     });
-// }
 function easeInOutQuad(t) {
     return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 }
@@ -39,10 +29,6 @@ function smoothScroll({
 
 	requestAnimationFrame(scrollStep);
 }
-
-// Usage example:
-// smoothScroll(list, 'right', 300, 1000, () => alert('done')); // Scroll 300px to the right over 1 second
-
 
 function getElementContentWidth(element) {
 	const { width } = element.getBoundingClientRect();
