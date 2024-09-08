@@ -52,7 +52,7 @@ section .text-content {
 	color: var(--secondary-text-color);
 	text-align: justify;
 
-	h2 {
+	h2, h1 {
 		color: var(--primary-text-color);
 	}
 }

@@ -56,3 +56,15 @@ navbarCloseIcon.onclick = mNavBarOverlay.onclick = () => {
 	mNavBar.classList.remove('show');
 	mNavBarOverlay.classList.remove('show');
 };
+
+window.onload = () => {
+	const hash = window.location.hash;
+	if (hash) {
+		const anchor = document.querySelector(`.nav-links a[href="${hash}"]`);
+		window.location.hash = anchor.hash;
+		const offsetFlag = anchor.dataset.scrollOffset;
+
+		if (offsetFlag) go(anchor.hash, true);
+		else go(anchor.hash);
+	}
+}
