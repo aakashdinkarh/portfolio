@@ -6,8 +6,6 @@ function getDifferenceText(joiningDate, today) {
 	let minutes = today.getMinutes() - joiningDate.getMinutes();
 	let seconds = today.getSeconds() - joiningDate.getSeconds();
 
-	console.log('first')
-
 	if (seconds < 0) {
 		minutes--;
 		seconds += 60;
