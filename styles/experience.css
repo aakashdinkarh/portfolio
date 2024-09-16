@@ -1,10 +1,5 @@
 /* experience */
 .experience {
-	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/experience.jpeg');
-	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/experience.webp');
-	background-image: url('https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/experience.avif');
-	background-size: cover;
-	background-position: bottom;
 	position: relative;
 	overflow: hidden;
 }

@@ -1,9 +1,5 @@
 /* Bottom section of page */
 .footer {
-	background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/about.jpeg");
-	background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/about.webp");
-	background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/about.avif");
-	background-size: cover;
 	position: relative;
 	overflow: hidden;
 }
