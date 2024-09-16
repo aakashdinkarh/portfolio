@@ -22,14 +22,6 @@ intersectionObserver('#about', () => {
 	loadJs('scripts/experienceCalc.js');
 });
 
-intersectionObserver('#skills', () => {
-	loadJs('scripts/scrollItems.js', () => {
-		document.querySelectorAll('.skills .image-slider').forEach((imageSlider) => {
-			addScrollItemsListener('.slider-list', '.skill.card', imageSlider);
-		})
-	});
-});
-
 intersectionObserver('#project', () => {
 	loadAndReplaceRightArrowIcon('.right-arrow-icon-placeholder-project');
 	loadJs('scripts/scrollItems.js', () => {
