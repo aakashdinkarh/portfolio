@@ -128,3 +128,12 @@
 	border-radius: 30%;
 	border: 1px solid var(--primary-text-color);
 }
+
+.copyright {
+	text-align: center;
+	padding: 10px;
+}
+
+footer {
+	background-color: var(--primary-bg-color);
+}
