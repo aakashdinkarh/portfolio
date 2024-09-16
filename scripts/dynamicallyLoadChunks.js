@@ -32,11 +32,6 @@ intersectionObserver('#skills', () => {
 
 intersectionObserver('#project', () => {
 	loadAndReplaceRightArrowIcon('.right-arrow-icon-placeholder-project');
-	loadJs('scripts/scrollItems.js', () => {
-		document.querySelectorAll('.projects .image-slider').forEach((imageSlider) => {
-			addScrollItemsListener('.slider-list', '.project-image.card', imageSlider);
-		});
-	});
 });
 
 intersectionObserver('#contact', () => {
