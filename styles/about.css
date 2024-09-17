@@ -17,3 +17,8 @@
 		max-width: 500px;
 	}
 }
+
+hr {
+	width: 30%;
+	border: 1px solid var(--border-highlight-color);
+}

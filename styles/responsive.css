@@ -78,6 +78,20 @@
 	.skill-category-container {
 		flex-direction: column;
 	}
+	.experience-card::after {
+		top: 4px;
+	}
+	.experience.card article:not(:last-of-type) .experience-card::before {
+		height: 95%;
+		top: 44px;
+	}
+}
+
+/* for mobile or tablet --- experience --- */
+@media only screen and (max-width: 700px) {
+	.skill-category-container {
+		flex-direction: column;
+	}
 }
 
 /* for mobile or tablet --- project --- */
