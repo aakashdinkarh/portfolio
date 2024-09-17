@@ -208,3 +208,7 @@ a:active, a:visited {
 .mt-5 {
 	margin-top: 5px;
 }
+
+.about.card, .experience.card, .contact.card {
+	box-shadow: none;
+}

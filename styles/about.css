@@ -1,9 +1,5 @@
 /* About Section Styles */
 .about {
-	background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/about.jpeg");
-	background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/about.webp");
-	background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/about.avif");
-	background-size: cover;
 	position: relative;
 	overflow: hidden;
 }
@@ -20,4 +16,9 @@
 	.text-content {
 		max-width: 500px;
 	}
+}
+
+hr {
+	width: 30%;
+	border: 1px solid var(--border-highlight-color);
 }

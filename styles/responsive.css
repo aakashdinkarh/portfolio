@@ -75,33 +75,43 @@
 
 /* for mobile or tablet --- skills --- */
 @media only screen and (max-width: 700px) {
-	.content .skill.card {
-		width: 23vw;
-		font-size: small;
+	.skill-category-container {
+		flex-direction: column;
 	}
-	.content .skill.card:not(:last-of-type) {
-		margin-right: 10px;
+	.experience-card::after {
+		top: 4px;
+	}
+	.experience.card article:not(:last-of-type) .experience-card::before {
+		height: 95%;
+		top: 44px;
+	}
+}
+
+/* for mobile or tablet --- experience --- */
+@media only screen and (max-width: 700px) {
+	.skill-category-container {
+		flex-direction: column;
 	}
 }
 
 /* for mobile or tablet --- project --- */
 @media only screen and (max-width: 700px) {
-	.project-details:not(.other-projects) .project-image.card {
-		width: 95%;
-		font-size: small;
+	.project-details-container > article {
+		width: 50%;
 	}
-
-	.project-image.card:not(:last-of-type) {
-		margin-right: 10px;
+}
+@media only screen and (max-width: 468px) {
+	.project-details-container > article {
+		width: 100%;
+	}
+	.project-details-container > article:last-of-type {
+		margin-top: 26px;
 	}
 }
 
 /* for mobile or tablet --- footer --- */
 @media only screen and (max-width: 700px) {
-	.footer .content {
+	.contact .content {
 		flex-direction: column;
-	}
-	.copyright {
-		text-align: center;
 	}
 }
