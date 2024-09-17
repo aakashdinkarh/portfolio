@@ -22,12 +22,44 @@ intersectionObserver('#about', () => {
 	loadJs('scripts/experienceCalc.js');
 });
 
+function isDivCenteredVertically(div) {
+	const rect = div.getBoundingClientRect();
+	const viewportHeight = window.innerHeight;
+
+	const viewportCenter = viewportHeight / 2;
+	const divCenter = rect.top + rect.height / 2;
+
+	// Check if the div center is approximately equal to the viewport center
+	const threshold = 200; // Allow some small tolerance for "centered"
+	return Math.abs(viewportCenter - divCenter) <= threshold;
+}
+const scrollListener = throttleDebounce(function (project) {
+	if (isDivCenteredVertically(project)) project.classList.add('active');
+	else project.classList.remove('active');
+});
+
 intersectionObserver('#project', () => {
 	loadAndReplaceRightArrowIcon('.right-arrow-icon-placeholder-project');
-	loadJs('scripts/scrollItems.js', () => {
-		document.querySelectorAll('.projects .image-slider').forEach((imageSlider) => {
-			addScrollItemsListener('.slider-list', '.project-image.card', imageSlider);
-		});
+	const projectObservers = [
+		...document.querySelectorAll('.project-details-container .project-details:not(.view-all)'),
+	].map((project) => () => scrollListener(project));
+
+	document.querySelectorAll('.project-details-container .project-details:not(.view-all)').forEach((project, index) => {
+		intersectionObserver(
+			project,
+			() => {
+				if (IS_MOBILE) {
+					window.addEventListener('scroll', projectObservers[index]);
+				}
+			},
+			{
+				keepObserver: true,
+				rootMargin: '0px',
+				ifNotIntersecting: () => {
+					window.removeEventListener('scroll', projectObservers[index]);
+				},
+			}
+		);
 	});
 });
 
