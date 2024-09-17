@@ -97,7 +97,7 @@
 
 /* for mobile or tablet --- footer --- */
 @media only screen and (max-width: 700px) {
-	.footer .content {
+	.contact .content {
 		flex-direction: column;
 	}
 }
