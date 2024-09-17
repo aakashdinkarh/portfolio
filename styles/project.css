@@ -56,7 +56,8 @@
 	position: absolute;
 	z-index: 2;
 }
-.project-image-list:hover .project-image.card:first-of-type {
+.project-image-list:hover .project-image.card:first-of-type,
+.project-details.active .project-image.card:first-of-type {
 	transform: rotateY(-85deg) translateZ(-8px);
 	opacity: 0.7;
 }
@@ -84,7 +85,8 @@
 	transition: all 0.5s;
 }
 
-.project-image-list:hover .project-detail-links {
+.project-image-list:hover .project-detail-links,
+.project-details.active .project-detail-links {
 	transform: translateY(0);
 }
 
