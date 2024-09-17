@@ -75,24 +75,23 @@
 
 /* for mobile or tablet --- skills --- */
 @media only screen and (max-width: 700px) {
-	.content .skill.card {
-		width: 23vw;
-		font-size: small;
-	}
-	.content .skill.card:not(:last-of-type) {
-		margin-right: 10px;
+	.skill-category-container {
+		flex-direction: column;
 	}
 }
 
 /* for mobile or tablet --- project --- */
 @media only screen and (max-width: 700px) {
-	.project-details:not(.other-projects) .project-image.card {
-		width: 95%;
-		font-size: small;
+	.project-details-container > article {
+		width: 50%;
 	}
-
-	.project-image.card:not(:last-of-type) {
-		margin-right: 10px;
+}
+@media only screen and (max-width: 468px) {
+	.project-details-container > article {
+		width: 100%;
+	}
+	.project-details-container > article:last-of-type {
+		margin-top: 26px;
 	}
 }
 
