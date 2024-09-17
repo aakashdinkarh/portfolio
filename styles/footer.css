@@ -1,18 +1,10 @@
 /* Bottom section of page */
-.footer {
-	background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/original-images/about.jpeg");
-	background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/about.webp");
-	background-image: url("https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/about.avif");
-	background-size: cover;
+.contact {
 	position: relative;
 	overflow: hidden;
 }
 
-.footer.card {
-	padding: 0;
-}
-
-.footer .content {
+.contact .content {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
@@ -22,11 +14,11 @@
 	}
 }
 
-.footer .content .profile {
+.contact .content .profile {
 	margin: 20px auto;
 }
 
-.footer .content {
+.contact .content {
 	.profile form {
 		background-color: var(--primary-bg-color-transparent);
 		padding: 20px;
@@ -127,4 +119,13 @@
 .contact-item .linkedin-profile-url img {
 	border-radius: 30%;
 	border: 1px solid var(--primary-text-color);
+}
+
+.copyright {
+	text-align: center;
+	padding: 10px;
+}
+
+footer {
+	background-color: var(--primary-bg-color);
 }
