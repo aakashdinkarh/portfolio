@@ -9,6 +9,10 @@
 	justify-content: space-evenly;
 }
 
+.skill-category ul {
+	list-style-type: none;
+}
+
 .skill-category li a {
 	display: flex;
 	align-items: center;

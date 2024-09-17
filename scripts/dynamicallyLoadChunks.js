@@ -22,6 +22,12 @@ intersectionObserver('#about', () => {
 	loadJs('scripts/experienceCalc.js');
 });
 
+intersectionObserver('#skills', () => {
+	loadAndReplaceRightArrowIcon('.right-arrow-icon-placeholder-skill');
+}, {
+	rootMargin: '0px',
+});
+
 function isDivCenteredVertically(div) {
 	const rect = div.getBoundingClientRect();
 	const viewportHeight = window.innerHeight;
