@@ -55,6 +55,7 @@
 	transform-origin: left;
 	position: absolute;
 	z-index: 2;
+	transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 .project-image-list:hover .project-image.card:first-of-type,
 .project-details.active .project-image.card:first-of-type {
