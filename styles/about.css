@@ -1,0 +1,24 @@
+/* About Section Styles */
+.about {
+	position: relative;
+	overflow: hidden;
+}
+
+.about.card {
+	padding: 0;
+}
+
+.about .content {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	
+	.text-content {
+		max-width: 500px;
+	}
+}
+
+hr {
+	width: 30%;
+	border: 1px solid var(--border-highlight-color);
+}

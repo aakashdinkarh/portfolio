@@ -1,0 +1,72 @@
+/* experience */
+.experience {
+	position: relative;
+	overflow: hidden;
+}
+
+.experience-card {
+	position: relative;
+	padding-left: 18px;
+}
+.experience.card article:not(:last-of-type) {
+	margin-bottom: 32px;
+}
+
+.experience.card article:not(:last-of-type) .experience-card::before {
+	background-color: var(--primary-text-color);
+	content: "";
+	display: inline-block;
+	height: calc(100% - 20px);
+	left: 15px;
+	position: absolute;
+	top: 35px;
+	transform: translateX(-50%);
+	width: 2px;
+}
+
+.experience-card::after {
+	background-color: var(--primary-text-color);
+	background-size: contain;
+	border-radius: 50%;
+	content: "";
+	display: inline-flex;
+	height: 30px;
+	left: 0;
+	position: absolute;
+	top: -5px;
+	width: 30px;
+}
+
+.experience.card article:nth-of-type(1) .experience-card::after {
+	background-image: url(https://aakashdinkarh.github.io/static_assets/images/website-logo/original/meesho.jpeg);
+	background-image: url(https://aakashdinkarh.github.io/static_assets/images/website-logo/webp/meesho.webp);
+	background-image: url(https://aakashdinkarh.github.io/static_assets/images/website-logo/avif/meesho.avif);
+}
+.experience.card article:nth-of-type(2) .experience-card::after {
+	background-image: url(https://aakashdinkarh.github.io/static_assets/images/website-logo/original/cogoport.jpeg);
+	background-image: url(https://aakashdinkarh.github.io/static_assets/images/website-logo/webp/cogoport.webp);
+	background-image: url(https://aakashdinkarh.github.io/static_assets/images/website-logo/avif/cogoport.avif);
+}
+.experience.card article:nth-of-type(3) .experience-card::after {
+	background-image: url(https://aakashdinkarh.github.io/static_assets/images/website-logo/original/web-student.jpeg);
+	background-image: url(https://aakashdinkarh.github.io/static_assets/images/website-logo/webp/web-student.webp);
+	background-image: url(https://aakashdinkarh.github.io/static_assets/images/website-logo/avif/web-student.avif);
+}
+
+.experience.card article:first-of-type .experience-card::after {
+	background-color: var(--primary-highlight-color);
+}
+
+.experience.card article:first-of-type .experience-card::before {
+	background-color: var(--primary-highlight-color);
+}
+
+.experience-card .proficiencies-heading {
+	margin-bottom: 5px;
+}
+
+#exp-time-calc {
+	font-size: small;
+	margin-left: 8px;
+	font-style: italic;
+}

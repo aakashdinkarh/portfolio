@@ -1,0 +1,32 @@
+/* skills */
+.skills {
+	position: relative;
+	overflow: hidden;
+}
+
+.skill-category-container {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.skill-category ul {
+	list-style-type: none;
+}
+
+.skill-category li a {
+	display: flex;
+	align-items: center;
+	margin-bottom: 8px;
+}
+
+.skill-category li a img {
+	margin-right: 10px;
+}
+.skill-category li a img.react-hook-form {
+	background-color: var(--color-react-hook-form);
+	border-radius: 2px;
+}
+.skill-category li a img.cursor {
+	background-color: var(--color-black);
+	border-radius: 2px;
+}
