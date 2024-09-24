@@ -25,7 +25,12 @@ jobs:
           mv temp-projects/* projects/ # Move the new content into the 'projects' folder
           rm -rf temp-projects
 
-      # Step 3: Deploy to GitHub Pages
+      # Step 3: Debugging - List files in the 'projects' directory
+      - name: List files in projects folder
+        run: |
+          ls -al projects/
+
+      # Step 4: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
