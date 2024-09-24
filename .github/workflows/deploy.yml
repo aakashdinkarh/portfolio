@@ -20,7 +20,8 @@ jobs:
       - name: Pull projects repository
         run: |
           git clone https://github.com/aakashdinkarh/projects.git temp-projects
-          rm -rf projects # Clear any existing content in the 'projects' folder
+          mkdir -p projects # Ensure 'projects' directory exists
+          rm -rf projects/* # Clear existing content in the 'projects' folder
           mv temp-projects/* projects/ # Move the new content into the 'projects' folder
           rm -rf temp-projects
 
