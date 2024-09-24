@@ -1,0 +1,32 @@
+name: Deploy Website with Subdirectories
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the main repository
+      - name: Checkout main repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      # Step 2: Pull content from the 'projects' repository and place it in the 'projects' subdirectory
+      - name: Pull projects repository
+        run: |
+          git clone https://github.com/aakashdinkarh/projects.git temp-projects
+          rm -rf projects # Clear any existing content in the 'projects' folder
+          mv temp-projects/* projects/ # Move the new content into the 'projects' folder
+          rm -rf temp-projects
+
+      # Step 3: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./ # The root directory of your main repository will be published
