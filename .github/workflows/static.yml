@@ -31,6 +31,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Pull projects repository
+        run: |
+          git clone https://github.com/aakashdinkarh/projects.git temp-projects
+          mkdir -p projects # Ensure 'projects' directory exists
+          rm -rf projects/* # Clear existing content in the 'projects' folder
+          mv temp-projects/* projects/ # Move the new content into the 'projects' folder
+          rm -rf temp-projects
+      - name: List files in projects folder
+        run: |
+          ls -al projects/
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
