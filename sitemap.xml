@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url><priority>1.0</priority><loc>https://aakashdinkar.in/</loc></url>
-    <url><priority>0.7</priority><loc>https://aakashdinkar.in/bounce-and-collect-game</loc></url>
-    <url><priority>0.7</priority><loc>https://aakashdinkar.in/projects</loc></url>
+    <url><priority>0.7</priority><loc>https://aakashdinkar.in/bounce-and-collect-game/</loc></url>
+    <url><priority>0.7</priority><loc>https://aakashdinkar.in/projects/</loc></url>
     <url><priority>0.7</priority><loc>https://aakashdinkar.in/portfolio-v1/</loc></url>
     <url><priority>0.7</priority><loc>https://aakashdinkar.in/portfolio-v0/</loc></url>
     <url><priority>0.5</priority><loc>https://aakashdinkar.in/case-utils/</loc></url>
