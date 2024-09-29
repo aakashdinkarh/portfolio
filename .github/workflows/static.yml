@@ -36,7 +36,7 @@ jobs:
           git clone --branch remote-build https://github.com/aakashdinkarh/projects.git temp-projects
           mkdir -p projects
           rm -rf projects/*
-          mv temp-projects/* projects/ projects/* projects
+          mv temp-projects/* projects/
           rm -rf temp-projects
       - name: Pull bounce-and-collect-game repository
         run: |
