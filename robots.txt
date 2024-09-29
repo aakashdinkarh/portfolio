@@ -3,4 +3,4 @@ Disallow: /private/
 Disallow: /temp/
 Allow: /
 
-Sitemap: https://aakashdinkarh.github.io/sitemap.xml
+Sitemap: https://aakashdinkar.in/sitemap.xml
