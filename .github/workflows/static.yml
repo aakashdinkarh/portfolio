@@ -36,70 +36,70 @@ jobs:
           git clone --branch remote-build https://github.com/aakashdinkarh/projects.git temp-projects
           mkdir -p projects
           rm -rf projects/*
-          mv temp-projects/* projects/
+          mv temp-projects/* projects/ projects/* projects
           rm -rf temp-projects
       - name: Pull bounce-and-collect-game repository
         run: |
           git clone --branch remote-build https://github.com/aakashdinkarh/bounce-and-collect-game.git temp-bounce-and-collect-game
           mkdir -p bounce-and-collect-game
           rm -rf bounce-and-collect-game/*
-          mv temp-bounce-and-collect-game/*
+          mv temp-bounce-and-collect-game/* bounce-and-collect-game/
           rm -rf temp-bounce-and-collect-game
       - name: Pull portfolio-v1 repository
         run: |
           git clone --branch remote-build https://github.com/aakashdinkarh/portfolio-v1.git temp-portfolio-v1
           mkdir -p portfolio-v1
           rm -rf portfolio-v1/*
-          mv temp-portfolio-v1/*
+          mv temp-portfolio-v1/* portfolio-v1/
           rm -rf temp-portfolio-v1
       - name: Pull portfolio-v0 repository
         run: |
           git clone --branch remote-build https://github.com/aakashdinkarh/portfolio-v0.git temp-portfolio-v0
           mkdir -p portfolio-v0
           rm -rf portfolio-v0/*
-          mv temp-portfolio-v0/*
+          mv temp-portfolio-v0/* portfolio-v0/
           rm -rf temp-portfolio-v0
       - name: Pull case-utils repository
         run: |
           git clone --branch remote-build https://github.com/aakashdinkarh/case-utils.git temp-case-utils
           mkdir -p case-utils
           rm -rf case-utils/*
-          mv temp-case-utils/*
+          mv temp-case-utils/* case-utils/
           rm -rf temp-case-utils
       - name: Pull block-game repository
         run: |
           git clone --branch remote-build https://github.com/aakashdinkarh/block-game.git temp-block-game
           mkdir -p block-game
           rm -rf block-game/*
-          mv temp-block-game/*
+          mv temp-block-game/* block-game/
           rm -rf temp-block-game
       - name: Pull panda-img repository
         run: |
           git clone --branch remote-build https://github.com/aakashdinkarh/panda-img.git temp-panda-img
           mkdir -p panda-img
           rm -rf panda-img/*
-          mv temp-panda-img/*
+          mv temp-panda-img/* panda-img/
           rm -rf temp-panda-img
       - name: Pull calculator repository
         run: |
           git clone --branch remote-build https://github.com/aakashdinkarh/calculator.git temp-calculator
           mkdir -p calculator
           rm -rf calculator/*
-          mv temp-calculator/*
+          mv temp-calculator/* calculator/
           rm -rf temp-calculator
       - name: Pull MemoryGame repository
         run: |
           git clone --branch remote-build https://github.com/aakashdinkarh/MemoryGame.git temp-MemoryGame
           mkdir -p MemoryGame
           rm -rf MemoryGame/*
-          mv temp-MemoryGame/*
+          mv temp-MemoryGame/* MemoryGame/
           rm -rf temp-MemoryGame
       - name: Pull Image-modal repository
         run: |
           git clone --branch remote-build https://github.com/aakashdinkarh/Image-modal.git temp-Image-modal
           mkdir -p Image-modal
           rm -rf Image-modal/*
-          mv temp-Image-modal/*
+          mv temp-Image-modal/* Image-modal/
           rm -rf temp-Image-modal
       - name: Setup Pages
         uses: actions/configure-pages@v5
