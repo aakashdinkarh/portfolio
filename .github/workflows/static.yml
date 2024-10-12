@@ -101,6 +101,27 @@ jobs:
           rm -rf Image-modal/*
           mv temp-Image-modal/* Image-modal/
           rm -rf temp-Image-modal
+      - name: Pull checkout-form repository
+        run: |
+          git clone --branch remote-build https://github.com/aakashdinkarh/checkout-form.git temp-checkout-form
+          mkdir -p checkout-form
+          rm -rf checkout-form/*
+          mv temp-checkout-form/* checkout-form/
+          rm -rf temp-checkout-form
+      - name: Pull Login-form repository
+        run: |
+          git clone --branch remote-build https://github.com/aakashdinkarh/Login-form.git temp-Login-form
+          mkdir -p Login-form
+          rm -rf Login-form/*
+          mv temp-Login-form/* Login-form/
+          rm -rf temp-Login-form
+      - name: Pull Tic-Tac-Toe-Game repository
+        run: |
+          git clone --branch gh-pages https://github.com/aakashdinkarh/Tic-Tac-Toe-Game.git temp-Tic-Tac-Toe-Game
+          mkdir -p Tic-Tac-Toe-Game
+          rm -rf Tic-Tac-Toe-Game/*
+          mv temp-Tic-Tac-Toe-Game/* Tic-Tac-Toe-Game/
+          rm -rf temp-Tic-Tac-Toe-Game
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
