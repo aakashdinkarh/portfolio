@@ -122,6 +122,20 @@ jobs:
           rm -rf Tic-Tac-Toe-Game/*
           mv temp-Tic-Tac-Toe-Game/* Tic-Tac-Toe-Game/
           rm -rf temp-Tic-Tac-Toe-Game
+      - name: Pull the-movie-db repository
+        run: |
+          git clone --branch gh-pages https://github.com/aakashdinkarh/the-movie-db.git temp-the-movie-db
+          mkdir -p the-movie-db
+          rm -rf the-movie-db/*
+          mv temp-the-movie-db/* the-movie-db/
+          rm -rf temp-the-movie-db
+      - name: Pull music-player-project repository
+        run: |
+          git clone --branch gh-pages https://github.com/aakashdinkarh/music-player-project.git temp-music-player-project
+          mkdir -p music-player-project
+          rm -rf music-player-project/*
+          mv temp-music-player-project/* music-player-project/
+          rm -rf temp-music-player-project
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
