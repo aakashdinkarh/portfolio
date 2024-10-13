@@ -1,21 +1,15 @@
 <!-- Required for react projects hosted on portfolio domain to resolve the refresh nested route error when project is using react router -->
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
+  <head>
+    <meta charset="utf-8" />
 		<title>404 Not Found</title>
 		<script type="text/javascript">
+      var reactProjectsWithRouter = ['the-movie-db', 'music-player-project'];
       var pathSegmentsToKeep = 1;
 
-      var maxRedirects = 2;
-			var redirectCount = parseInt(sessionStorage.getItem('redirects')) || 0;
-      console.log(redirectCount);
-			if (redirectCount >= maxRedirects) {
-        console.log(redirectCount, 'inside');
-        // sessionStorage.removeItem('redirects');
-			} else {
-        sessionStorage.setItem('redirects', ++redirectCount);
-        var l = window.location;
+      var l = window.location;
+      if (reactProjectsWithRouter.includes(l.pathname.split('/')[1])) {
         l.replace(
           l.protocol +
             "//" +
@@ -30,9 +24,7 @@
               .slice(1)
               .split("/")
               .slice(pathSegmentsToKeep)
-              .join("/")
-              .replace(/&/g, "~and~") +
-            (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+              .join("/") +
             l.hash
         );
       }
