@@ -1,32 +1,35 @@
 <!-- Required for react projects hosted on portfolio domain to resolve the refresh nested route error when project is using react router -->
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>404 Not Found</title>
-    <script type="text/javascript">
-      var pathSegmentsToKeep = 1;
+	<head>
+		<meta charset="utf-8" />
+		<title>404 Not Found</title>
+		<script type="text/javascript">
+			var pathSegmentsToKeep = 2;
 
-      var l = window.location;
-      var newPath =
-        l.protocol +
-        "//" +
-        l.hostname +
-        (l.port ? ":" + l.port : "") +
-        l.pathname
-          .split("/")
-          .slice(0, pathSegmentsToKeep + 1)
-          .join("/") +
-        "/";
+			var l = window.location;
+			var newPath =
+				l.protocol +
+				'//' +
+				l.hostname +
+				(l.port ? ':' + l.port : '') +
+				l.pathname
+					.split('/')
+					.slice(0, pathSegmentsToKeep + 1)
+					.join('/');
 
-      // If there is a search or hash, append them to the new path
-      newPath += l.search + l.hash;
+			var remainingPath = l.pathname
+				.split('/')
+				.slice(pathSegmentsToKeep + 1)
+				.join('/');
 
-      // Replace the URL
-      if (l.pathname.split("/").length > pathSegmentsToKeep + 1) {
-        window.location.replace(newPath);
-      }
-    </script>
-  </head>
-  <body></body>
+			if (remainingPath) {
+				newPath += '/' + remainingPath;
+			}
+
+			newPath += l.search + l.hash;
+      l.replace(newPath);
+		</script>
+	</head>
+	<body></body>
 </html>
