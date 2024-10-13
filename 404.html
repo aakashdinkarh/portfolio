@@ -7,14 +7,14 @@
 		<script type="text/javascript">
       var pathSegmentsToKeep = 1;
 
-      // var maxRedirects = 1;
-			// var redirectCount = parseInt(sessionStorage.getItem('redirects')) || 0;
-			// if (redirectCount >= maxRedirects) {
-      //   sessionStorage.removeItem('redirects');
-			// 	document.body.innerHTML = "<h1>404 Not Found</h1><p>The page you are looking for doesn't exist.</p>";
-			// 	return;
-			// }
-
+      var maxRedirects = 2;
+			var redirectCount = parseInt(sessionStorage.getItem('redirects')) || 0;
+			if (redirectCount >= maxRedirects) {
+        sessionStorage.removeItem('redirects');
+				document.body.innerHTML = "<h1>404 Not Found</h1><p>The page you are looking for doesn't exist.</p>";
+				return;
+			}
+      sessionStorage.setItem('redirects', ++redirectCount);
       var l = window.location;
       l.replace(
         l.protocol +
