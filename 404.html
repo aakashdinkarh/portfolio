@@ -9,33 +9,37 @@
 
       var maxRedirects = 2;
 			var redirectCount = parseInt(sessionStorage.getItem('redirects')) || 0;
+      console.log(redirectCount);
 			if (redirectCount >= maxRedirects) {
-        sessionStorage.removeItem('redirects');
-				document.body.innerHTML = "<h1>404 Not Found</h1><p>The page you are looking for doesn't exist.</p>";
-				return;
-			}
-      sessionStorage.setItem('redirects', ++redirectCount);
-      var l = window.location;
-      l.replace(
-        l.protocol +
-          "//" +
-          l.hostname +
-          (l.port ? ":" + l.port : "") +
-          l.pathname
-            .split("/")
-            .slice(0, 1 + pathSegmentsToKeep)
-            .join("/") +
-          "/?/" +
-          l.pathname
-            .slice(1)
-            .split("/")
-            .slice(pathSegmentsToKeep)
-            .join("/")
-            .replace(/&/g, "~and~") +
-          (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
-          l.hash
-      );
+        console.log(redirectCount, 'inside');
+        // sessionStorage.removeItem('redirects');
+			} else {
+        sessionStorage.setItem('redirects', ++redirectCount);
+        var l = window.location;
+        l.replace(
+          l.protocol +
+            "//" +
+            l.hostname +
+            (l.port ? ":" + l.port : "") +
+            l.pathname
+              .split("/")
+              .slice(0, 1 + pathSegmentsToKeep)
+              .join("/") +
+            "/?/" +
+            l.pathname
+              .slice(1)
+              .split("/")
+              .slice(pathSegmentsToKeep)
+              .join("/")
+              .replace(/&/g, "~and~") +
+            (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+            l.hash
+        );
+      }
 		</script>
 	</head>
-	<body></body>
+	<body>
+    <h1>404 Not Found</h1>
+    <p>The page you are looking for doesn't exist.</p>
+  </body>
 </html>
