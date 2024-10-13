@@ -5,9 +5,25 @@
 		<meta charset="utf-8" />
 		<title>404 Not Found</title>
 		<script type="text/javascript">
-			var pathSegmentsToKeep = 2;
+			var pathSegmentsToKeep = 1; // Adjust based on how many path segments you need to keep
+			var maxRedirects = 1; // Limit to 1 redirect attempt
 
 			var l = window.location;
+
+			// Check the number of redirects from sessionStorage
+			var redirectCount = parseInt(sessionStorage.getItem('redirects')) || 0;
+
+			// If the number of redirects exceeds the limit, show a 404 Not Found message
+			if (redirectCount >= maxRedirects) {
+				document.body.innerHTML = "<h1>404 Not Found</h1><p>The page you are looking for doesn't exist.</p>";
+				return;
+			}
+
+			// Increment the redirect count and store it in sessionStorage
+			redirectCount += 1;
+			sessionStorage.setItem('redirects', redirectCount);
+
+			// Build the new path
 			var newPath =
 				l.protocol +
 				'//' +
@@ -15,20 +31,24 @@
 				(l.port ? ':' + l.port : '') +
 				l.pathname
 					.split('/')
-					.slice(0, pathSegmentsToKeep + 1)
-					.join('/');
+					.slice(0, 1 + pathSegmentsToKeep)
+					.join('/') +
+				'/?/';
 
-			var remainingPath = l.pathname
-				.split('/')
-				.slice(pathSegmentsToKeep + 1)
-				.join('/');
+			var remainingPath = l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/');
 
-			if (remainingPath) {
-				newPath += '/' + remainingPath;
+			if (l.search) {
+				newPath += remainingPath.replace(/&/g, '~and~') + '&' + l.search.slice(1).replace(/&/g, '~and~');
+			} else {
+				newPath += remainingPath;
 			}
 
-			newPath += l.search + l.hash;
-      l.replace(newPath);
+			if (l.hash) {
+				newPath += l.hash;
+			}
+
+			// Redirect to the new path
+			l.replace(newPath);
 		</script>
 	</head>
 	<body></body>
