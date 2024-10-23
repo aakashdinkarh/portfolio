@@ -110,23 +110,3 @@ setTimeout(createFirework, 2000);
 setTimeout(createFirework, 4000);
 setTimeout(() => { setInterval(createFirework, 3000); }, 5000);
 animate();
-
-// sitemap.xml
-{/* <url><priority>1.0</priority><loc>https://aakashdinkar.in/</loc></url>
-<url><priority>0.7</priority><loc>https://aakashdinkar.in/bounce-and-collect-game</loc></url>
-<url><priority>0.7</priority><loc>https://aakashdinkar.in/projects</loc></url>
-<url><priority>0.7</priority><loc>https://aakashdinkarh.github.io/music-player-project</loc></url>
-<url><priority>0.7</priority><loc>https://aakashdinkarh.github.io/the-movie-db</loc></url>
-<url><priority>0.7</priority><loc>https://aakashdinkar.in/portfolio-v1/</loc></url>
-<url><priority>0.7</priority><loc>https://aakashdinkar.in/portfolio-v0/</loc></url>
-<url><priority>0.5</priority><loc>https://aakashdinkar.in/case-utils/</loc></url>
-<url><priority>0.3</priority><loc>https://aakashdinkar.in/block-game/</loc></url>
-<url><priority>0.3</priority><loc>https://aakashdinkarh.github.io/LawyerProject/</loc></url>
-<url><priority>0.3</priority><loc>https://aakashdinkarh.github.io/Looklike_Cosmetic_Store/</loc></url>
-<url><priority>0.3</priority><loc>https://aakashdinkarh.github.io/Booker---Textbook-Renter/</loc></url>
-<url><priority>0.3</priority><loc>https://aakashdinkarh.github.io/wedding-site/</loc></url>
-<url><priority>0.2</priority><loc>https://aakashdinkarh.github.io/rail_api_app/</loc></url>
-<url><priority>0.2</priority><loc>https://aakashdinkar.in/panda-img/</loc></url>
-<url><priority>0.2</priority><loc>https://aakashdinkar.in/calculator/</loc></url>
-<url><priority>0.2</priority><loc>https://aakashdinkar.in/MemoryGame/</loc></url>
-<url><priority>0.2</priority><loc>https://aakashdinkar.in/Image-modal/</loc></url> */}

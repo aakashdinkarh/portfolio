@@ -136,6 +136,13 @@ jobs:
           rm -rf music-player-project/*
           mv temp-music-player-project/* music-player-project/
           rm -rf temp-music-player-project
+      - name: Pull todo-react-app repository
+        run: |
+          git clone --branch gh-pages https://github.com/aakashdinkarh/todo-react-app.git temp-todo-react-app
+          mkdir -p todo-react-app
+          rm -rf todo-react-app/*
+          mv temp-todo-react-app/* todo-react-app/
+          rm -rf temp-todo-react-app
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
