@@ -71,7 +71,4 @@ intersectionObserver('#project', () => {
 
 intersectionObserver('#contact', () => {
 	loadJs('scripts/emailjs.js');
-
-	const footerCanvas = document.querySelector('canvas#fireworksFooter');
-	createFooterFirework = getFirework(footerCanvas);
 });

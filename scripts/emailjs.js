@@ -30,19 +30,22 @@
 			submitButton.disabled = true;
 
 			const emailCallback = (success = true) => {
+				let createFooterFirework = () => {};
+				if (getFirework) {
+					const footerFireworkCanvas = document.querySelector('canvas#fireworksFooter');
+					createFooterFirework = getFirework(footerFireworkCanvas);
+				}
 				if (success) {
-					emailCallback(true);
-					document.querySelector('section#home').addEventListener('click', () => {
-						setTimeout(createHomeFirework, 0);
-						setTimeout(createHomeFirework, 100);
-						setTimeout(createHomeFirework, 200);
-					});
+						setTimeout(createFooterFirework, 0);
+						setTimeout(createFooterFirework, 100);
+						setTimeout(createFooterFirework, 200);
 				}
 				form.classList.remove('loading');
 				buttonTextElement.innerText = success ? 'Sent ✅' : 'Failed ❌';
 				setTimeout(() => {
 					buttonTextElement.innerText = 'Send Me';
 					submitButton.disabled = false;
+					form.reset();
 				}, 2000);
 			};
 

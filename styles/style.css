@@ -105,6 +105,10 @@ section .text-content {
 		box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
 	}
 }
+.styled-btn.submit-btn:hover {
+	transform: none;
+	cursor: pointer;
+}
 .color-black, a.color-black {
 	text-decoration: none;
 	color: var(--primary-bg-color);
