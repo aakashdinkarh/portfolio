@@ -1,5 +1,5 @@
 :root {
-    --scrollbar-width: 8px;
+	--scrollbar-width: 8px;
 
 	--primary-bg: 22 24 29;
 	--primary-bg-color: rgb(var(--primary-bg));
