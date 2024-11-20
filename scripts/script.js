@@ -43,19 +43,30 @@ window.onscroll = function () {
 	}
 };
 
-const hamburgerMenuIcon = document.querySelector('.hamburger-menu-icon');
-const mNavBar = document.querySelector('#mNavBar');
-const mNavBarOverlay = document.querySelector('.m-nav-bar-overlay');
-hamburgerMenuIcon.onclick = () => {
-	mNavBar.classList.add('show');
-	mNavBarOverlay.classList.add('show');
-};
 
-const navbarCloseIcon = document.querySelector('#navbarCloseIcon');
-navbarCloseIcon.onclick = mNavBarOverlay.onclick = () => {
-	mNavBar.classList.remove('show');
-	mNavBarOverlay.classList.remove('show');
-};
+(() => {
+	const hamburgerMenuIcon = document.querySelector('.hamburger-menu-icon');
+	const mNavBar = document.querySelector('#mNavBar');
+	const mNavBarOverlay = document.querySelector('.m-nav-bar-overlay');
+	const navbarCloseIcon = document.querySelector('#navbarCloseIcon');
+	const mNavBarLinks = mNavBar.querySelectorAll('.nav-links > a');
+
+	function show_mNavBar() {
+		mNavBar.classList.add('show');
+		mNavBarOverlay.classList.add('show');
+	};
+
+	function close_mNavBar() {
+		mNavBar.classList.remove('show');
+		mNavBarOverlay.classList.remove('show');
+	};
+
+	hamburgerMenuIcon.onclick = show_mNavBar;
+
+	mNavBarLinks.forEach((navLink) => { navLink.onclick = close_mNavBar });	
+	navbarCloseIcon.onclick = mNavBarOverlay.onclick = close_mNavBar;
+})();
+
 
 window.onload = () => {
 	const hash = window.location.hash;

@@ -36,7 +36,7 @@ function isDivCenteredVertically(div) {
 	const divCenter = rect.top + rect.height / 2;
 
 	// Check if the div center is approximately equal to the viewport center
-	const threshold = 200; // Allow some small tolerance for "centered"
+	const threshold = 125; // Allow some small tolerance for "centered"
 	return Math.abs(viewportCenter - divCenter) <= threshold;
 }
 const scrollListener = throttleDebounce(function (project) {
