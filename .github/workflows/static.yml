@@ -143,6 +143,13 @@ jobs:
           rm -rf todo-react-app/*
           mv temp-todo-react-app/* todo-react-app/
           rm -rf temp-todo-react-app
+      - name: Pull js-ts-playground repository
+        run: |
+          git clone --branch gh-pages https://github.com/aakashdinkarh/js-ts-playground.git temp-js-ts-playground
+          mkdir -p js-ts-playground
+          rm -rf js-ts-playground/*
+          mv temp-js-ts-playground/* js-ts-playground/
+          rm -rf temp-js-ts-playground
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
