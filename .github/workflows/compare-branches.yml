@@ -21,22 +21,37 @@ jobs:
             echo "Checking repository: $repo"
             
             # Clone the repository
-            git clone $repo temp_repo
-            cd temp_repo
+            if ! git clone --quiet $repo temp_repo 2>/dev/null; then
+              echo "❌ Failed to clone repository: $repo"
+              return 1
+            fi
+            cd temp_repo || return 1
             
             # Fetch all branches
-            git fetch origin
+            if ! git fetch --quiet origin 2>/dev/null; then
+              echo "❌ Failed to fetch branches for: $repo"
+              cd ..
+              rm -rf temp_repo
+              return 1
+            }
             
             # Check if remote-build branch exists
             if git show-ref --verify --quiet refs/remotes/origin/remote-build; then
               # Get latest commit hashes
-              MASTER_HASH=$(git rev-parse origin/master)
-              REMOTE_BUILD_HASH=$(git rev-parse origin/remote-build)
+              MASTER_HASH=$(git rev-parse origin/master 2>/dev/null)
+              REMOTE_BUILD_HASH=$(git rev-parse origin/remote-build 2>/dev/null)
+              
+              if [ -z "$MASTER_HASH" ] || [ -z "$REMOTE_BUILD_HASH" ]; then
+                echo "❌ Failed to get commit hashes for: $repo"
+                cd ..
+                rm -rf temp_repo
+                return 1
+              fi
               
               # Compare the branches
-              if git merge-base --is-ancestor $REMOTE_BUILD_HASH $MASTER_HASH; then
+              if git merge-base --is-ancestor $REMOTE_BUILD_HASH $MASTER_HASH 2>/dev/null; then
                 # Check if there are any commits to merge
-                MERGE_COMMITS=$(git log --oneline remote-build..master)
+                MERGE_COMMITS=$(git log --oneline remote-build..master 2>/dev/null)
                 if [ -n "$MERGE_COMMITS" ]; then
                   echo "⚠️ WARNING: master is ahead of remote-build in $repo"
                   echo "Commits to be merged:"
@@ -48,7 +63,7 @@ jobs:
               else
                 echo "ℹ️ Branches have diverged in $repo"
                 echo "Commits that would be merged:"
-                git log --oneline remote-build..master
+                git log --oneline remote-build..master 2>/dev/null
               fi
             else
               echo "❌ remote-build branch not found in $repo"
@@ -57,6 +72,9 @@ jobs:
             cd ..
             rm -rf temp_repo
           }
+          
+          # Create workspace directory if it doesn't exist
+          mkdir -p $GITHUB_WORKSPACE
           
           # Convert comma-separated input to array
           IFS=',' read -ra REPOS <<< "${{ github.event.inputs.repositories }}"
