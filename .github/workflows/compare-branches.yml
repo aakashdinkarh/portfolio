@@ -1,0 +1,70 @@
+name: Compare Branches
+
+on:
+  workflow_dispatch:
+    inputs:
+      repositories:
+        description: 'List of repositories to check (comma-separated)'
+        required: true
+        default: 'https://github.com/aakashdinkarh/portfolio-v1.git,https://github.com/aakashdinkarh/panda-img.git'
+
+jobs:
+  compare-branches:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check branch differences
+        run: |
+          # Function to compare branches
+          compare_branches() {
+            local repo=$1
+            echo "Checking repository: $repo"
+            
+            # Clone the repository
+            git clone $repo temp_repo
+            cd temp_repo
+            
+            # Fetch all branches
+            git fetch origin
+            
+            # Check if remote-build branch exists
+            if git show-ref --verify --quiet refs/remotes/origin/remote-build; then
+              # Get latest commit hashes
+              MASTER_HASH=$(git rev-parse origin/master)
+              REMOTE_BUILD_HASH=$(git rev-parse origin/remote-build)
+              
+              # Compare the branches
+              if git merge-base --is-ancestor $REMOTE_BUILD_HASH $MASTER_HASH; then
+                if [ "$MASTER_HASH" != "$REMOTE_BUILD_HASH" ]; then
+                  echo "⚠️ WARNING: master is ahead of remote-build in $repo"
+                  echo "$repo" >> $GITHUB_WORKSPACE/needs_update.txt
+                else
+                  echo "✅ Branches are in sync for $repo"
+                fi
+              else
+                echo "ℹ️ Branches have diverged in $repo"
+              fi
+            else
+              echo "❌ remote-build branch not found in $repo"
+            fi
+            
+            cd ..
+            rm -rf temp_repo
+          }
+          
+          # Convert comma-separated input to array
+          IFS=',' read -ra REPOS <<< "${{ github.event.inputs.repositories }}"
+          
+          # Check each repository
+          for repo in "${REPOS[@]}"; do
+            compare_branches "$repo"
+            echo "-----------------------------------"
+          done
+          
+          # Show summary of repositories needing updates
+          if [ -f "$GITHUB_WORKSPACE/needs_update.txt" ]; then
+            echo "📋 Summary of repositories needing updates:"
+            cat "$GITHUB_WORKSPACE/needs_update.txt"
+          else
+            echo "✅ All repositories are in sync!"
+          fi
