@@ -28,22 +28,30 @@ jobs:
             git init --quiet
             git remote add origin $repo
             
-            # Fetch both branches
-            git fetch --quiet origin master:refs/remotes/origin/master remote-build:refs/remotes/origin/remote-build 2>/dev/null
+            # Fetch master and try both remote-build and gh-pages
+            git fetch --quiet origin master:refs/remotes/origin/master 2>/dev/null
+            git fetch --quiet origin remote-build:refs/remotes/origin/remote-build gh-pages:refs/remotes/origin/gh-pages 2>/dev/null
             
-            # Check if remote-build branch exists
-            if ! git rev-parse --verify origin/remote-build >/dev/null 2>&1; then
-              echo "❌ remote-build branch not found in $repo"
+            # Determine which branch to compare against
+            COMPARE_BRANCH=""
+            if git rev-parse --verify origin/remote-build >/dev/null 2>&1; then
+              COMPARE_BRANCH="remote-build"
+            elif git rev-parse --verify origin/gh-pages >/dev/null 2>&1; then
+              COMPARE_BRANCH="gh-pages"
+            fi
+            
+            if [ -z "$COMPARE_BRANCH" ]; then
+              echo "❌ Neither remote-build nor gh-pages branch found in $repo"
               cd ..
               rm -rf $TEMP_DIR
               return
             fi
             
-            # Check if master has commits ahead of remote-build
-            AHEAD_COUNT=$(git rev-list --count origin/remote-build..origin/master 2>/dev/null)
+            # Check if master has commits ahead of comparison branch
+            AHEAD_COUNT=$(git rev-list --count origin/$COMPARE_BRANCH..origin/master 2>/dev/null)
             
             if [ "$AHEAD_COUNT" -gt "0" ]; then
-              echo "⚠️ master is ahead of remote-build by $AHEAD_COUNT commit(s) in $repo"
+              echo "⚠️ master is ahead of $COMPARE_BRANCH by $AHEAD_COUNT commit(s) in $repo"
               echo "$repo" >> $GITHUB_WORKSPACE/needs_update.txt
             else
               echo "✅ No changes to compare in $repo"
