@@ -27,24 +27,17 @@ jobs:
             fi
             cd temp_repo || return 1
             
-            # Fetch all branches
-            if ! git fetch --quiet origin 2>/dev/null; then
-              echo "❌ Failed to fetch branches for: $repo"
-              cd ..
-              rm -rf temp_repo
-              return 1
-            fi
+            # Fetch specific branches
+            git fetch origin master:master remote-build:remote-build --quiet 2>/dev/null
             
             # Check if remote-build branch exists
-            if git show-ref --verify --quiet refs/remotes/origin/remote-build; then
-              # Compare the branches directly
-              DIFF_COUNT=$(git rev-list --count master...remote-build 2>/dev/null)
-              
-              if [ "$DIFF_COUNT" != "0" ]; then
+            if git show-ref --verify --quiet refs/heads/remote-build; then
+              # Compare the branches using diff
+              if git diff --quiet master remote-build; then
+                echo "✅ No changes to compare in $repo"
+              else
                 echo "⚠️ Changes found between master and remote-build in $repo"
                 echo "$repo" >> $GITHUB_WORKSPACE/needs_update.txt
-              else
-                echo "✅ No changes to compare in $repo"
               fi
             else
               echo "❌ remote-build branch not found in $repo"
