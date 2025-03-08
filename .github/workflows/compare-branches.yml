@@ -50,20 +50,15 @@ jobs:
               
               # Compare the branches
               if git merge-base --is-ancestor $REMOTE_BUILD_HASH $MASTER_HASH 2>/dev/null; then
-                # Check if there are any commits to merge
-                MERGE_COMMITS=$(git log --oneline remote-build..master 2>/dev/null)
-                if [ -n "$MERGE_COMMITS" ]; then
+                if [ "$MASTER_HASH" != "$REMOTE_BUILD_HASH" ]; then
                   echo "⚠️ WARNING: master is ahead of remote-build in $repo"
-                  echo "Commits to be merged:"
-                  echo "$MERGE_COMMITS"
                   echo "$repo" >> $GITHUB_WORKSPACE/needs_update.txt
                 else
                   echo "✅ Branches are in sync for $repo"
                 fi
               else
-                echo "ℹ️ Branches have diverged in $repo"
-                echo "Commits that would be merged:"
-                git log --oneline remote-build..master 2>/dev/null
+                echo "⚠️ WARNING: Branches have diverged in $repo"
+                echo "$repo" >> $GITHUB_WORKSPACE/needs_update.txt
               fi
             else
               echo "❌ remote-build branch not found in $repo"
