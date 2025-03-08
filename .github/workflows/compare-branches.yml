@@ -23,14 +23,20 @@ jobs:
             # Create temporary directory for the repo
             TEMP_DIR=$(mktemp -d)
             cd $TEMP_DIR
+
+            echo "Initializing git repo and adding remote"
             
             # Initialize git repo and add remote
             git init --quiet
             git remote add origin $repo
+
+            echo "Fetching all three branches"
             
             # Fetch all three branches
             git fetch --quiet origin master:refs/remotes/origin/master remote-build:refs/remotes/origin/remote-build gh-pages:refs/remotes/origin/gh-pages 2>/dev/null
             
+            echo "Determining which branch to compare against"
+
             # Determine which branch to compare against
             COMPARE_BRANCH=""
             if git rev-parse --verify origin/remote-build >/dev/null 2>&1; then
@@ -38,6 +44,10 @@ jobs:
             elif git rev-parse --verify origin/gh-pages >/dev/null 2>&1; then
               COMPARE_BRANCH="gh-pages"
             fi
+
+            echo "Compare branch: $COMPARE_BRANCH"
+
+            echo "Comparing branches exists check"
             
             # Check if either branch exists
             if [ -z "$COMPARE_BRANCH" ]; then
@@ -46,6 +56,8 @@ jobs:
               rm -rf $TEMP_DIR
               return
             fi
+
+            echo "Comparing branches ahead check"
             
             # Check if master has commits ahead of comparison branch
             AHEAD_COUNT=$(git rev-list --count origin/$COMPARE_BRANCH..origin/master 2>/dev/null)
