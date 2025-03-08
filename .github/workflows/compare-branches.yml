@@ -6,7 +6,7 @@ on:
       repositories:
         description: 'List of repositories to check (comma-separated)'
         required: true
-        default: 'https://github.com/aakashdinkarh/portfolio-v1.git,https://github.com/aakashdinkarh/panda-img.git'
+        default: 'https://github.com/aakashdinkarh/projects.git,https://github.com/aakashdinkarh/bounce-and-collect-game.git,https://github.com/aakashdinkarh/portfolio-v1.git,https://github.com/aakashdinkarh/portfolio-v0.git,https://github.com/aakashdinkarh/case-utils.git,https://github.com/aakashdinkarh/block-game.git,https://github.com/aakashdinkarh/panda-img.git,https://github.com/aakashdinkarh/calculator.git,https://github.com/aakashdinkarh/MemoryGame.git,https://github.com/aakashdinkarh/Image-modal.git,https://github.com/aakashdinkarh/checkout-form.git,https://github.com/aakashdinkarh/Login-form.git'
 
 jobs:
   compare-branches:
@@ -23,15 +23,11 @@ jobs:
             # Create temporary directory for the repo
             TEMP_DIR=$(mktemp -d)
             cd $TEMP_DIR
-
-            echo "Initializing git repo and adding remote"
             
             # Initialize git repo and add remote
             git init --quiet
             git remote add origin $repo
 
-            echo "Fetching master branch"
-            
             # Fetch master branch (should always exist)
             if ! git fetch --quiet origin master:refs/remotes/origin/master 2>/dev/null; then
               echo "❌ Failed to fetch master branch - repository may not exist or be accessible"
@@ -56,10 +52,6 @@ jobs:
             elif git rev-parse --verify origin/gh-pages >/dev/null 2>&1; then
               COMPARE_BRANCH="gh-pages"
             fi
-
-            echo "Compare branch: $COMPARE_BRANCH"
-
-            echo "Comparing branches exists check"
             
             # Check if either branch exists
             if [ -z "$COMPARE_BRANCH" ]; then
@@ -69,7 +61,7 @@ jobs:
               return
             fi
 
-            echo "Comparing branches ahead check"
+            echo "Comparing branches ahead with $COMPARE_BRANCH"
             
             # Check if master has commits ahead of comparison branch
             AHEAD_COUNT=$(git rev-list --count origin/$COMPARE_BRANCH..origin/master 2>/dev/null)
