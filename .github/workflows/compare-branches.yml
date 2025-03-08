@@ -40,15 +40,13 @@ jobs:
               return
             fi
 
-
             echo "Fetching remote-build branch"
-            # Try to fetch both possible deployment branches silently
-            git fetch --quiet origin remote-build:refs/remotes/origin/remote-build 2>/dev/null
-
+            # Try to fetch remote-build branch, continue if it fails
+            git fetch --quiet origin remote-build:refs/remotes/origin/remote-build 2>/dev/null || true
 
             echo "Fetching gh-pages branch"
-            git fetch --quiet origin gh-pages:refs/remotes/origin/gh-pages 2>/dev/null
-
+            # Try to fetch gh-pages branch, continue if it fails
+            git fetch --quiet origin gh-pages:refs/remotes/origin/gh-pages 2>/dev/null || true
 
             echo "Determining which branch to compare against"
             # Determine which branch to compare against
