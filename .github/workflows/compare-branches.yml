@@ -20,23 +20,37 @@ jobs:
             local repo=$1
             echo "Checking repository: $repo"
             
-            # Get commit hashes for both branches
-            MASTER_HASH=$(git ls-remote $repo refs/heads/master | cut -f1)
-            REMOTE_BUILD_HASH=$(git ls-remote $repo refs/heads/remote-build | cut -f1)
+            # Create temporary directory for the repo
+            TEMP_DIR=$(mktemp -d)
+            cd $TEMP_DIR
+            
+            # Initialize git repo and add remote
+            git init --quiet
+            git remote add origin $repo
+            
+            # Fetch both branches
+            git fetch --quiet origin master:refs/remotes/origin/master remote-build:refs/remotes/origin/remote-build 2>/dev/null
             
             # Check if remote-build branch exists
-            if [ -z "$REMOTE_BUILD_HASH" ]; then
+            if ! git rev-parse --verify origin/remote-build >/dev/null 2>&1; then
               echo "❌ remote-build branch not found in $repo"
+              cd ..
+              rm -rf $TEMP_DIR
               return
             fi
             
-            # Compare the hashes
-            if [ "$MASTER_HASH" != "$REMOTE_BUILD_HASH" ]; then
-              echo "⚠️ Changes found between master and remote-build in $repo"
+            # Check if master has commits ahead of remote-build
+            AHEAD_COUNT=$(git rev-list --count origin/remote-build..origin/master 2>/dev/null)
+            
+            if [ "$AHEAD_COUNT" -gt "0" ]; then
+              echo "⚠️ master is ahead of remote-build by $AHEAD_COUNT commit(s) in $repo"
               echo "$repo" >> $GITHUB_WORKSPACE/needs_update.txt
             else
               echo "✅ No changes to compare in $repo"
             fi
+            
+            cd ..
+            rm -rf $TEMP_DIR
           }
           
           # Create workspace directory if it doesn't exist
