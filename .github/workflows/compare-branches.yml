@@ -28,9 +28,19 @@ jobs:
             git init --quiet
             git remote add origin $repo
             
-            # Fetch master and try both remote-build and gh-pages
-            git fetch --quiet origin master:refs/remotes/origin/master 2>/dev/null
-            git fetch --quiet origin remote-build:refs/remotes/origin/remote-build gh-pages:refs/remotes/origin/gh-pages 2>/dev/null
+            # Fetch master branch first
+            if ! git fetch --quiet origin master:refs/remotes/origin/master 2>/dev/null; then
+              echo "❌ Failed to fetch master branch from $repo"
+              cd ..
+              rm -rf $TEMP_DIR
+              return
+            fi
+            
+            # Try to fetch remote-build
+            git fetch --quiet origin remote-build:refs/remotes/origin/remote-build 2>/dev/null
+            
+            # Try to fetch gh-pages
+            git fetch --quiet origin gh-pages:refs/remotes/origin/gh-pages 2>/dev/null
             
             # Determine which branch to compare against
             COMPARE_BRANCH=""
@@ -48,7 +58,12 @@ jobs:
             fi
             
             # Check if master has commits ahead of comparison branch
-            AHEAD_COUNT=$(git rev-list --count origin/$COMPARE_BRANCH..origin/master 2>/dev/null)
+            if ! AHEAD_COUNT=$(git rev-list --count origin/$COMPARE_BRANCH..origin/master 2>/dev/null); then
+              echo "❌ Failed to compare branches in $repo"
+              cd ..
+              rm -rf $TEMP_DIR
+              return
+            fi
             
             if [ "$AHEAD_COUNT" -gt "0" ]; then
               echo "⚠️ master is ahead of $COMPARE_BRANCH by $AHEAD_COUNT commit(s) in $repo"
