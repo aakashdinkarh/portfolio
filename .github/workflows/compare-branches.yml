@@ -30,10 +30,19 @@ jobs:
             git init --quiet
             git remote add origin $repo
 
-            echo "Fetching all three branches"
+            echo "Fetching branches"
             
-            # Fetch all three branches
-            git fetch --quiet origin master:refs/remotes/origin/master remote-build:refs/remotes/origin/remote-build gh-pages:refs/remotes/origin/gh-pages 2>/dev/null
+            # Fetch master branch (should always exist)
+            if ! git fetch --quiet origin master:refs/remotes/origin/master 2>/dev/null; then
+              echo "❌ Failed to fetch master branch - repository may not exist or be accessible"
+              cd ..
+              rm -rf $TEMP_DIR
+              return
+            fi
+            
+            # Try to fetch both possible deployment branches silently
+            git fetch --quiet origin remote-build:refs/remotes/origin/remote-build 2>/dev/null
+            git fetch --quiet origin gh-pages:refs/remotes/origin/gh-pages 2>/dev/null
             
             echo "Determining which branch to compare against"
 
