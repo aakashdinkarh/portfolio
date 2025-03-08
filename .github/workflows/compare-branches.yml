@@ -20,31 +20,23 @@ jobs:
             local repo=$1
             echo "Checking repository: $repo"
             
-            # Clone the repository
-            if ! git clone --quiet $repo temp_repo 2>/dev/null; then
-              echo "❌ Failed to clone repository: $repo"
-              return 1
-            fi
-            cd temp_repo || return 1
-            
-            # Fetch specific branches
-            git fetch origin master:master remote-build:remote-build --quiet 2>/dev/null
+            # Get commit hashes for both branches
+            MASTER_HASH=$(git ls-remote $repo refs/heads/master | cut -f1)
+            REMOTE_BUILD_HASH=$(git ls-remote $repo refs/heads/remote-build | cut -f1)
             
             # Check if remote-build branch exists
-            if git show-ref --verify --quiet refs/heads/remote-build; then
-              # Compare the branches using diff
-              if git diff --quiet master remote-build; then
-                echo "✅ No changes to compare in $repo"
-              else
-                echo "⚠️ Changes found between master and remote-build in $repo"
-                echo "$repo" >> $GITHUB_WORKSPACE/needs_update.txt
-              fi
-            else
+            if [ -z "$REMOTE_BUILD_HASH" ]; then
               echo "❌ remote-build branch not found in $repo"
+              return
             fi
             
-            cd ..
-            rm -rf temp_repo
+            # Compare the hashes
+            if [ "$MASTER_HASH" != "$REMOTE_BUILD_HASH" ]; then
+              echo "⚠️ Changes found between master and remote-build in $repo"
+              echo "$repo" >> $GITHUB_WORKSPACE/needs_update.txt
+            else
+              echo "✅ No changes to compare in $repo"
+            fi
           }
           
           # Create workspace directory if it doesn't exist
