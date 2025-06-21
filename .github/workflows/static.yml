@@ -158,13 +158,12 @@ jobs:
           mv temp-static-assets-app/* static-assets-app/
           rm -rf temp-static-assets-app
 
-      - name: Inject env variables into Todo React App
+      - name: Inject env variables into Static Assets App
         env:
-          CLIENT_URL: ${{ secrets.REACT_APP_CLIENT_URL }}
+          CLIENT_URL: ${{ vars.REACT_APP_CLIENT_URL }}
           GITHUB_ID: ${{ secrets.REACT_APP_GITHUB_CLIENT_ID }}
-          API_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
+          API_URL: ${{ vars.REACT_APP_API_BASE_URL }}
         run: |
-          # IMPORTANT: Adjust this path if your config file is in a different project directory.
           TARGET_FILE="static-assets-app/src/constants/client.config.ts"
 
           if [ -f "$TARGET_FILE" ]; then
