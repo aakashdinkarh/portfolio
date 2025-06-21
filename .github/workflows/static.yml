@@ -150,13 +150,45 @@ jobs:
           rm -rf js-ts-playground/*
           mv temp-js-ts-playground/* js-ts-playground/
           rm -rf temp-js-ts-playground
+      - name: Pull static-assets-app repository
+        run: |
+          git clone --branch gh-pages https://github.com/aakashdinkarh/static-assets-app.git temp-static-assets-app
+          mkdir -p static-assets-app
+          rm -rf static-assets-app/*
+          mv temp-static-assets-app/* static-assets-app/
+          rm -rf temp-static-assets-app
+
+      - name: Inject env variables into Todo React App
+        env:
+          CLIENT_URL: ${{ secrets.REACT_APP_CLIENT_URL }}
+          GITHUB_ID: ${{ secrets.REACT_APP_GITHUB_CLIENT_ID }}
+          API_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
+        run: |
+          # IMPORTANT: Adjust this path if your config file is in a different project directory.
+          TARGET_FILE="static-assets-app/src/constants/client.config.ts"
+
+          if [ -f "$TARGET_FILE" ]; then
+            echo "Injecting variables into $TARGET_FILE..."
+            # Use sed to find each placeholder and replace it with the value of the corresponding environment variable.
+            # The '|' separator avoids issues if URLs contain slashes.
+            sed -i "s|%%REACT_APP_CLIENT_URL%%|$CLIENT_URL|g" $TARGET_FILE
+            sed -i "s|%%REACT_APP_GITHUB_CLIENT_ID%%|$GITHUB_ID|g" $TARGET_FILE
+            sed -i "s|%%REACT_APP_API_BASE_URL%%|$API_URL|g" $TARGET_FILE
+            echo "Injection complete."
+            echo "File content after injection:"
+            cat $TARGET_FILE # You can remove this line after debugging.
+          else
+            # Exit with an error if the file isn't found, as this is a critical step for your app to work.
+            echo "Error: Target file $TARGET_FILE not found. Halting workflow."
+            exit 1
+          fi
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: '.'
+          path: "."
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
