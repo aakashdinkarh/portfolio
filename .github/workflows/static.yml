@@ -150,13 +150,13 @@ jobs:
           rm -rf js-ts-playground/*
           mv temp-js-ts-playground/* js-ts-playground/
           rm -rf temp-js-ts-playground
-      - name: Pull static-assets-app repository
+      - name: Pull web-repo-editor repository
         run: |
-          git clone --branch gh-pages https://github.com/aakashdinkarh/static-assets-app.git temp-static-assets-app
-          mkdir -p static-assets-app
-          rm -rf static-assets-app/*
-          mv temp-static-assets-app/* static-assets-app/
-          rm -rf temp-static-assets-app
+          git clone --branch gh-pages https://github.com/aakashdinkarh/web-repo-editor.git temp-web-repo-editor
+          mkdir -p web-repo-editor
+          rm -rf web-repo-editor/*
+          mv temp-web-repo-editor/* web-repo-editor/
+          rm -rf temp-web-repo-editor
 
       - name: Inject env variables into Static Assets App
         env:
@@ -167,7 +167,7 @@ jobs:
           # The source .ts file doesn't exist in the pre-built gh-pages branch.
           # Instead, we find the built JavaScript files and replace the placeholders there.
           # This path assumes a standard Create React App build output structure. Adjust if necessary.
-          TARGET_DIR="static-assets-app/static/js"
+          TARGET_DIR="web-repo-editor/static/js"
 
           if [ -d "$TARGET_DIR" ]; then
             echo "Found target directory: $TARGET_DIR. Searching for main JS chunk and its source map..."
