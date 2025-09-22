@@ -7,8 +7,9 @@ const {
   processCSS,
   processHTML,
   printDevServerInfo,
-} = require("./build-utils");
-const config = require("./build-config");
+} = require("./build-utils.js");
+const config = require("./build-config.js");
+require("./polyfill.js");
 
 async function startDevServer() {
   const port = config.devServer.port;
@@ -27,7 +28,7 @@ async function startDevServer() {
     await fs.ensureDir(outputDir);
 
     // Process CSS
-    const cssPaths = path.join(__dirname, "..", config.paths.cssFiles);
+    const cssPaths = config.paths.cssFiles.map((cssFile) => path.join(__dirname, "..", cssFile));
     const cssContent = await processCSS(cssPaths, shouldMinifyCSS);
 
     // Process HTML

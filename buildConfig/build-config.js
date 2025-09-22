@@ -54,7 +54,7 @@ module.exports = {
   // HTML template replacements
   htmlReplacements: {
     cssLink: '<link rel="stylesheet" />',
-    navElement: "<header class='nav'></header>",
+    headerElement: "<header></header>",
     mainElement: "<main></main>",
     footerElement: "<footer></footer>",
     moduleScript: '<script src="bundle.js"></script>',

@@ -1,4 +1,4 @@
-import { getElement } from "../../util/ui";
+import { getElement } from "../../util/ui.js";
 
 const skillCategories = [
   {
@@ -161,7 +161,7 @@ const getSkillCategoryElement = (skillCategory) => {
     a.append(
       img,
       skill.name,
-      getElement("span", "right-arrow-icon-placeholder-skill")
+      getElement("span", "right-arrow-icon-placeholder-skill"),
     );
 
     li.append(a);
@@ -173,7 +173,7 @@ const getSkillCategoryElement = (skillCategory) => {
   return skillCategoryElement;
 };
 
-export const about = () => {
+export const skills = () => {
   const sectionSkills = getElement("section", "skills", { id: "skills" });
   const overlay = getElement("div", "overlay");
 

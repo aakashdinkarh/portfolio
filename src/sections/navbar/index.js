@@ -1,4 +1,4 @@
-import { getElement } from "../../util/ui";
+import { getElement } from "../../util/ui.js";
 
 const NAV_LINKS = [
   { text: "About", href: "#about" },

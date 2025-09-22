@@ -1,4 +1,4 @@
-import { getElement, getImageElement } from "../../util/ui";
+import { getElement, getImageElement } from "../../util/ui.js";
 
 export const about = () => {
   const sectionAbout = getElement("section", "about card", { id: "about" });

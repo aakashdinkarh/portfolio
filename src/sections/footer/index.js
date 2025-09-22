@@ -1,4 +1,4 @@
-import { getElement } from "../../util/ui";
+import { getElement } from "../../util/ui.js";
 
 export const footer = () => {
   const footer = getElement("footer");

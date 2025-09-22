@@ -1,5 +1,5 @@
-import { getElement, getImageElement } from "../../util/ui";
-import { go } from "../../util/navUtil";
+import { getElement, getImageElement } from "../../util/ui.js";
+import { go } from "../../util/navUtil.js";
 
 export const home = () => {
   const sectionHome = getElement("section", "home", { id: "home" });

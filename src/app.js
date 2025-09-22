@@ -1,30 +1,33 @@
-import { navbar } from "./sections/navbar";
+import { navbar } from "./sections/navbar/index.js";
 
-import { home } from "./sections/home";
-import { about } from "./sections/about";
-import { skills } from "./sections/skills";
-import { experience } from "./sections/experience";
-import { projects } from "./sections/projects";
-import { contact } from "./sections/bottom";
+import { home } from "./sections/home/index.js";
+import { about } from "./sections/about/index.js";
+import { skills } from "./sections/skills/index.js";
+import { experience } from "./sections/experience/index.js";
+import { projects } from "./sections/projects/index.js";
+import { bottom as contact } from "./sections/bottom/index.js";
 
-import { footer, goToTopButton } from "./sections/footer";
+import { footer, goToTopButton } from "./sections/footer/index.js";
 
-import { selectElement } from "./util/ui";
+import { selectElement, getElement } from "./util/ui.js";
 
-const initApp = () => {
+export const initApp = () => {
   const header = getElement("header", "nav");
   header.append(navbar());
-  selectElement("header").replaceWith(header);
 
   const main = getElement("main");
   main.append(home(), about(), skills(), experience(), projects(), contact());
-  selectElement("main").replaceWith(main);
-  
+
   const fragment = document.createDocumentFragment();
   fragment.append(footer(), goToTopButton());
-  selectElement("footer").replaceWith(fragment);
 
-  console.log("App initialized");
+  try {
+    selectElement("header").replaceWith(header);
+    selectElement("main").replaceWith(main);
+    selectElement("footer").replaceWith(fragment);
+  } catch (error) {
+    console.error("Error initializing app", error);
+  }
+
+  return [header, main, fragment];
 };
-
-initApp();

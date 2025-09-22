@@ -1,7 +1,7 @@
 /**
  * @returns {HTMLElement} - The created HTML element.
  */
-export const getElement = (tag, className, { content, href, id }) => {
+export const getElement = (tag, className, { content, href, id } = {}) => {
   const element = document.createElement(tag);
 
   if (className) element.className = className;
@@ -44,12 +44,5 @@ export const getImageElement = (projectImage = {}, alt, className) => {
  * @returns {HTMLElement} - The selected HTML element.
  */
 export const selectElement = (selector) => {
-  return document.querySelector(selector);
-};
-
-/**
- * @returns {NodeListOf<HTMLElement>} - The selected HTML elements.
- */
-export const selectElements = (selector) => {
-  return document.querySelectorAll(selector);
+  return document.getElementsByTagName(selector)[0];
 };

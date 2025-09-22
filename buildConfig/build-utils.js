@@ -4,9 +4,9 @@ const fs = require("fs-extra");
 const path = require("path");
 const config = require("./build-config");
 // Polyfill for Node.js environment
-require("../js/polyfill");
-const { renderFilteredData } = require("../js/ui");
-const { renderFilterTags } = require("../js/filters");
+require("./polyfill");
+
+const { initApp } = require("../src/app");
 
 /**
  * Simple CSS minifier function
@@ -62,27 +62,28 @@ async function processHTML(htmlPath, cssContent, scriptSrc) {
   // Inline CSS
   htmlContent = htmlContent.replace(
     config.htmlReplacements.cssLink,
-    `<style>${cssContent}</style>`
+    `<style>${cssContent}</style>`,
   );
 
-  // Replace the filters element with initial HTML for the page
-  const filtersElement = await renderFilterTags();
+  // Body elements
+  const [header, main, footer] = initApp();
   htmlContent = htmlContent.replace(
-    config.htmlReplacements.filtersElement,
-    filtersElement.toString()
+    config.htmlReplacements.headerElement,
+    header.toString(),
   );
-
-  // Replace the main element with initial HTML for the page
-  const mainElement = await renderFilteredData();
   htmlContent = htmlContent.replace(
     config.htmlReplacements.mainElement,
-    mainElement.toString()
+    main.toString(),
+  );
+  htmlContent = htmlContent.replace(
+    config.htmlReplacements.footerElement,
+    footer.toString(),
   );
 
   // Replace module script with bundled script
   htmlContent = htmlContent.replace(
     config.htmlReplacements.moduleScript,
-    `<script src="${scriptSrc}"></script>`
+    `<script src="${scriptSrc}"></script>`,
   );
 
   return htmlContent;

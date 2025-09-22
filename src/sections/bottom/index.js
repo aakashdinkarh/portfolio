@@ -1,4 +1,4 @@
-import { getElement } from "../../util/ui";
+import { getElement } from "../../util/ui.js";
 
 const CONTACT_DETAILS = [
   {

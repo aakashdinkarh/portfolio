@@ -4,6 +4,8 @@
   "description": "Aakash Dinkar's portfolio showcasing projects and skills in web development, software engineering, and more.",
   "main": "index.html",
   "scripts": {
+    "dev": "node buildConfig/dev-server.js",
+    "lint": "eslint src/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -33,6 +35,8 @@
   "homepage": "https://github.com/aakashdinkarh/portfolio#readme",
   "devDependencies": {
     "esbuild": "0.25.10",
-    "fs-extra": "11.3.2"
+    "eslint": "9.36.0",
+    "fs-extra": "11.3.2",
+    "globals": "^16.4.0"
   }
 }

@@ -1,5 +1,5 @@
 export const go = (selector, offsetFlag = false) => {
-  if (selector === "") {
+  if (selector === '') {
     window.scrollTo(0, 0);
     return;
   }
@@ -11,6 +11,6 @@ export const go = (selector, offsetFlag = false) => {
     window.scrollY +
       elem.getBoundingClientRect().top -
       48 -
-      (offsetFlag ? offset : 0)
+      (offsetFlag ? offset : 0),
   );
 };

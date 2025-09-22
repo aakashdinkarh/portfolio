@@ -1,4 +1,4 @@
-import { getElement, getImageElement } from "../../util/ui";
+import { getElement, getImageElement } from "../../util/ui.js";
 
 const projectsList = [
   {
@@ -154,11 +154,11 @@ const getProjectImageCard = (image) => {
 const getProjectDetailLinkContainer = (detailLinks) => {
   const projectDetailLinkContainer = getElement(
     "div",
-    "project-detail-links-container"
+    "project-detail-links-container",
   );
 
   const ul = getElement("ul", "project-detail-links");
-  const detailLinks = detailLinks.map((detailLink) => {
+  const detailLinksElements = detailLinks.map((detailLink) => {
     const li = getElement("li");
     const a = getElement("a", null, {
       content: detailLink.title,
@@ -168,7 +168,7 @@ const getProjectDetailLinkContainer = (detailLinks) => {
     li.append(a);
     return li;
   });
-  ul.append(...detailLinks);
+  ul.append(...detailLinksElements);
   projectDetailLinkContainer.append(ul);
   return projectDetailLinkContainer;
 };
@@ -178,14 +178,14 @@ const getProjectDetailElement = (project) => {
 
   const projectDetails = getElement(
     "div",
-    project.projectDetailCardClassName || "project-details"
+    project.projectDetailCardClassName || "project-details",
   );
 
   if (!project.viewAll) {
     const projectImageList = getElement("ul", "project-image-list");
     const pictureImageCards = project.imageList.map(getProjectImageCard);
     const projectDetailLinkContainer = getProjectDetailLinkContainer(
-      project.detailLinks
+      project.detailLinks,
     );
     projectImageList.append(...pictureImageCards, projectDetailLinkContainer);
     projectDetails.append(projectImageList);
@@ -200,7 +200,7 @@ const getProjectDetailElement = (project) => {
 
   const rightArrowIconPlaceholder = getElement(
     "span",
-    "right-arrow-icon-placeholder-project"
+    "right-arrow-icon-placeholder-project",
   );
   a.append(rightArrowIconPlaceholder);
 
@@ -223,7 +223,7 @@ export const projects = () => {
 
   const projectDetailsContainer = getElement(
     "div",
-    "project-details-container"
+    "project-details-container",
   );
 
   const projectDetailElements = projectsList.map(getProjectDetailElement);
