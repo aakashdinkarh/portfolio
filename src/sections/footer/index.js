@@ -38,7 +38,7 @@ export const goToTopButton = () => {
   topBtn.append(
     ...Array(2)
       .fill(0)
-      .map(() => getElement("span", "upward-icon-placeholder"))
+      .map(() => getElement("span", "upward-icon-placeholder")),
   );
 
   return topBtn;

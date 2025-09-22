@@ -9,8 +9,8 @@ export const go = (selector, offsetFlag = false) => {
   window.scrollTo(
     0,
     window.scrollY +
-      elem.getBoundingClientRect().top -
-      48 -
-      (offsetFlag ? offset : 0),
+    elem.getBoundingClientRect().top -
+    48 -
+    (offsetFlag ? offset : 0),
   );
 };

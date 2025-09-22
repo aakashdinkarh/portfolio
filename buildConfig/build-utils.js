@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 
 const fs = require("fs-extra");
-const path = require("path");
 const config = require("./build-config");
 // Polyfill for Node.js environment
 require("./polyfill");
 
-const { initApp } = require("../src/app");
+const { initApp } = require("../src/serverApp");
 
 /**
  * Simple CSS minifier function

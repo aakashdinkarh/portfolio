@@ -14,7 +14,7 @@ export const about = () => {
       webp: "https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/photo.webp",
     },
     "about image - Aakash Dinkar",
-    "card"
+    "card",
   );
   profile.append(picture);
 

@@ -30,7 +30,7 @@ const mNav = () => {
   const wrapperDiv1 = getElement("div", "m-justify-center m-full-width");
   const hamburgerMenuButton = getElement(
     "button",
-    "hamburger-menu-icon m-flex-col m-justify-center"
+    "hamburger-menu-icon m-flex-col m-justify-center",
   );
   const hamburgerIconBars = Array(3)
     .fill(0)

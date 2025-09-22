@@ -4,7 +4,7 @@
 module.exports = {
   // File paths
   paths: {
-    entryPoint: "src/app.js",
+    entryPoint: "src/clientApp.js",
     cssFiles: [
       "styles/style.css",
       "styles/responsive.css",

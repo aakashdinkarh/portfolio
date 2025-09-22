@@ -9,7 +9,7 @@ import { bottom as contact } from "./sections/bottom/index.js";
 
 import { footer, goToTopButton } from "./sections/footer/index.js";
 
-import { selectElement, getElement } from "./util/ui.js";
+import { getElement } from "./util/ui.js";
 
 export const initApp = () => {
   const header = getElement("header", "nav");
@@ -20,14 +20,6 @@ export const initApp = () => {
 
   const fragment = document.createDocumentFragment();
   fragment.append(footer(), goToTopButton());
-
-  try {
-    selectElement("header").replaceWith(header);
-    selectElement("main").replaceWith(main);
-    selectElement("footer").replaceWith(fragment);
-  } catch (error) {
-    console.error("Error initializing app", error);
-  }
 
   return [header, main, fragment];
 };

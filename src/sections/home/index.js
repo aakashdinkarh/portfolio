@@ -1,5 +1,4 @@
 import { getElement, getImageElement } from "../../util/ui.js";
-import { go } from "../../util/navUtil.js";
 
 export const home = () => {
   const sectionHome = getElement("section", "home", { id: "home" });
@@ -13,16 +12,13 @@ export const home = () => {
   const textContent = getElement("div", "text-content");
   const article = getElement("article");
   const h1 = getElement("h1", null, {
-    content: "I'm Aakash Dinkar\nWeb Developer",
+    content: "I'm Aakash Dinkar<br>Web Developer",
   });
   const button = getElement(
     "button",
     "know-more-about-me right-arrow-hover-effect",
-    { content: "Know more about me" }
+    { content: "Know more about me" },
   );
-  button.onclick = () => {
-    go("#about", true);
-  };
   article.append(h1, button);
   textContent.append(article);
 
@@ -34,7 +30,7 @@ export const home = () => {
       webp: "https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/portfolio.webp",
     },
     "Aakash Dinkar Portfolio Image",
-    "card"
+    "card",
   );
   profile.append(picture);
 
