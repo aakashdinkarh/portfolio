@@ -1,0 +1,38 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Aakash Dinkar's portfolio showcasing projects and skills in web development, software engineering, and more.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aakashdinkarh/portfolio.git"
+  },
+  "keywords": [
+    "Aakash",
+    "Dinkar",
+    "aakash",
+    "dinkar",
+    "web-developer",
+    "dev-dinkar",
+    "dev",
+    "dinkar",
+    "portfolio",
+    "aakash",
+    "portfolio",
+    "dinkar",
+    "portfolio"
+  ],
+  "author": "Aakash Dinkar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aakashdinkarh/portfolio/issues"
+  },
+  "homepage": "https://github.com/aakashdinkarh/portfolio#readme",
+  "devDependencies": {
+    "esbuild": "0.25.10",
+    "fs-extra": "11.3.2"
+  }
+}
