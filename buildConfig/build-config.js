@@ -56,6 +56,7 @@ module.exports = {
     cssLink: '<link rel="stylesheet" />',
     navElement: "<header class='nav'></header>",
     mainElement: "<main></main>",
+    footerElement: "<footer></footer>",
     moduleScript: '<script src="bundle.js"></script>',
   },
 };

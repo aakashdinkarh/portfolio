@@ -19,9 +19,10 @@ const initApp = () => {
   const main = getElement("main");
   main.append(home(), about(), skills(), experience(), projects(), contact());
   selectElement("main").replaceWith(main);
-
-  const body = selectElement("body");
-  body.append(footer(), goToTopButton());
+  
+  const fragment = document.createDocumentFragment();
+  fragment.append(footer(), goToTopButton());
+  selectElement("footer").replaceWith(fragment);
 
   console.log("App initialized");
 };
