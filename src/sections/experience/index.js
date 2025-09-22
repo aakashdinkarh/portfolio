@@ -23,7 +23,7 @@ const experienceList = [
     position: "Web Developer",
     duration: "(Jun '21 - Aug '21)",
     description:
-      "I interned as a Front-end Developer at Web Student, completing 7 projects as a Team Leader. I enhanced website designs and functionality, incorporating various animations and APIs. My leadership skills were recognized with the Best-Intern award and an appreciation certificate for the team.",
+      "I interned as a Front-end Developer at Web Student, completing 7 projects as a Team Leader. I enhanced website designs and functionality, incorporating various animations and APIs. My leadership skills were recognized with the <b>Best-Intern</b> award and an <b>appreciation certificate</b> for the team.",
     techSkills:
       "HTML, CSS, JavaScript, Web Storage APIs, Responsive Web Designs",
   },
@@ -60,7 +60,7 @@ const getDateDifferenceText = (joiningDate, today) => {
     const daysInPreviousMonth = new Date(
       today.getFullYear(),
       previousMonth + 1,
-      0
+      0,
     ).getDate();
     days += daysInPreviousMonth;
   }
@@ -101,7 +101,7 @@ const getExperience = (experience) => {
     subHeading,
     description,
     techSkillsSubHeading,
-    techSkills
+    techSkills,
   );
   article.append(experienceCard);
   return article;

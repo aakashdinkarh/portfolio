@@ -24,6 +24,7 @@ const CONTACT_DETAILS = [
     img: "https://aakashdinkarh.github.io/static_assets/images/svgs/linkedin.svg",
     alt: "linkedin",
     content: "LinkedIn",
+    className: "linkedin-profile-url",
   },
   {
     href: "https://github.com/aakashdinkarh",
@@ -60,9 +61,8 @@ const FORM_FIELDS = [
 
 const getContactItem = (contactDetail) => {
   const contactItem = getElement("li", "contact-item");
-  const a = getElement("a", null, {
+  const a = getElement("a", contactDetail.className, {
     href: contactDetail.href,
-    content: contactDetail.content,
   });
   a.target = "_blank";
 
@@ -75,6 +75,7 @@ const getContactItem = (contactDetail) => {
   img.width = "20px";
 
   a.append(img);
+  a.append(contactDetail.content);
   contactItem.append(a);
 
   return contactItem;

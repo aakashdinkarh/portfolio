@@ -1,7 +1,7 @@
 /**
  * @returns {HTMLElement} - The created HTML element.
  */
-export const getElement = (tag, className, { content, href, id } = {}) => {
+export const getElement = (tag, className, { content, href, id, alt, src } = {}) => {
   const element = document.createElement(tag);
 
   if (className) element.className = className;
@@ -10,6 +10,9 @@ export const getElement = (tag, className, { content, href, id } = {}) => {
   if (content) element.innerText = content;
 
   if (tag === "a" && href) element.href = href;
+
+  if (tag === "img" && alt) element.alt = alt;
+  if (tag === "img" && src) element.src = src;
 
   return element;
 };

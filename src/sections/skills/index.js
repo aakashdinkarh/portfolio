@@ -147,13 +147,11 @@ const getSkillCategoryElement = (skillCategory) => {
   const skills = skillCategory.skills.map((skill) => {
     const li = getElement("li");
     const a = getElement("a", "right-arrow-hover-effect", {
-      content: skill.name,
       href: skill.infoLink,
     });
     a.target = "_blank";
 
-    const img = getElement("img", skill.className, { src: skill.imageLink });
-    img.alt = skill.imageAlt;
+    const img = getElement("img", skill.className, { src: skill.imageLink, alt: skill.imageAlt });
     img.loading = "lazy";
     img.decoding = "async";
     img.width = "24px";
