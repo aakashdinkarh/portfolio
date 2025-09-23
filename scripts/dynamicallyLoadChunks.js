@@ -1,32 +1,32 @@
-const loadAndReplaceRightArrowIcon = async (selector) => {
-	try {
-		const replaceSvg = await loadRightArrowIcon;
-		replaceSvg(selector);
-	} catch (error) {
-		console.error('Failed to load the right arrow icon', 'selector: ', selector, 'error: ', error);
-	}
-};
-const loadAndReplaceUpwardIcon = async (selector) => {
-	try {
-		const replaceSvg = await loadUpwardIcon;
-		replaceSvg(selector);
-	} catch (error) {
-		console.error('Failed to load the right arrow icon', 'selector: ', selector, 'error: ', error);
-	}
-};
+// const loadAndReplaceRightArrowIcon = async (selector) => {
+//   try {
+//     const replaceSvg = await loadRightArrowIcon;
+//     replaceSvg(selector);
+//   } catch (error) {
+//     console.error('Failed to load the right arrow icon', 'selector: ', selector, 'error: ', error);
+//   }
+// };
+// const loadAndReplaceUpwardIcon = async (selector) => {
+//   try {
+//     const replaceSvg = await loadUpwardIcon;
+//     replaceSvg(selector);
+//   } catch (error) {
+//     console.error('Failed to load the right arrow icon', 'selector: ', selector, 'error: ', error);
+//   }
+// };
 
-loadAndReplaceRightArrowIcon('.right-arrow-icon-placeholder-home');
-loadAndReplaceUpwardIcon('.upward-icon-placeholder');
+// loadAndReplaceRightArrowIcon('.right-arrow-icon-placeholder-home');
+// loadAndReplaceUpwardIcon('.upward-icon-placeholder');
 
-intersectionObserver('#about', () => {
-	loadJs('scripts/experienceCalc.js');
-});
+// intersectionObserver('#about', () => {
+//   loadJs('scripts/experienceCalc.js');
+// });
 
-intersectionObserver('#skills', () => {
-	loadAndReplaceRightArrowIcon('.right-arrow-icon-placeholder-skill');
-}, {
-	rootMargin: '0px',
-});
+// intersectionObserver('#skills', () => {
+//   loadAndReplaceRightArrowIcon('.right-arrow-icon-placeholder-skill');
+// }, {
+//   rootMargin: '0px',
+// });
 
 function isDivCenteredVertically(div) {
 	const rect = div.getBoundingClientRect();
