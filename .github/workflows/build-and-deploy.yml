@@ -1,0 +1,65 @@
+name: Build and Deploy
+
+on:
+  # Runs on pushes targeting the default branch
+  # push:
+  #   branches: [master]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    branches: [arch/build-minified-chunks]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.FORCE_PUSH_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project (production)
+        run: npm run build
+
+      - name: Deploy to remote-build branch
+        run: |
+          # Configure git
+          git config --local user.email "aakashdinkarh@gmail.com"
+          git config --local user.name "Aakash Dinkar Workflow Bot"
+
+          # Create or switch to remote-build branch
+          git checkout --orphan remote-build || git checkout remote-build
+
+          # Remove all files except .git
+          git rm -rf . || true
+
+          # Copy only the built files from dist to root
+          cp -r dist/* .
+
+          # Add only the built files
+          git add .
+
+          # Commit and push
+          git commit -m "Build from ${{ github.sha }}"
+          git push https://x-access-token:${{ secrets.FORCE_PUSH_TOKEN }}@github.com/aakashdinkarh/portfolio.git HEAD:remote-build --force
+
+      - name: Show build info
+        run: |
+          echo "✅ Build completed successfully!"
+          echo ""
+          echo "🚀 Deployment:"
+          echo "   ✅ Built files pushed to remote-build branch"
+          echo "   📁 Branch: remote-build"
+          echo ""
