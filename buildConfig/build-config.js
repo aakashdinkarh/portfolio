@@ -30,6 +30,7 @@ module.exports = {
     sourcemap: true,
     define: {
       "process.env.NODE_ENV": '"development"',
+      "BUILD_CONFIG": '{"right-arrow-icon":"https://aakashdinkarh.github.io/static_assets/images/svgs/right-arrow-icon.svg","upward-icon":"https://aakashdinkarh.github.io/static_assets/images/svgs/upward-icon.svg"}',
     },
   },
 

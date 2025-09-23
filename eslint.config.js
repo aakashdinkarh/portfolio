@@ -13,6 +13,8 @@ export default [
       globals: {
         ...globals.browser,
         ...globals.node,
+        // Build-time injected variables
+        BUILD_CONFIG: "readonly",
       },
     },
     rules: {
@@ -28,6 +30,7 @@ export default [
       "array-bracket-spacing": ["error", "never"],
       "no-trailing-spaces": "error",
       "eol-last": "error",
+      "no-empty": "off",
     },
   },
 ];

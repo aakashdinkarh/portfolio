@@ -1,23 +1,22 @@
-const getSvg = (() => {
-  const svgMap = new Map();
+export const svgMap = new Map();
 
-  return async (src) => {
-    if (svgMap.has(src)) {
-      return svgMap.get(src);
-    }
-    try {
-      const res = await fetch(src);
-      const svgText = res.text();
-      svgMap.set(src, svgText);
-      return svgText;
-    } catch {
-      return null;
-    }
-  };
-})();
+export const svgFetch = async (src) => {
+  if (svgMap.has(src)) {
+    return svgMap.get(src);
+  }
+  try {
+    const res = await fetch(src);
+    const svgText = await res.text();
+    svgMap.set(src, svgText);
+  } catch { }
+};
+
+export const fetchSvgs = async (svgLinksObj) => {
+  return await Promise.all(Object.values(svgLinksObj).map(svgFetch));
+};
 
 export const loadRightArrowIcon = (async () => {
-  const rightArrowIconText = await getSvg('https://aakashdinkarh.github.io/static_assets/images/svgs/right-arrow-icon.svg');
+  const rightArrowIconText = await svgFetch('https://aakashdinkarh.github.io/static_assets/images/svgs/right-arrow-icon.svg');
   const svgContainer = document.createElement('div');
   svgContainer.innerHTML = rightArrowIconText;
   const rightArrowIcon = svgContainer.querySelector('svg');
@@ -31,7 +30,7 @@ export const loadRightArrowIcon = (async () => {
 })();
 
 export const loadUpwardIcon = (async () => {
-  const upwardIconText = await getSvg('https://aakashdinkarh.github.io/static_assets/images/svgs/upward-icon.svg');
+  const upwardIconText = await svgFetch('https://aakashdinkarh.github.io/static_assets/images/svgs/upward-icon.svg');
   const svgContainer = document.createElement('div');
   svgContainer.innerHTML = upwardIconText;
   const upwardIcon = svgContainer.querySelector('svg');

@@ -1,6 +1,13 @@
 import { hydrateNavbar } from "./clientSections/navbar.js";
 import { hydrateCopyright, hydrateGoToTopButton } from "./clientSections/footer.js";
 import { go } from "./util/navUtil.js";
+import { fetchSvgs } from "./clientSections/hydrateSvgs.js";
+
+// Access build-time parameters passed from esbuild define
+const buildConfig = {
+  svgLinks: BUILD_CONFIG,
+};
+
 
 export const initApp = () => {
   window.onload = () => {
@@ -20,6 +27,11 @@ export const initApp = () => {
   hydrateCopyright();
 
   hydrateGoToTopButton();
+
+  fetchSvgs(buildConfig.svgLinks || {
+    "right-arrow-icon": "https://aakashdinkarh.github.io/static_assets/images/svgs/right-arrow-icon.svg",
+    "upward-icon": "https://aakashdinkarh.github.io/static_assets/images/svgs/upward-icon.svg",
+  });
 };
 
 initApp();
