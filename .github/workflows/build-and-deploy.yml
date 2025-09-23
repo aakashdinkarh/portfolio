@@ -42,12 +42,28 @@ jobs:
           # Create or switch to remote-build branch
           git checkout --orphan remote-build || git checkout remote-build
 
+          # Debug: Show what files exist before cleanup
+          echo "🔍 Files before cleanup:"
+          ls -la
+
           # Remove all files except .gitignore
           git rm -rf . || true
           git checkout HEAD -- .gitignore 2>/dev/null || true
 
+          # Debug: Show what files exist after cleanup
+          echo "🔍 Files after cleanup:"
+          ls -la
+
           # Copy built files from dist to root
           cp -r dist/* .
+
+          # Debug: Show what files exist after copying from dist
+          echo "🔍 Files after copying from dist:"
+          ls -la
+
+          # Debug: Show what git add will add
+          echo "🔍 Files that git add will stage:"
+          git add --dry-run .
 
           # Add files (gitignore will automatically exclude node_modules and other unwanted files)
           git add .
