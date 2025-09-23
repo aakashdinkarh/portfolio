@@ -9,7 +9,6 @@ const {
   printDevServerInfo,
 } = require("./build-utils.js");
 const config = require("./build-config.js");
-require("./polyfill.js");
 
 async function startDevServer() {
   const port = config.devServer.port;
