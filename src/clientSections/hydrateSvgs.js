@@ -17,7 +17,7 @@ export const fetchSvgs = async (svgLinksObj) => {
 
 export const hydrateSvgs = (svgLinksObj) => {
   Object.keys(svgLinksObj).forEach((svgKey) => {
-    const iconText = svgMap[svgKey];
+    const iconText = svgMap.get(svgKey);
     if (!iconText) return;
 
     const tempDiv = document.createElement('div');
@@ -28,5 +28,5 @@ export const hydrateSvgs = (svgLinksObj) => {
     iconPlaceholders.forEach((placeholderNode) => {
       placeholderNode.replaceWith(svgElement.cloneNode(true));
     });
-  })
-}
+  });
+};

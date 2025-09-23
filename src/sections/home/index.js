@@ -19,6 +19,7 @@ export const home = () => {
     "know-more-about-me right-arrow-hover-effect",
     { content: "Know more about me" },
   );
+  button.append(getElement("span", "right-arrow-icon-placeholder-home"));
   article.append(h1, button);
   textContent.append(article);
 

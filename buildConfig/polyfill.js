@@ -6,7 +6,7 @@ const getFilteredKeys = (obj) => Object.keys(obj).filter((key) => key !== "toStr
 const isObjectEmpty = (obj) =>
   typeof obj === "object" && obj !== null && getFilteredKeys(obj).length === 0;
 
-const tagsWithSelfEnclosing = ["img", "source"];
+const tagsWithSelfEnclosing = ["img", "source", "hr", "input"];
 const objectProperties = {
   dataset: {
     toString: function () {
@@ -39,6 +39,7 @@ const getGenericElementAttributes = () => ({
   download: "",
   name: "",
   required: "",
+  title: "",
   cols: "",
   rows: "",
   loading: "",
@@ -99,6 +100,8 @@ if (typeof global !== "undefined" && !global.document) {
             if (objectPropertiesKeys.includes(key)) {
               if (isObjectEmpty(this[key])) return;
               element += this[key].toString();
+            } else if (key === "required" && this[key]) {
+              element += ` ${key}`;
             } else if (this[key]) {
               element += ` ${key}="${this[key]}"`;
             }

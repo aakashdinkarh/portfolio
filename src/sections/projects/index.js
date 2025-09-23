@@ -101,6 +101,10 @@ const projectsList = [
         title: "GitHub",
         href: "https://github.com/aakashdinkarh/the-movie-db",
       },
+      {
+        title: "Try it Now",
+        href: "https://aakashdinkar.in/the-movie-db/",
+      },
     ],
     subHeading: "The Movie DB",
     subHeadingLink: "https://aakashdinkar.in/the-movie-db/",

@@ -1,7 +1,7 @@
 import { hydrateNavbar } from "./clientSections/navbar.js";
 import { hydrateCopyright, hydrateGoToTopButton } from "./clientSections/footer.js";
 import { go } from "./util/navUtil.js";
-import { fetchSvgs } from "./clientSections/hydrateSvgs.js";
+import { fetchSvgs, hydrateSvgs } from "./clientSections/hydrateSvgs.js";
 
 // Access build-time parameters passed from esbuild define
 const buildConfig = {

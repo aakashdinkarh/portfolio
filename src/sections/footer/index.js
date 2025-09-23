@@ -14,7 +14,7 @@ export const footer = () => {
   const copyrightName = getElement("span", "copyright-name", {
     content: "Aakash Dinkar. All rights reserved ",
   });
-  const copyrightYear = getElement("span", {
+  const copyrightYear = getElement("span", null, {
     content: `| ${new Date().getFullYear()}`,
   });
   copyright.append(copyrightName, copyrightYear);
