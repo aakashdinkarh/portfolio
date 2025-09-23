@@ -42,13 +42,14 @@ jobs:
           # Create or switch to remote-build branch
           git checkout --orphan remote-build || git checkout remote-build
 
-          # Remove all files except .git
+          # Remove all files except .gitignore
           git rm -rf . || true
+          git checkout HEAD -- .gitignore 2>/dev/null || true
 
-          # Copy only the built files from dist to root
+          # Copy built files from dist to root
           cp -r dist/* .
 
-          # Add only the built files
+          # Add files (gitignore will automatically exclude node_modules and other unwanted files)
           git add .
 
           # Commit and push
