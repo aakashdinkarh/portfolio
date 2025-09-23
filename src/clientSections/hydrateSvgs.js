@@ -1,44 +1,32 @@
-export const svgMap = new Map();
+const svgMap = new Map();
 
-export const svgFetch = async (src) => {
-  if (svgMap.has(src)) {
-    return svgMap.get(src);
+const svgFetch = async (svgKey, src) => {
+  if (svgMap.has(svgKey)) {
+    return svgMap.get(svgKey);
   }
   try {
     const res = await fetch(src);
     const svgText = await res.text();
-    svgMap.set(src, svgText);
+    svgMap.set(svgKey, svgText);
   } catch { }
 };
 
 export const fetchSvgs = async (svgLinksObj) => {
-  return await Promise.all(Object.values(svgLinksObj).map(svgFetch));
+  return await Promise.all(Object.entries(svgLinksObj).map(([svgKey, svgLink]) => svgFetch(svgKey, svgLink)));
 };
 
-export const loadRightArrowIcon = (async () => {
-  const rightArrowIconText = await svgFetch('https://aakashdinkarh.github.io/static_assets/images/svgs/right-arrow-icon.svg');
-  const svgContainer = document.createElement('div');
-  svgContainer.innerHTML = rightArrowIconText;
-  const rightArrowIcon = svgContainer.querySelector('svg');
+export const hydrateSvgs = (svgLinksObj) => {
+  Object.keys(svgLinksObj).forEach((svgKey) => {
+    const iconText = svgMap[svgKey];
+    if (!iconText) return;
 
-  return (placeholderSelector) => {
-    document.querySelectorAll(placeholderSelector).forEach((placeholderNode) => {
-      const cloneIcon = rightArrowIcon.cloneNode(true);
-      placeholderNode.replaceWith(cloneIcon);
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = iconText.trim();
+    const svgElement = tempDiv.firstElementChild;
+    const iconPlaceholders = document.querySelectorAll(`[class*="${svgKey}-placeholder"]`);
+
+    iconPlaceholders.forEach((placeholderNode) => {
+      placeholderNode.replaceWith(svgElement.cloneNode(true));
     });
-  };
-})();
-
-export const loadUpwardIcon = (async () => {
-  const upwardIconText = await svgFetch('https://aakashdinkarh.github.io/static_assets/images/svgs/upward-icon.svg');
-  const svgContainer = document.createElement('div');
-  svgContainer.innerHTML = upwardIconText;
-  const upwardIcon = svgContainer.querySelector('svg');
-
-  return (placeholderSelector) => {
-    document.querySelectorAll(placeholderSelector).forEach((placeholderNode) => {
-      const cloneIcon = upwardIcon.cloneNode(true);
-      placeholderNode.replaceWith(cloneIcon);
-    });
-  };
-})();
+  })
+}

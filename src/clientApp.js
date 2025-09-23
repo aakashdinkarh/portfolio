@@ -5,7 +5,10 @@ import { fetchSvgs } from "./clientSections/hydrateSvgs.js";
 
 // Access build-time parameters passed from esbuild define
 const buildConfig = {
-  svgLinks: BUILD_CONFIG,
+  svgLinks: BUILD_CONFIG || {
+    "right-arrow-icon": "https://aakashdinkarh.github.io/static_assets/images/svgs/right-arrow-icon.svg",
+    "upward-icon": "https://aakashdinkarh.github.io/static_assets/images/svgs/upward-icon.svg",
+  },
 };
 
 
@@ -28,10 +31,7 @@ export const initApp = () => {
 
   hydrateGoToTopButton();
 
-  fetchSvgs(buildConfig.svgLinks || {
-    "right-arrow-icon": "https://aakashdinkarh.github.io/static_assets/images/svgs/right-arrow-icon.svg",
-    "upward-icon": "https://aakashdinkarh.github.io/static_assets/images/svgs/upward-icon.svg",
-  });
+  fetchSvgs(buildConfig.svgLinks).then(() => hydrateSvgs(buildConfig.svgLinks));
 };
 
 initApp();
