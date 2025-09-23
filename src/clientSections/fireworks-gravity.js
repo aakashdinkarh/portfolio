@@ -99,7 +99,7 @@ class Particle {
   }
 }
 
-const getFirework = (canvas) => {
+export const getFirework = (canvas) => {
   const ctx = canvas.getContext('2d');
 
   const canvasClientRect = canvas.getBoundingClientRect();

@@ -69,6 +69,6 @@
 //   });
 // });
 
-intersectionObserver('#contact', () => {
-	loadJs('scripts/emailjs.js');
-});
+// intersectionObserver('#contact', () => {
+//   loadJs('scripts/emailjs.js');
+// });

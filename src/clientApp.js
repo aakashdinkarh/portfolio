@@ -5,6 +5,7 @@ import { go } from "./util/navUtil.js";
 import { fetchSvgs, hydrateSvgs } from "./clientSections/hydrateSvgs.js";
 import { hydrateProjects } from "./clientSections/projects.js";
 import { hydrateHomeFireworks } from "./clientSections/fireworks-gravity.js";
+import { hydrateContact } from "./clientSections/contact.js";
 
 // Access build-time parameters passed from esbuild define
 const buildConfig = {
@@ -32,6 +33,7 @@ export const initApp = () => {
   hydrateCopyright();
   hydrateProjects();
   hydrateHomeFireworks();
+  hydrateContact();
 };
 
 initApp();

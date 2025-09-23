@@ -27,28 +27,28 @@
 const loadedSourceMapping = {};
 
 const loadJs = (src, successCallback, errorCallback) => {
-    if (!src) return;
+  if (!src) return;
 
-    if (loadedSourceMapping[src]) {
-        if(successCallback) successCallback();
-        return;
-    }
+  if (loadedSourceMapping[src]) {
+    if (successCallback) successCallback();
+    return;
+  }
 
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = src;
-    script.onload = () => {
-        loadedSourceMapping[src] = true;
-        if(successCallback) successCallback();
-    }
-    script.onerror = () => {
-        loadedSourceMapping[src] = false;
-        console.error('Failed to load the script ::', src);
-        if (errorCallback) errorCallback();
-        script.remove();
-    }
-    document.body.appendChild(script);
-}
+  const script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = src;
+  script.onload = () => {
+    loadedSourceMapping[src] = true;
+    if (successCallback) successCallback();
+  };
+  script.onerror = () => {
+    loadedSourceMapping[src] = false;
+    console.error('Failed to load the script ::', src);
+    if (errorCallback) errorCallback();
+    script.remove();
+  };
+  document.body.appendChild(script);
+};
 
 // /**
 //  * Creates a function that combines throttling and debouncing behavior.
