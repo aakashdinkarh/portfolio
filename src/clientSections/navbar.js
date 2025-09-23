@@ -33,3 +33,8 @@ export const hydrateNavbar = () => {
   mNavBarLinks.forEach((navLink) => { navLink.onclick = close_mNavBar; });
   navbarCloseIcon.onclick = mNavBarOverlay.onclick = close_mNavBar;
 };
+
+export const hydrateKnowMoreAboutMeButton = () => {
+  const knowMoreAboutMeButton = document.querySelector('.know-more-about-me');
+  knowMoreAboutMeButton.onclick = () => { go('#about', true); };
+};

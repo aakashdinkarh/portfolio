@@ -29,9 +29,11 @@ const experienceList = [
   },
 ];
 
-const JOINING_DATE = new Date("11 July 2022");
 
-const getDateDifferenceText = (joiningDate, today) => {
+export const getDateDifferenceText = () => {
+  const joiningDate = new Date("11 July 2022");
+  const today = new Date();
+
   let years = today.getFullYear() - joiningDate.getFullYear();
   let months = today.getMonth() - joiningDate.getMonth();
   let days = today.getDate() - joiningDate.getDate();
@@ -117,7 +119,7 @@ export const experience = () => {
 
   const h2 = getElement("h2", null, { content: "Experience" });
   const experienceTime = getElement("span", null, {
-    content: getDateDifferenceText(JOINING_DATE, new Date()),
+    content: getDateDifferenceText(),
     id: "exp-time-calc",
   });
   h2.append(experienceTime);

@@ -1,5 +1,6 @@
-import { hydrateNavbar } from "./clientSections/navbar.js";
+import { hydrateNavbar, hydrateKnowMoreAboutMeButton } from "./clientSections/navbar.js";
 import { hydrateCopyright, hydrateGoToTopButton } from "./clientSections/footer.js";
+import { hydrateExperienceTime } from "./clientSections/experience.js";
 import { go } from "./util/navUtil.js";
 import { fetchSvgs, hydrateSvgs } from "./clientSections/hydrateSvgs.js";
 
@@ -22,9 +23,11 @@ export const initApp = () => {
   };
 
   hydrateNavbar();
-  hydrateCopyright();
-  hydrateGoToTopButton();
+  hydrateKnowMoreAboutMeButton();
   fetchSvgs(buildConfig.svgLinks).then(() => hydrateSvgs(buildConfig.svgLinks));
+  hydrateGoToTopButton();
+  hydrateExperienceTime();
+  hydrateCopyright();
 };
 
 initApp();
