@@ -1,11 +1,11 @@
-const IS_MOBILE = (() => {
-	const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-	try {
-		return regex.test(navigator.userAgent);
-	} catch {
-		return false;
-	}
-})();
+// const IS_MOBILE = (() => {
+//   const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+//   try {
+//     return regex.test(navigator.userAgent);
+//   } catch {
+//     return false;
+//   }
+// })();
 
 // document.querySelectorAll('.nav-links a').forEach((anchor) => {
 //   anchor.addEventListener('click', function (event) {

@@ -132,23 +132,25 @@ const getFirework = (canvas) => {
   return createFirework;
 };
 
-const homeCanvas = document.querySelector('canvas#fireworksHome');
-const createHomeFirework = getFirework(homeCanvas);
+export const hydrateHomeFireworks = () => {
+  const homeCanvas = document.querySelector('canvas#fireworksHome');
+  const createHomeFirework = getFirework(homeCanvas);
 
-const homeClickEventListener = (() => {
-  let shouldTrigger = true;
-  return () => {
-    if (shouldTrigger) {
-      setTimeout(createHomeFirework, 0);
-      setTimeout(createHomeFirework, 100);
-      setTimeout(createHomeFirework, 200);
-      shouldTrigger = false;
+  const homeClickEventListener = (() => {
+    let shouldTrigger = true;
+    return () => {
+      if (shouldTrigger) {
+        setTimeout(createHomeFirework, 0);
+        setTimeout(createHomeFirework, 100);
+        setTimeout(createHomeFirework, 200);
+        shouldTrigger = false;
 
-      setTimeout(() => {
-        shouldTrigger = true;
-      }, 1000);
-    }
-  };
-})();
+        setTimeout(() => {
+          shouldTrigger = true;
+        }, 1000);
+      }
+    };
+  })();
 
-document.querySelector('section#home').addEventListener('click', homeClickEventListener);
+  document.querySelector('section#home').addEventListener('click', homeClickEventListener);
+};
