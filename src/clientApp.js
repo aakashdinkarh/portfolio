@@ -13,6 +13,15 @@ const buildConfig = {
 };
 
 export const initApp = () => {
+  const IS_MOBILE = (() => {
+    const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    try {
+      return regex.test(navigator.userAgent);
+    } catch {
+      return false;
+    }
+  })();
+
   window.onload = () => {
     const hash = window.location.hash;
     if (hash) {
@@ -31,7 +40,9 @@ export const initApp = () => {
   hydrateGoToTopButton();
   hydrateExperienceTime();
   hydrateCopyright();
-  hydrateProjects();
+  if (IS_MOBILE) {
+    hydrateProjects();
+  }
   hydrateHomeFireworks();
   hydrateContact();
 };

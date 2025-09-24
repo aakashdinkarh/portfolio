@@ -28,18 +28,7 @@ export const hydrateProjects = () => {
       intersectionObserver(
         project,
         () => {
-          const IS_MOBILE = (() => {
-            const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-            try {
-              return regex.test(navigator.userAgent);
-            } catch {
-              return false;
-            }
-          })();
-
-          if (IS_MOBILE) {
-            window.addEventListener('scroll', projectObservers[index]);
-          }
+          window.addEventListener('scroll', projectObservers[index]);
         },
         {
           keepObserver: true,
