@@ -1,0 +1,127 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy all projects to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  # push:
+  #   branches: ["master"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        # portfolio project from remote-build branch
+        with:
+          ref: remote-build
+          fetch-depth: 1
+      - name: Pull projects from remote-build branch
+        run: |
+          # Array of projects using remote-build branch
+          projects_remote_build=(
+            "projects"
+            "bounce-and-collect-game"
+            "portfolio-v1"
+            "portfolio-v0"
+            "case-utils"
+            "block-game"
+            "panda-img"
+            "calculator"
+            "MemoryGame"
+            "Image-modal"
+            "checkout-form"
+            "Login-form"
+            "image-convert"
+          )
+
+          for project in "${projects_remote_build[@]}"; do
+            echo "Pulling $project from remote-build branch..."
+            git clone --branch remote-build "https://github.com/aakashdinkarh/$project.git" "temp-$project"
+            mkdir -p "$project"
+            rm -rf "$project"/*
+            mv "temp-$project"/* "$project"/
+            rm -rf "temp-$project"
+          done
+
+      - name: Pull projects from gh-pages branch
+        run: |
+          # Array of projects using gh-pages branch
+          projects_gh_pages=(
+            "Tic-Tac-Toe-Game"
+            "the-movie-db"
+            "music-player-project"
+            "todo-react-app"
+            "js-ts-playground"
+            "web-repo-editor"
+          )
+
+          for project in "${projects_gh_pages[@]}"; do
+            echo "Pulling $project from gh-pages branch..."
+            git clone --branch gh-pages "https://github.com/aakashdinkarh/$project.git" "temp-$project"
+            mkdir -p "$project"
+            rm -rf "$project"/*
+            mv "temp-$project"/* "$project"/
+            rm -rf "temp-$project"
+          done
+
+      - name: Inject env variables into Web Repo Editor
+        env:
+          CLIENT_URL: ${{ vars.REACT_APP_CLIENT_URL }}
+          GITHUB_ID: ${{ secrets.REACT_APP_GITHUB_CLIENT_ID }}
+          API_URL: ${{ vars.REACT_APP_API_BASE_URL }}
+        run: |
+          # The source .ts file doesn't exist in the pre-built gh-pages branch.
+          # Instead, we find the built JavaScript files and replace the placeholders there.
+          # This path assumes a standard Create React App build output structure. Adjust if necessary.
+          TARGET_DIR="web-repo-editor/static/js"
+
+          if [ -d "$TARGET_DIR" ]; then
+            echo "Found target directory: $TARGET_DIR. Searching for main JS chunk and its source map..."
+
+            # Use find to get the main JS chunk and its map file, which is more efficient than searching all JS files.
+            # The pattern main.*.js is resilient to build hash changes.
+            find "$TARGET_DIR" -type f \( -name "main.*.js" -o -name "main.*.js.map" \) -print0 | while IFS= read -r -d $'\0' file; do
+              echo "Processing file: $file"
+              sed -i "s|%%REACT_APP_CLIENT_URL%%|${CLIENT_URL}|g" "$file"
+              sed -i "s|%%REACT_APP_GITHUB_CLIENT_ID%%|${GITHUB_ID}|g" "$file"
+              sed -i "s|%%REACT_APP_API_BASE_URL%%|${API_URL}|g" "$file"
+            done
+
+            echo "Injection complete for main JS chunk and source map in $TARGET_DIR."
+          else
+            echo "Warning: Target directory '$TARGET_DIR' not found. Skipping variable injection."
+            # If this injection is critical for your app, you might want to fail the workflow here.
+            # To do that, uncomment the next line:
+            # exit 1
+          fi
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: "."
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
