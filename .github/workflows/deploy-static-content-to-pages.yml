@@ -31,8 +31,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        ref: remote-build
-        fetch-depth: 1
+        with:
+          ref: remote-build
+          fetch-depth: 1
       - name: Pull projects repository
         run: |
           git clone --branch remote-build https://github.com/aakashdinkarh/projects.git temp-projects
