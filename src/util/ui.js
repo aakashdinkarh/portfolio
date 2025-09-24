@@ -42,10 +42,3 @@ export const getImageElement = (projectImage = {}, alt, className) => {
   // }
   return pictureElement;
 };
-
-/**
- * @returns {HTMLElement} - The selected HTML element.
- */
-export const selectElement = (selector) => {
-  return document.getElementsByTagName(selector)[0];
-};
