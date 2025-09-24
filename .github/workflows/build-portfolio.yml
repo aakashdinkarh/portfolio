@@ -1,12 +1,12 @@
-name: Build and Deploy
+name: Build portfolio
 
 on:
   # Runs on pushes targeting the default branch
-  # push:
-  #   branches: [master]
+  push:
+    branches: [master]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-    branches: [arch/build-minified-chunks]
+    branches: [master]
 
 permissions:
   contents: write
@@ -42,31 +42,14 @@ jobs:
           # Create or switch to remote-build branch
           git checkout --orphan remote-build || git checkout remote-build
 
-          # Debug: Show what files exist before cleanup
-          echo "🔍 Files before cleanup:"
-          ls -la
-
-          # Remove all files except .gitignore
+          # Remove all files
           git rm -rf . || true
-          git checkout HEAD -- .gitignore 2>/dev/null || true
-
-          # Debug: Show what files exist after cleanup
-          echo "🔍 Files after cleanup:"
-          ls -la
 
           # Copy built files from dist to root
           cp -r dist/* .
 
-          # Debug: Show what files exist after copying from dist
-          echo "🔍 Files after copying from dist:"
-          ls -la
-
-          # Debug: Show what git add will add
-          echo "🔍 Files that git add will stage:"
-          git add --dry-run .
-
-          # Add files (gitignore will automatically exclude node_modules and other unwanted files)
-          git add .
+          # Add files (only the files in the root directory)
+          find . -maxdepth 1 -type f -exec git add {} +
 
           # Commit and push
           git commit -m "Build from ${{ github.sha }}"
