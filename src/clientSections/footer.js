@@ -1,8 +1,6 @@
 export const hydrateCopyright = () => {
-  (function updateCopyright() {
-    const copyrightElement = document.getElementsByClassName('copyright')[0];
-    copyrightElement.children[1].innerText = `| ${new Date().getFullYear()}`;
-  })();
+  const copyrightElement = document.getElementsByClassName('copyright')[0];
+  copyrightElement.children[1].innerText = `| ${new Date().getFullYear()}`;
 };
 
 export const hydrateGoToTopButton = () => {
