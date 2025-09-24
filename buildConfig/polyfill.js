@@ -48,6 +48,7 @@ const getGenericElementAttributes = () => ({
   srcset: "",
   src: "",
   id: "",
+  fetchpriority: "",
   width: "",
   height: "",
   dataset: { ...objectProperties.dataset },

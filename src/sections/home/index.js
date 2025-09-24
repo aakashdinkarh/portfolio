@@ -32,6 +32,7 @@ export const home = () => {
     },
     "Aakash Dinkar Portfolio Image",
     "card",
+    "high",
   );
   profile.append(picture);
 

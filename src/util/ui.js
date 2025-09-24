@@ -20,7 +20,7 @@ export const getElement = (tag, className, { content, href, id, alt, src } = {})
 /**
  * @returns {HTMLElement<picture>} - The created HTML element.
  */
-export const getImageElement = (projectImage = {}, alt, className) => {
+export const getImageElement = (projectImage = {}, alt, className, fetchpriority) => {
   const pictureElement = getElement("picture");
 
   const sourceElement = getElement("source");
@@ -32,6 +32,7 @@ export const getImageElement = (projectImage = {}, alt, className) => {
   imageElement.src = projectImage.webp;
   imageElement.loading = "lazy";
   imageElement.decoding = "async";
+  imageElement.fetchpriority = fetchpriority;
 
   pictureElement.append(sourceElement, imageElement);
 
