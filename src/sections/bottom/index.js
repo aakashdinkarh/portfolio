@@ -1,64 +1,5 @@
 import { getElement } from "../../util/ui.js";
 
-const CONTACT_DETAILS = [
-  {
-    href: "tel:+917027658021",
-    img: "https://aakashdinkarh.github.io/static_assets/images/svgs/mobile.svg",
-    alt: "mobile/tel",
-    content: "+91-7027658021",
-  },
-  {
-    href: "mailto:aakashdinkarh@gmail.com",
-    img: "https://aakashdinkarh.github.io/static_assets/images/svgs/mail.svg",
-    alt: "mail",
-    content: "aakashdinkarh@gmail.com",
-  },
-  {
-    href: "https://www.instagram.com/dinkar_2103",
-    img: "https://aakashdinkarh.github.io/static_assets/images/svgs/instagram.svg",
-    alt: "instagram",
-    content: "Instagram",
-  },
-  {
-    href: "https://www.linkedin.com/in/aakash-dinkar-74a817212/",
-    img: "https://aakashdinkarh.github.io/static_assets/images/svgs/linkedin.svg",
-    alt: "linkedin",
-    content: "LinkedIn",
-    className: "linkedin-profile-url",
-  },
-  {
-    href: "https://github.com/aakashdinkarh",
-    img: "https://aakashdinkarh.github.io/static_assets/images/svgs/github.svg",
-    alt: "github",
-    content: "GitHub",
-  },
-];
-
-const FORM_FIELDS = [
-  {
-    tag: "input",
-    type: "text",
-    placeholder: "Your Name",
-    name: "user_name",
-    required: true,
-  },
-  {
-    tag: "input",
-    type: "email",
-    placeholder: "Your Email",
-    name: "user_email",
-    required: true,
-  },
-  {
-    tag: "textarea",
-    placeholder: "Your Feedback/Message/Query",
-    name: "user_message",
-    required: true,
-    cols: 30,
-    rows: 5,
-  },
-];
-
 const getContactItem = (contactDetail) => {
   const contactItem = getElement("li", "contact-item");
   const a = getElement("a", contactDetail.className, {
@@ -81,7 +22,7 @@ const getContactItem = (contactDetail) => {
   return contactItem;
 };
 
-const getTextContent = () => {
+const getTextContent = (contactDetails) => {
   const article = getElement("article");
   const textContent = getElement("div", "text-content");
 
@@ -93,10 +34,10 @@ const getTextContent = () => {
 
   const div = getElement("div", "text-content");
 
-  const contactDetails = getElement("ul", "contact-details");
-  contactDetails.append(...CONTACT_DETAILS.map(getContactItem));
+  const contactDetailsElement = getElement("ul", "contact-details");
+  contactDetailsElement.append(...contactDetails.map(getContactItem));
 
-  div.append(contactDetails);
+  div.append(contactDetailsElement);
 
   textContent.append(h2, p, div);
   article.append(textContent);
@@ -115,7 +56,7 @@ const getFormField = (formField) => {
   return field;
 };
 
-const getProfileForm = () => {
+const getProfileForm = (formFields) => {
   const profileDiv = getElement("div", "profile");
 
   const form = getElement("form");
@@ -125,7 +66,7 @@ const getProfileForm = () => {
 
   const overlay = getElement("div", "overlay form-overlay");
 
-  const formFields = FORM_FIELDS.map(getFormField);
+  const formFieldsElements = formFields.map(getFormField);
 
   const div = getElement("div", "m-justify-center");
   const submitButton = getElement("button", "styled-btn submit-btn");
@@ -137,14 +78,14 @@ const getProfileForm = () => {
   submitButton.append(buttonText);
   div.append(submitButton);
 
-  form.append(overlay, ...formFields, div);
+  form.append(overlay, ...formFieldsElements, div);
 
   profileDiv.append(form);
 
   return profileDiv;
 };
 
-export const bottom = () => {
+export const bottom = (contactDetails, formFields) => {
   const sectionBottom = getElement("section", "contact card", {
     id: "contact",
   });
@@ -154,8 +95,8 @@ export const bottom = () => {
 
   const content = getElement("div", "content");
 
-  const textContent = getTextContent();
-  const profileForm = getProfileForm();
+  const textContent = getTextContent(contactDetails);
+  const profileForm = getProfileForm(formFields);
 
   content.append(textContent, profileForm);
 

@@ -11,12 +11,19 @@ import { footer, goToTopButton } from "./sections/footer/index.js";
 
 import { getElement } from "./util/ui.js";
 
-export const initApp = () => {
+export const initApp = (serverConfig) => {
   const header = getElement("header", "nav");
   header.append(navbar());
 
   const main = getElement("main");
-  main.append(home(), about(), skills(), experience(), projects(), contact());
+  main.append(
+    home(),
+    about(),
+    skills(serverConfig.skill_categories),
+    experience(serverConfig.experience_list),
+    projects(serverConfig.projects_list),
+    contact(serverConfig.contact_details, serverConfig.form_fields)
+  );
 
   const fragment = document.createDocumentFragment();
   fragment.append(footer(), goToTopButton());

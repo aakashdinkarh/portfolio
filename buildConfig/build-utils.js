@@ -2,7 +2,7 @@
 
 const fs = require("fs-extra");
 const config = require("./build-config");
-const jsonldConfig = require("./jsonld-config");
+const { getBuildConfig } = require("./get-build-config");
 // Polyfill for Node.js environment
 require("./polyfill");
 
@@ -52,13 +52,13 @@ async function processCSS(cssPaths = [], shouldMinify = false) {
  * Generate JSON-LD scripts from configuration
  * @returns {string} Generated JSON-LD scripts
  */
-function generateJsonLDScripts() {
+const generateJsonLDScripts = (ldJsonConfig) => {
   console.log("🔧 Generating JSON-LD structured data...");
 
-  const scripts = jsonldConfig.map((data) => `<script type="application/ld+json">\n${JSON.stringify(data, null, 2)}\n</script>`);
+  const scripts = ldJsonConfig.map((data) => `<script type="application/ld+json">\n${JSON.stringify(data, null, 2)}\n</script>`);
 
   return scripts.join('\n');
-}
+};
 
 /**
  * Process HTML template and inline CSS
@@ -68,6 +68,9 @@ function generateJsonLDScripts() {
  * @returns {Promise<string>} Processed HTML content
  */
 async function processHTML(htmlPath, cssContent, scriptSrc) {
+  console.log("🔍 Fetching build config");
+  const { serverConfig, ldJsonConfig } = await getBuildConfig();
+
   console.log("📄 Processing HTML template...");
   let htmlContent = await fs.readFile(htmlPath, "utf8");
 
@@ -78,7 +81,7 @@ async function processHTML(htmlPath, cssContent, scriptSrc) {
   );
 
   // Body elements
-  const [header, main, footer] = initApp();
+  const [header, main, footer] = initApp(serverConfig);
   htmlContent = htmlContent.replace(
     config.htmlReplacements.headerElement,
     header.toString(),
@@ -101,7 +104,7 @@ async function processHTML(htmlPath, cssContent, scriptSrc) {
   // Replace JSON-LD placeholder with generated scripts
   htmlContent = htmlContent.replace(
     config.htmlReplacements.jsonLDScripts,
-    generateJsonLDScripts(),
+    generateJsonLDScripts(ldJsonConfig),
   );
 
   return htmlContent;
@@ -182,7 +185,6 @@ function printDevServerInfo(port, cssMinified = false) {
 module.exports = {
   minifyCSS,
   processCSS,
-  generateJsonLDScripts,
   processHTML,
   getFileStats,
   printBuildSummary,

@@ -1,35 +1,5 @@
 import { getElement } from "../../util/ui.js";
 
-const experienceList = [
-  {
-    company: "Meesho",
-    position: "Software Engineer",
-    duration: "(Oct '23 - Present)",
-    description:
-      "At Meesho, I focus on optimizing webpage performance to enhance user experience. My role involves collaborating with various teams to address performance bottlenecks and implement improvements. By working closely with cross-functional teams, I've contributed to streamlined processes and enhanced the overall efficiency of our web platforms.",
-    techSkills:
-      "ReactJS, NextJS, TypeScript, Redux, NodeJS, ExpressJS, Web Performance, SEO, Styled Components",
-  },
-  {
-    company: "Cogoport",
-    position: "Software Engineer",
-    duration: "(Jul '22 - Sep '23)",
-    description:
-      "At Cogoport, I developed features such as the Shipment Rollover Flow, which automated container transfers, saving over 30 shipments per month. I also created a User Off-board process, improving efficiency by 60% and role-specific dashboards, boosting work efficiency by 40%. Additionally, I provided technical solutions for bugs and improved layouts for better performance.",
-    techSkills: "ReactJS, NextJS, Redux, React Hook Form, Styled Components",
-  },
-  {
-    company: "Web Student",
-    position: "Web Developer",
-    duration: "(Jun '21 - Aug '21)",
-    description:
-      "I interned as a Front-end Developer at Web Student, completing 7 projects as a Team Leader. I enhanced website designs and functionality, incorporating various animations and APIs. My leadership skills were recognized with the <b>Best-Intern</b> award and an <b>appreciation certificate</b> for the team.",
-    techSkills:
-      "HTML, CSS, JavaScript, Web Storage APIs, Responsive Web Designs",
-  },
-];
-
-
 export const getDateDifferenceText = () => {
   const joiningDate = new Date("11 July 2022");
   const today = new Date();
@@ -109,7 +79,7 @@ const getExperience = (experience) => {
   return article;
 };
 
-export const experience = () => {
+export const experience = (experienceList) => {
   const sectionExperience = getElement("section", "experience card", {
     id: "experience",
   });
