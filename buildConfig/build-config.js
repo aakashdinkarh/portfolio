@@ -61,5 +61,6 @@ module.exports = {
     mainElement: "<main></main>",
     footerElement: "<footer></footer>",
     moduleScript: '<script src="bundle.js"></script>',
+    jsonLDScripts: '<!-- JSON-LD scripts will be generated here -->',
   },
 };
