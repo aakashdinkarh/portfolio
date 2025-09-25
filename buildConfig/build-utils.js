@@ -57,9 +57,14 @@ function generateJsonLDScripts() {
 
   const scripts = [];
 
-  // Generate profile page script
+  // Generate person script
   scripts.push(
-    `<script type="application/ld+json">\n${JSON.stringify(jsonldConfig.profilePage, null, 4)}\n</script>`,
+    `<script type="application/ld+json">\n${JSON.stringify(jsonldConfig.person, null, 4)}\n</script>`,
+  );
+
+  // Generate website script
+  scripts.push(
+    `<script type="application/ld+json">\n${JSON.stringify(jsonldConfig.website, null, 4)}\n</script>`,
   );
 
   // Generate projects list script
