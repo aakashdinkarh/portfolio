@@ -113,6 +113,11 @@ module.exports = {
         },
         "applicationCategory": "Browser Extension",
         "operatingSystem": "Chrome",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
       },
       {
         "@type": "SoftwareApplication",
@@ -127,6 +132,11 @@ module.exports = {
         },
         "applicationCategory": "Browser Extension",
         "operatingSystem": "Chrome",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
       },
       {
         "@type": "WebApplication",
@@ -137,11 +147,12 @@ module.exports = {
         "creator": {
           "@type": "Person",
           "name": "Aakash Dinkar",
-          "url": "https://aakashdinkar.in",
+          "url": "https://aakashdinkar.in/"
         },
+        "operatingSystem": "Web",
         "applicationCategory": "Web Application",
-        "browserRequirements": "Requires JavaScript",
-      },
+        "browserRequirements": "Requires JavaScript"
+      }
     ],
   },
 };
