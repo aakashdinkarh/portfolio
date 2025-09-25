@@ -55,22 +55,7 @@ async function processCSS(cssPaths = [], shouldMinify = false) {
 function generateJsonLDScripts() {
   console.log("🔧 Generating JSON-LD structured data...");
 
-  const scripts = [];
-
-  // Generate person script
-  scripts.push(
-    `<script type="application/ld+json">\n${JSON.stringify(jsonldConfig.person, null, 4)}\n</script>`,
-  );
-
-  // Generate website script
-  scripts.push(
-    `<script type="application/ld+json">\n${JSON.stringify(jsonldConfig.website, null, 4)}\n</script>`,
-  );
-
-  // Generate projects list script
-  scripts.push(
-    `<script type="application/ld+json">\n${JSON.stringify(jsonldConfig.projectsList, null, 4)}\n</script>`,
-  );
+  const scripts = jsonldConfig.map((data) => `<script type="application/ld+json">\n${JSON.stringify(data, null, 2)}\n</script>`);
 
   return scripts.join('\n');
 }
