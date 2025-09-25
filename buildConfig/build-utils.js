@@ -2,6 +2,7 @@
 
 const fs = require("fs-extra");
 const config = require("./build-config");
+const jsonldConfig = require("./jsonld-config");
 // Polyfill for Node.js environment
 require("./polyfill");
 
@@ -48,6 +49,28 @@ async function processCSS(cssPaths = [], shouldMinify = false) {
 }
 
 /**
+ * Generate JSON-LD scripts from configuration
+ * @returns {string} Generated JSON-LD scripts
+ */
+function generateJsonLDScripts() {
+  console.log("🔧 Generating JSON-LD structured data...");
+
+  const scripts = [];
+
+  // Generate profile page script
+  scripts.push(
+    `<script type="application/ld+json">\n${JSON.stringify(jsonldConfig.profilePage, null, 4)}\n</script>`,
+  );
+
+  // Generate projects list script
+  scripts.push(
+    `<script type="application/ld+json">\n${JSON.stringify(jsonldConfig.projectsList, null, 4)}\n</script>`,
+  );
+
+  return scripts.join('\n');
+}
+
+/**
  * Process HTML template and inline CSS
  * @param {string} htmlPath - Path to HTML template
  * @param {string} cssContent - CSS content to inline
@@ -83,6 +106,12 @@ async function processHTML(htmlPath, cssContent, scriptSrc) {
   htmlContent = htmlContent.replace(
     config.htmlReplacements.moduleScript,
     `<script src="${scriptSrc}"></script>`,
+  );
+
+  // Replace JSON-LD placeholder with generated scripts
+  htmlContent = htmlContent.replace(
+    config.htmlReplacements.jsonLDScripts,
+    generateJsonLDScripts(),
   );
 
   return htmlContent;
@@ -163,6 +192,7 @@ function printDevServerInfo(port, cssMinified = false) {
 module.exports = {
   minifyCSS,
   processCSS,
+  generateJsonLDScripts,
   processHTML,
   getFileStats,
   printBuildSummary,
