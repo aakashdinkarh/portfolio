@@ -79,11 +79,25 @@ module.exports = [
         "@type": "SoftwareApplication",
         name: "Content Tracker",
         url: "https://chromewebstore.google.com/detail/content-tracker/jfmjdjbfofohakgmdmdhkajimjjplbna",
+        "installUrl": "https://chromewebstore.google.com/detail/content-tracker/jfmjdjbfofohakgmdmdhkajimjjplbna",
+        operatingSystem: "Web",
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "INR",
+        },
       },
       {
         "@type": "SoftwareApplication",
         name: "Window Props Plus",
         url: "https://chromewebstore.google.com/detail/window-props-plus/imepmnfbpoohiejbnbeodjlgjpakmkif",
+        "installUrl": "https://chromewebstore.google.com/detail/window-props-plus/imepmnfbpoohiejbnbeodjlgjpakmkif",
+        operatingSystem: "Web",
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "INR",
+        },
       },
       {
         "@type": "WebPage",
