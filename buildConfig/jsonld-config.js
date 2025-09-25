@@ -147,7 +147,7 @@ module.exports = {
         "creator": {
           "@type": "Person",
           "name": "Aakash Dinkar",
-          "url": "https://aakashdinkar.in/"
+          "url": "https://aakashdinkar.in"
         },
         "operatingSystem": "Web",
         "applicationCategory": "Web Application",
