@@ -2,12 +2,9 @@ import { getFirework } from "./fireworks-gravity";
 import { emailJSSDK } from "./cdn/email";
 
 export const hydrateEmail = async () => {
-  const emailjs = {};
+  const { sendForm } = emailJSSDK();
 
   try {
-    emailJSSDK(emailjs);
-    emailjs.init({ publicKey: 'ql5OHlL_FT89AsFH6' });
-
     const form = document.querySelector('form');
 
     form.addEventListener('submit', function (event) {
@@ -39,7 +36,7 @@ export const hydrateEmail = async () => {
         }, 2000);
       };
 
-      emailjs.sendForm('portfolio_service', 'portfolio_contact_form', this).then(
+      sendForm(this).then(
         () => {
           emailCallback(true);
         },
