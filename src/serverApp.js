@@ -17,12 +17,12 @@ export const initApp = (serverConfig) => {
 
   const main = getElement("main");
   main.append(
-    home(),
-    about(),
+    home(serverConfig.home),
+    about(serverConfig.about),
     skills(serverConfig.skill_categories),
     experience(serverConfig.experience_list),
     projects(serverConfig.projects_list),
-    contact(serverConfig.contact_details, serverConfig.form_fields)
+    contact(serverConfig.contact_details, serverConfig.form_fields),
   );
 
   const fragment = document.createDocumentFragment();
