@@ -1,6 +1,6 @@
 import { getElement, getImageElement } from "../../util/ui.js";
 
-export const home = () => {
+export const home = (homeDetails) => {
   const sectionHome = getElement("section", "home", { id: "home" });
   const fireworksHomeCanvas = getElement("canvas", "overlay", {
     id: "fireworksHome",
@@ -12,12 +12,12 @@ export const home = () => {
   const textContent = getElement("div", "text-content");
   const article = getElement("article");
   const h1 = getElement("h1", null, {
-    content: "I'm Aakash Dinkar<br>Web Developer",
+    content: homeDetails.title,
   });
   const button = getElement(
     "button",
     "know-more-about-me right-arrow-hover-effect",
-    { content: "Know more about me" },
+    { content: homeDetails.cta_text },
   );
   button.append(getElement("span", "right-arrow-icon-placeholder-home"));
   article.append(h1, button);
@@ -27,10 +27,10 @@ export const home = () => {
   const profile = getElement("div", "profile");
   const picture = getImageElement(
     {
-      avif: "https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/portfolio.avif",
-      webp: "https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/portfolio.webp",
+      avif: homeDetails.image.avif,
+      webp: homeDetails.image.webp,
     },
-    "Aakash Dinkar Portfolio Image",
+    homeDetails.image.alt,
     "card",
     "high",
   );

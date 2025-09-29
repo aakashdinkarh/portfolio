@@ -1,6 +1,6 @@
 import { getElement, getImageElement } from "../../util/ui.js";
 
-export const about = () => {
+export const about = (aboutDetails) => {
   const sectionAbout = getElement("section", "about card", { id: "about" });
 
   const overlay = getElement("div", "overlay");
@@ -10,10 +10,10 @@ export const about = () => {
   const profile = getElement("div", "profile");
   const picture = getImageElement(
     {
-      avif: "https://aakashdinkarh.github.io/static_assets/images/portfolio/avif-images/photo.avif",
-      webp: "https://aakashdinkarh.github.io/static_assets/images/portfolio/webp-images/photo.webp",
+      avif: aboutDetails.image.avif,
+      webp: aboutDetails.image.webp,
     },
-    "about image - Aakash Dinkar",
+    aboutDetails.image.alt,
     "card",
   );
   profile.append(picture);
@@ -23,23 +23,23 @@ export const about = () => {
   const h2 = getElement("h2", null, { content: "About" });
   const p = getElement("p", null, {
     content:
-      "I'm a Civil Engineering graduate with a B.Tech degree from IIT BHU, batch of 2022",
+      aboutDetails.description,
   });
   const hr = getElement("hr");
   const p2 = getElement("p", null, {
     content:
-      "Experienced front-end developer skilled in creating responsive, performance optimized, user-friendly interfaces for web applications.",
+      aboutDetails.description2,
   });
   const p3 = getElement("p", null, {
     content:
-      "Passionate about user experience design, I aim to craft visually appealing and intuitive interfaces that elevate the user's experience.",
+      aboutDetails.description3,
   });
   const div = getElement("div", "m-justify-center");
   const a = getElement("a", "styled-btn color-black", {
-    content: "Download Resume",
-    href: "https://aakashdinkarh.github.io/static_assets/files/portfolio/resume/resume.pdf",
+    content: aboutDetails.cta.text,
+    href: aboutDetails.cta.link,
   });
-  a.download = "Aakash Dinkar Resume";
+  a.download = aboutDetails.cta.download_name;
   a.target = "_blank";
   div.append(a);
 
