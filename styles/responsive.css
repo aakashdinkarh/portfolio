@@ -60,6 +60,7 @@
 @media only screen and (max-width: 700px) {
 	.home .content {
 		flex-direction: column;
+		justify-content: flex-start;
 	}
 	.home .content .text-content {
 		font-size: unset;
