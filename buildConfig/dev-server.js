@@ -9,6 +9,7 @@ const {
   printDevServerInfo,
 } = require("./build-utils.js");
 const config = require("./build-config.js");
+const { generateSitemap } = require("./generateSitemap.js");
 
 async function startDevServer() {
   const port = config.devServer.port;
@@ -37,6 +38,12 @@ async function startDevServer() {
     // Write the HTML file
     const outputHtmlPath = path.join(outputDir, "index.html");
     await fs.writeFile(outputHtmlPath, htmlContent);
+
+    // Generate sitemap
+    const sitemapContent = await generateSitemap();
+    console.log("🔍 Generating sitemap...");
+    await fs.writeFile(path.join(outputDir, "sitemap.xml"), sitemapContent);
+
 
     // Start esbuild dev server
     console.log("📦 Starting esbuild dev server...");

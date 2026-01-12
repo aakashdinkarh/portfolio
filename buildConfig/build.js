@@ -9,6 +9,7 @@ const {
   printBuildSummary,
 } = require("./build-utils");
 const config = require("./build-config");
+const { generateSitemap } = require("./generateSitemap");
 
 const rootPath = path.join(__dirname, "..");
 
@@ -45,6 +46,11 @@ async function build() {
     // Process HTML
     const htmlPath = path.join(rootPath, config.paths.htmlTemplate);
     const htmlContent = await processHTML(htmlPath, cssContent, "bundle.js");
+
+    // Generate sitemap
+    const sitemapContent = await generateSitemap();
+    console.log("🔍 Generating sitemap...");
+    await fs.writeFile(path.join(outputDir, "sitemap.xml"), sitemapContent);
 
     // Process files to be available in build
     const filesToBeAvailableInBuildPath = path.join(rootPath, config.paths.filesToBeAvailableInBuildPath);
